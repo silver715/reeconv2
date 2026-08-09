@@ -1,0 +1,6 @@
+/* Transiciones suaves entre páginas */
+.page-enter { animation: fadeInPage 0.3s ease-out both; }
+.page-exit { animation: fadeOutPage 0.25s ease-in both; }
+@keyframes fadeInPage { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOutPage { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-10px); } }
+body { animation: fadeInPage 0.3s ease-out both; }

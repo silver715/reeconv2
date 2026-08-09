@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Racoon Teacher 🦝 — Aprende jugando</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <img src="img/logo_raccoon.jpeg" alt="Racoon"> Racoon Teacher
+    </div>
+    <button class="nav-btn" onclick="goToLogin()">Iniciar sesión →</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">✨ Tutor gratuito para primaria</div>
+        <h1>La forma <span class="line-accent">divertida,</span><br>efectiva y gratis<br>de aprender</h1>
+        <p class="hero-sub">Racoon Teacher es tu tutor mapache personal. Aprende <strong>Matemáticas, Español, Inglés, Ciencias y Sociales</strong> mientras subes de nivel y desbloqueas recompensas épicas.</p>
+        <button class="btn-primary" onclick="goToLogin()">🚀 Empieza ahora — es gratis</button>
+        <button class="btn-secondary" onclick="goToLogin()">Ya tengo una cuenta</button>
+      </div>
+      <div class="hero-image">
+        <img src="img/hero_raccoon.jpeg" alt="Mapache leyendo">
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Materias</div></div>
+    <div class="stat-item"><div class="stat-num gold">100</div><div class="stat-lbl">Niveles</div></div>
+    <div class="stat-item"><div class="stat-num green">29</div><div class="stat-lbl">Recompensas</div></div>
+  </div>
+
+  <!-- SPLIT 1: detective -->
+  <div class="split fade-in">
+    <div class="split-img">
+      <img src="img/feature_1.jpeg" alt="Mapache detective">
+    </div>
+    <div class="split-text">
+      <div class="section-tag">Método socrático</div>
+      <h2 class="section-title">Te guía, no te da<br>la respuesta 🕵️</h2>
+      <p class="section-sub">Como un buen detective, el mapache analiza tu duda y te hace las preguntas correctas para que tú mismo encuentres la solución. Aprenderás de verdad, no de memoria.</p>
+    </div>
+  </div>
+
+  <!-- SPLIT 2: reading gray (reverse) -->
+  <div class="split reverse fade-in" style="padding-top:0;">
+    <div class="split-img">
+      <img src="img/feature_2.jpeg" alt="Mapache con libro">
+    </div>
+    <div class="split-text">
+      <div class="section-tag">5 materias disponibles</div>
+      <h2 class="section-title">Un tutor para<br>todas tus materias 📚</h2>
+      <p class="section-sub">Matemáticas, Español, Inglés, Ciencias Naturales y Sociales. El mapache conoce el currículo de primaria y responde con pistas adaptadas a cada tema.</p>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features-section fade-in">
+    <div class="section-tag">Por qué funciona</div>
+    <h2 class="section-title">Aprender nunca fue<br>tan adictivo 🎮</h2>
+    <div class="features-grid">
+      <div class="feat-card"><span class="feat-icon">🧠</span><div class="feat-title">Aprende con pistas</div><div class="feat-desc">No te damos la respuesta directa — te guiamos paso a paso para que lo entiendas de verdad.</div></div>
+      <div class="feat-card"><span class="feat-icon">⚔️</span><div class="feat-title">Pase de Batalla</div><div class="feat-desc">Gana XP con cada pregunta y desbloquea skins, emotes y V-Mapaches al subir de nivel.</div></div>
+      <div class="feat-card"><span class="feat-icon">💎</span><div class="feat-title">V-Mapaches</div><div class="feat-desc">La moneda del aula. Gánalos respondiendo y úsalos para desbloquear recompensas premium.</div></div>
+  </section>
+
+  <!-- SUBJECTS -->
+  <section class="subjects-section fade-in">
+    <div class="section-tag">Materias</div>
+    <h2 class="section-title">5 materias, infinitas<br>dudas resueltas</h2>
+    <div class="subjects-grid">
+      <div class="subject-pill"><span class="s-icon">📐</span><div class="s-name">Matemáticas</div></div>
+      <div class="subject-pill"><span class="s-icon">✍️</span><div class="s-name">Español</div></div>
+      <div class="subject-pill"><span class="s-icon">🌐</span><div class="s-name">Inglés</div></div>
+      <div class="subject-pill"><span class="s-icon">🌱</span><div class="s-name">Ciencias</div></div>
+      <div class="subject-pill"><span class="s-icon">🗺️</span><div class="s-name">Sociales</div></div>
+      <div class="subject-pill" style="border-color:rgba(245,200,66,0.2)"><span class="s-icon">⭐</span><div class="s-name" style="color:var(--gold)">Próximamente</div></div>
+    </div>
+  </section>
+
+  <!-- BATTLEPASS -->
+  <div class="bp-preview fade-in">
+    <div class="bp-inner">
+      <div class="bp-raccoon">
+        <img src="img/logo_raccoon.jpeg" alt="Mapache celebrando">
+      </div>
+      <div class="bp-text">
+        <div class="bp-tag">⚔️ Temporada 1</div>
+        <h3>🦝 Pase de Batalla — Mapache Salvaje</h3>
+        <p>Cada respuesta te da XP. Sube de nivel y desbloquea skins épicas, emotes y V-Mapaches.</p>
+        <div class="rewards-row">
+          <div class="reward-chip">🦝</div>
+          <div class="reward-chip">💎</div>
+          <div class="reward-chip">🕺</div>
+          <div class="reward-chip">🌙</div>
+          <div class="reward-chip gold-chip">✨</div>
+          <div class="reward-chip gold-chip">👑</div>
+          <div class="reward-chip gold-chip">🏆</div>
+        </div>
+        <button class="btn-primary" style="font-size:0.88rem;padding:11px 20px;" onclick="goToLogin()">Ver mi pase de batalla →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section fade-in">
+    <div class="section-tag">Cómo funciona</div>
+    <h2 class="section-title">En 3 pasos, listo 🚀</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text"><h4>Elige tu materia</h4><p>Entra al aula y selecciona la materia con la que necesitas ayuda hoy.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><h4>Hazle la pregunta al mapache</h4><p>Escribe tu duda o ejercicio. El profe mapache te guía con pistas sin darte la respuesta.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><h4>Gana XP y sube de nivel</h4><p>Cada mensaje te da puntos de experiencia. Desbloquea recompensas en el Pase de Batalla.</p></div></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta fade-in">
+    <div class="final-cta-inner">
+      <div class="final-raccoon">
+        <img src="img/hero_raccoon.jpeg" alt="Mapache">
+      </div>
+      <h2>¿Listo para aprender<br>con el mapache?</h2>
+      <p>Gratis, sin registros complicados, sin internet.<br>Solo tú, tus dudas y el profe mapache.</p>
+      <div class="cta-btns">
+        <button class="btn-primary" onclick="goToLogin()">🚀 Empezar ahora — es gratis</button>
+        <button class="btn-secondary" onclick="goToLogin()">Ya tengo una cuenta</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>🦝 Racoon Teacher — Hecho con ❤️ para estudiantes de primaria &nbsp;|&nbsp; Temporada 1: Mapache Salvaje</footer>
+
+  <script src="js/transitions.js"></script>
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    function goToLogin() {
+      sessionStorage.setItem('rt_from_landing', '1');
+      if (typeof navigateTo === 'function') {
+        navigateTo('user.html');
+      } else {
+        window.location.href = 'user.html';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* ==============================
+   RACOON TEACHER — style.css
+   ============================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:        #0a0a12;
+  --surface:   #111128;
+  --surface2:  #1a1a2e;
+  --border:    rgba(123,111,255,0.18);
+  --border2:   rgba(123,111,255,0.35);
+  --gold:      #f5c842;
+  --gold2:     #c4a030;
+  --purple:    #7b6fff;
+  --purple2:   #a89fff;
+  --text:      #e0d8ff;
+  --text2:     #7070a0;
+  --radius:    10px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* ── BOTONES GLOBALES ── */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+}
+.back-btn:hover { border-color: var(--purple); color: var(--purple); }
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: var(--text2);
+}
+.icon-btn:hover { border-color: var(--gold2); }
+
+/* ── MENÚ PRINCIPAL ── */
+.menu-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 40px 24px;
+}
+
+.menu-header { text-align: center; }
+.logo { font-size: 52px; margin-bottom: 8px; }
+.menu-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--purple2);
+  letter-spacing: 1px;
+}
+.menu-sub { font-size: 14px; color: var(--text2); margin-top: 4px; }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+.menu-btn:hover { background: var(--surface2); border-color: var(--purple); color: var(--purple2); }
+.menu-btn--wide { grid-column: 1 / -1; flex-direction: row; justify-content: center; gap: 10px; }
+.btn-icon { font-size: 22px; }
+
+.menu-footer { width: 100%; max-width: 360px; }
+.bp-nav-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1e1a3a, #2a1e4a);
+  border: 1px solid var(--purple);
+  border-radius: var(--radius);
+  color: var(--purple2);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.bp-nav-btn:hover { background: var(--purple); color: #fff; }
+
+@keyframes bounce {
+  0%,60%,100% { transform: translateY(0); }
+  30%          { transform: translateY(-6px); }
+}

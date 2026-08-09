@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 🦝 — Racoon Teacher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body>
+    <header class="quiz-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
+        <div id="modeLabel" class="subject-badge">Materia</div>
+        <div id="questionCounter" class="counter">Pregunta 1/5</div>
+    </header>
+
+    <main class="quiz-container">
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div id="quizScreen" class="quiz-card fadeUp">
+            <h2 id="questionText">Cargando pregunta...</h2>
+            <div class="options-grid">
+                <button class="option-btn" onclick="window.selectOption(0)">A. <span id="opt0"></span></button>
+                <button class="option-btn" onclick="window.selectOption(1)">B. <span id="opt1"></span></button>
+                <button class="option-btn" onclick="window.selectOption(2)">C. <span id="opt2"></span></button>
+                <button class="option-btn" onclick="window.selectOption(3)">D. <span id="opt3"></span></button>
+            </div>
+        </div>
+
+        <div id="resultsScreen" class="results-card hidden fadeUp">
+            <h2>¡Quiz Completado! 🎉</h2>
+            <div id="starsContainer" class="stars"></div>
+            <p id="scoreText" class="score-text">Puntaje: 0 / 5</p>
+            <p id="xpEarnedText" class="xp-earned">+0 XP</p>
+            <div class="results-actions">
+                <button class="btn-primary" onclick="window.restartQuiz()">Reintentar 🔄</button>
+                <button class="btn-secondary" onclick="navigateTo('index.html')">Ir al Menú 🏠</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/transitions.js"></script>
+    <script type="module" src="js/quiz.js"></script>
+</body>
+</html>

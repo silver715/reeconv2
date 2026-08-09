@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pase de Batalla 🦝 — Racoon Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/battlepass.css">
+  <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body class="bp-body">
+
+<div class="bp-shell">
+
+  <div class="bp-header">
+    <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
+    <div class="bp-header-center">
+      <div class="season-tag">TEMPORADA 1</div>
+      <div class="bp-title">🦝 Mapache Salvaje</div>
+    </div>
+    <div class="bp-vbucks">
+      <span class="vb-icon">💎</span>
+      <span id="vbDisplay">0</span>
+    </div>
+  </div>
+
+  <div class="xp-section">
+    <div class="xp-top">
+      <div class="level-badge" id="lvlBadge">NIV 1</div>
+      <span class="xp-label">XP DE BATALLA</span>
+      <span class="xp-nums" id="xpNums">0 / 1,000</span>
+    </div>
+    <div class="xp-bar-bg">
+      <div class="xp-bar-fill" id="xpFill" style="width:0%"></div>
+    </div>
+    <div class="xp-hint" id="xpHint">Responde preguntas para ganar XP</div>
+  </div>
+
+  <div class="bp-stats">
+    <div class="stat-card">
+      <div class="stat-num" id="statFree">0</div>
+      <div class="stat-lbl">Gratis</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num stat-gold" id="statPrem">0</div>
+      <div class="stat-lbl">Premium</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num stat-green" id="statVB">0</div>
+      <div class="stat-lbl">V-Mapaches</div>
+    </div>
+  </div>
+
+  <div class="bp-tabs">
+    <button class="bp-tab active" onclick="switchTab('all',this)">Todo</button>
+    <button class="bp-tab" onclick="switchTab('free',this)">Gratis</button>
+    <button class="bp-tab" onclick="switchTab('premium',this)">Premium</button>
+  </div>
+
+  <div class="rewards-section">
+    <div class="rewards-page-label">Página 1</div>
+    <div class="rewards-grid" id="grid1"></div>
+    <div class="rewards-page-label" id="page2Label">Página 2</div>
+    <div class="rewards-grid" id="grid2"></div>
+  </div>
+
+</div>
+
+<script src="js/transitions.js"></script>
+<script type="module" src="js/battlepass.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+/* ==============================
+   BATTLE PASS — battlepass.css
+   ============================== */
+
+.bp-body { background: #0a0a12; }
+
+.bp-shell {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+/* HEADER */
+.bp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #0d0d1f;
+  border-bottom: 1px solid rgba(123,111,255,0.25);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.bp-header-center { text-align: center; flex: 1; }
+.season-tag {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #7b6fff;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.bp-title { font-size: 18px; font-weight: 800; color: #fff; }
+.bp-vbucks {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5c842;
+  min-width: 60px;
+  justify-content: flex-end;
+}
+.vb-icon { font-size: 14px; }
+
+/* XP BAR */
+.xp-section {
+  padding: 16px 18px 12px;
+  background: #0d0d1f;
+  border-bottom: 1px solid rgba(123,111,255,0.15);
+}
+.xp-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.level-badge {
+  background: #7b6fff;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.xp-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #7b6fff;
+  text-transform: uppercase;
+  flex: 1;
+}
+.xp-nums { font-size: 11px; color: #5a5a8a; white-space: nowrap; }
+
+.xp-bar-bg {
+  height: 10px;
+  background: #1a1a2e;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #2a2a4a;
+}
+.xp-bar-fill {
+  height: 100%;
+  background: #7b6fff;
+  border-radius: 5px;
+  transition: width 0.5s cubic-bezier(.4,0,.2,1);
+  position: relative;
+}
+.xp-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: #a89fff;
+  border-radius: 0 5px 5px 0;
+}
+.xp-hint { font-size: 11px; color: #5a5a8a; margin-top: 6px; }
+
+/* STATS */
+.bp-stats {
+  display: flex;
+  gap: 8px;
+  padding: 12px 18px;
+}
+.stat-card {
+  flex: 1;
+  background: #111128;
+  border: 1px solid rgba(123,111,255,0.15);
+  border-radius: 8px;
+  padding: 10px 8px;
+  text-align: center;
+}
+.stat-num { font-size: 20px; font-weight: 800; color: #7b6fff; }
+.stat-gold { color: #f5c842 !important; }
+.stat-green { color: #5dba5d !important; }
+.stat-lbl { font-size: 9px; color: #5a5a8a; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+
+/* TABS */
+.bp-tabs {
+  display: flex;
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(123,111,255,0.15);
+  gap: 0;
+}
+.bp-tab {
+  padding: 10px 18px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #5a5a8a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s;
+}
+.bp-tab.active { color: #7b6fff; border-bottom-color: #7b6fff; }
+.bp-tab:hover:not(.active) { color: #a89fff; }
+
+/* REWARDS */
+.rewards-section { padding: 0 10px 20px; }
+.rewards-page-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #3a3a5a;
+  text-transform: uppercase;
+  padding: 14px 8px 4px;
+}
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+/* REWARD SLOT */
+.rslot {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(123,111,255,0.2);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+  position: relative;
+}
+.rslot:hover { border-color: #7b6fff; transform: translateY(-2px); }
+.rslot.locked { opacity: 0.4; }
+.rslot.unlocked { opacity: 1; }
+.rslot.is-current { border: 2px solid #7b6fff; }
+.rslot.is-premium { border-color: rgba(196,160,48,0.4); }
+.rslot.is-premium.is-current { border: 2px solid #f5c842; }
+
+.rslot-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  padding: 10px 6px 6px;
+  min-height: 52px;
+}
+.rslot-bot {
+  background: #0d0d1f;
+  padding: 4px 4px 6px;
+  text-align: center;
+}
+.rslot-name {
+  font-size: 8.5px;
+  color: #ccc;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+.rslot-lvl { font-size: 8px; color: #5a5a8a; margin-top: 1px; }
+.rslot-type {
+  font-size: 7.5px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  margin-top: 2px;
+  display: inline-block;
+}
+
+.rslot-badge {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  font-size: 7px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+}
+.badge-free { background: #222; color: #888; }
+.badge-prem { background: #c4a030; color: #000; }
+.rslot-check {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 9px;
+  color: #5dba5d;
+  font-weight: 800;
+}
+
+/* RARITIES */
+.rar-common    { background: #1c1c2e; }
+.rar-uncommon  { background: #1a2a1a; }
+.rar-rare      { background: #1a1e2e; }
+.rar-epic      { background: #1e1a2e; }
+.rar-legendary { background: #2a1e0a; }
+
+/* TYPE COLORS */
+.t-skin    { background: #1e1e3a; color: #a89fff; }
+.t-vbucks  { background: #1a2e1a; color: #5dba5d; }
+.t-emote   { background: #2e1a2e; color: #da7dda; }
+.t-item    { background: #2e2a1a; color: #dab97d; }
+
+/* LEVEL UP BANNER */
+.lvlup-banner {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(123,111,255,0.12);
+  border: 1px solid #7b6fff;
+  border-radius: 8px;
+  margin: 12px 18px 0;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #a89fff;
+  animation: fadeUp 0.3s ease;
+}
+.lvlup-banner.show { display: flex; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .rewards-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .rslot-name { font-size: 9.5px; }
+  .rslot-lvl { font-size: 9px; }
+  .rslot-type { font-size: 8.5px; }
+  .rslot-top { font-size: 22px; min-height: 56px; }
+  .bp-header { padding: 12px 14px; }
+  .bp-title { font-size: 16px; }
+  .stat-num { font-size: 18px; }
+}
+@media (max-width: 360px) {
+  .rewards-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .rslot-name { font-size: 10px; }
+  .rslot-lvl { font-size: 9px; }
+  .rslot-type { font-size: 9px; }
+  .rslot-top { font-size: 24px; min-height: 60px; padding: 12px 8px 8px; }
+  .bp-stats { flex-direction: column; }
+  .bp-tab { padding: 10px 14px; font-size: 11px; }
+}

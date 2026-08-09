@@ -1,0 +1,351 @@
+/* ============================================
+   user.css — Racoon Teacher Login Page
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:        #1a1033;
+  --card-bg:   #ffffff;
+  --accent:    #7c4dff;
+  --accent2:   #ff6d3a;
+  --text:      #2d2250;
+  --text-soft: #7a7490;
+  --input-bg:  #f4f1ff;
+  --border:    #e0d9ff;
+  --error:     #ff4d6d;
+  --success:   #00c49a;
+  --shadow:    0 24px 60px rgba(124,77,255,0.18);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 10%, #3b1fa8 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, #ff6d3a33 0%, transparent 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+}
+
+/* ── Floating background shapes ── */
+.bg-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.12;
+  animation: float linear infinite;
+  user-select: none;
+}
+
+.shape-1 { top: 8%;  left: 5%;  font-size: 3rem; animation-duration: 14s; animation-delay: 0s; }
+.shape-2 { top: 15%; right: 8%; font-size: 2rem; animation-duration: 18s; animation-delay: 2s; }
+.shape-3 { bottom: 20%; left: 10%; font-size: 2.4rem; animation-duration: 16s; animation-delay: 4s; }
+.shape-4 { top: 50%; right: 5%; font-size: 1.8rem; animation-duration: 20s; animation-delay: 1s; }
+.shape-5 { bottom: 10%; right: 15%; font-size: 2rem; animation-duration: 12s; animation-delay: 3s; }
+.shape-6 { top: 75%; left: 20%; font-size: 1.6rem; animation-duration: 22s; animation-delay: 5s; }
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-30px) rotate(8deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* ── Login wrapper ── */
+.login-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  padding: 1.5rem;
+}
+
+/* ── Card ── */
+.login-card {
+  background: var(--card-bg);
+  border-radius: 28px;
+  padding: 2.5rem 2.25rem;
+  box-shadow: var(--shadow);
+  animation: cardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* ── Card header ── */
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.raccoon-avatar {
+  font-size: 3.5rem;
+  display: inline-block;
+  background: linear-gradient(135deg, #ede8ff, #ffd9cc);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  animation: bounceIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.brand-title {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.brand-sub {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+/* ── Error banner ── */
+.error-banner {
+  background: #fff0f3;
+  border: 1.5px solid var(--error);
+  color: var(--error);
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  animation: shakeX 0.4s ease;
+}
+
+@keyframes shakeX {
+  0%,100% { transform: translateX(0); }
+  20%,60%  { transform: translateX(-6px); }
+  40%,80%  { transform: translateX(6px); }
+}
+
+/* ── Form ── */
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.input-group label {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-wrapper input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 0.75rem 0.9rem 0.75rem 2.75rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-wrapper input::placeholder {
+  color: #c0b8e0;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(124,77,255,0.1);
+  background: #fff;
+}
+
+.toggle-pw {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 6px;
+  transition: transform 0.15s;
+}
+.toggle-pw:hover { transform: scale(1.2); }
+
+/* ── Remember row ── */
+.remember-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -0.2rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.checkbox-label input:checked + .checkmark {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkbox-label input:checked + .checkmark::after {
+  content: '✓';
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.forgot-link {
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+.forgot-link:hover { opacity: 0.7; }
+
+/* ── Login button ── */
+.btn-login {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent), #5e35b1);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 0.9rem 1.5rem;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  box-shadow: 0 8px 24px rgba(124,77,255,0.35);
+  margin-top: 0.4rem;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(124,77,255,0.45);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+.btn-login:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-arrow {
+  transition: transform 0.2s;
+  font-size: 1.2rem;
+}
+.btn-login:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Loading state */
+.btn-login.loading .btn-text::after {
+  content: '...';
+  animation: dots 1s infinite;
+}
+@keyframes dots {
+  0%,100% { content: '.'; }
+  33%      { content: '..'; }
+  66%      { content: '...'; }
+}
+
+/* ── Card footer ── */
+.card-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.card-footer a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.card-footer a:hover { opacity: 0.7; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+    border-radius: 22px;
+  }
+  .brand-title { font-size: 1.5rem; }
+}

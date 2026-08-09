@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat 🦝 — Racoon Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body>
+
+<div class="chat-container">
+
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <span class="header-icon" id="userAvatarIcon">🦝</span>
+      <span id="modeLabel" class="mode-badge">Matemáticas</span>
+    </div>
+    <div class="chat-header-right">
+      <button class="icon-btn" onclick="navigateTo('battlepass.html')" title="Pase de Batalla">⚔️</button>
+      <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
+    </div>
+  </div>
+
+  <div id="chat" class="chat-box"></div>
+
+  <div class="typing-indicator" id="typing">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="input" placeholder="Escribe tu duda..." autocomplete="off" />
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+
+</div>
+
+<script src="js/transitions.js"></script>
+<script type="module" src="js/chat.js"></script>
+</body>
+</html>

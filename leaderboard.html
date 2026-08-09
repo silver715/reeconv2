@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 Ranking - Racoon Teacher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <link rel="stylesheet" href="css/transitions.css">
+</head>
+<body>
+    <header class="header">
+        <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
+        <h1>🏆 Ranking</h1>
+    </header>
+
+    <main class="container">
+        <div id="loading" class="loading-spinner"></div>
+        
+        <div id="leaderboard-content" style="display: none;">
+            <div class="podium-section" id="podium">
+                <!-- Podium injected here -->
+            </div>
+
+            <div class="ranking-table-container">
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Posición</th>
+                            <th>Estudiante</th>
+                            <th>Nivel</th>
+                            <th>XP Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <!-- Rows injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/transitions.js"></script>
+    <script type="module" src="js/leaderboard.js"></script>
+</body>
+</html>
