@@ -1,9 +1,10 @@
 /* ==============================================
-   GEMINI API CLIENT — js/gemini.js (v2.1)
-   Módulo limpio para Google Gemini API v1beta.
+   GEMINI API CLIENT — js/gemini.js (v2.3 Multiturno)
+   Cliente para Google Gemini API v1beta con memoria
+   de conversación (Multi-turn Context) y resiliencia.
    ============================================== */
 
-import { GEMINI_API_KEY, GEMINI_ENDPOINT } from './firebase-config.js?v=2.1';
+import { GEMINI_API_KEY, GEMINI_ENDPOINT } from './firebase-config.js?v=2.3';
 
 const subjectLabels = {
   math:    'Matemáticas',
@@ -13,29 +14,44 @@ const subjectLabels = {
   social:  'Ciencias Sociales',
 };
 
-export async function askGemini(question, mode = 'math', grade = 'Primero') {
+export async function askGemini(question, mode = 'math', grade = 'Primero', history = []) {
   const materia = subjectLabels[mode] || mode;
 
   const systemPrompt = `Eres Racoon Teacher 🦝, un tutor escolar amable, alegre y motivador para estudiantes de primaria en ${grade} grado.
 Tu materia es ${materia}.
 
 REGLAS DE RESPUESTA:
-- Responde SIEMPRE en español de forma sencilla, comprensible y adaptada para niños de ${grade} grado.
-- Usa emojis llamativos y divertidos (🦝, ⭐, 🍪, 📐, 🌱).
-- Si el estudiante hace una pregunta o pide resolver un ejercicio, guíalo paso a paso con ejemplos cotidianos (juguetes, dulces, frutas).
-- Mantén las respuestas claras y dinámicas (máximo 150 palabras).
-- Termina con una pregunta motivadora para que el estudiante siga participando.`;
+- Responde SIEMPRE en español de forma sencilla, didáctica y adaptada para niños de ${grade} grado.
+- Usa emojis llamativos y divertidos (🦝, ⭐, 🍪, 📐, 🌱, 🚀).
+- Si el estudiante envía un ejercicio o duda, guíalo paso a paso con ejemplos cotidianos sin darle la respuesta de inmediato si es una prueba.
+- Mantén las respuestas dinámicas y agradables (máximo 150 palabras).
+- Recuerda los mensajes anteriores para dar continuidad a la explicación.
+- Termina con una pregunta o invitación amigable a seguir practicando.`;
+
+  // Asegurar formato de contents con historial previo sanitizado
+  const formattedHistory = [];
+  if (Array.isArray(history)) {
+    for (const item of history.slice(-8)) { // Máximo últimos 8 mensajes para no saturar tokens
+      if (item && item.role && item.text) {
+        formattedHistory.push({
+          role: item.role === 'model' || item.role === 'bot' ? 'model' : 'user',
+          parts: [{ text: item.text }]
+        });
+      }
+    }
+  }
+
+  // Agregar la pregunta actual del usuario
+  formattedHistory.push({
+    role: 'user',
+    parts: [{ text: question }]
+  });
 
   const payload = {
     systemInstruction: {
       parts: [{ text: systemPrompt }]
     },
-    contents: [
-      {
-        role: "user",
-        parts: [{ text: question }]
-      }
-    ],
+    contents: formattedHistory,
     generationConfig: {
       maxOutputTokens: 1000,
       temperature: 0.7
@@ -57,8 +73,8 @@ REGLAS DE RESPUESTA:
     clearTimeout(timer);
 
     if (!res.ok) {
-      const errText = await res.text();
-      console.warn(`[Gemini API Status ${res.status}]:`, errText);
+      const errBody = await res.text();
+      console.warn(`[Gemini API Warning ${res.status}]:`, errBody);
       return null;
     }
 
@@ -72,7 +88,7 @@ REGLAS DE RESPUESTA:
     return null;
 
   } catch (err) {
-    console.warn('[Gemini Client Warning]:', err.message);
+    console.warn('[Gemini Connection Warning]:', err.message);
     return null;
   }
 }

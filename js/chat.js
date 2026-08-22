@@ -1,13 +1,13 @@
 /* ==============================================
-   CHAT CONTROLLER — js/chat.js (v2.1)
-   Lógica completa del aula interactiva con IA y
-   motor pedagógico local de respaldo.
+   CHAT CONTROLLER — js/chat.js (v2.3 Multiturno)
+   Aula interactiva con memoria de sesión, renderizado
+   Markdown enriquecido y respaldo pedagógico local.
    ============================================== */
 
-import { auth } from './firebase-config.js?v=2.1';
+import { auth } from './firebase-config.js?v=2.3';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { initXP, addXP, getStreakBonus, getAvatarEmoji } from './xp.js?v=2.1';
-import { askGemini } from './gemini.js?v=2.1';
+import { initXP, addXP, getStreakBonus, getAvatarEmoji } from './xp.js?v=2.3';
+import { askGemini } from './gemini.js?v=2.3';
 
 /* ── Nombres y etiquetas de materias ── */
 const modeNames = {
@@ -18,7 +18,15 @@ const modeNames = {
   social:  'Ciencias Sociales',
 };
 
-/* ── Sanitización de estado ── */
+const placeholders = {
+  math:    'Escribe un ejercicio o duda de matemáticas...',
+  spanish: 'Pregunta sobre ortografía, oraciones o lectura...',
+  english: 'Type a word, phrase or question in English...',
+  science: 'Pregunta sobre animales, plantas, el cuerpo...',
+  social:  'Pregunta sobre historia, mapas o culturas...',
+};
+
+/* ── Estado de Sesión ── */
 const validModes = ['math', 'spanish', 'english', 'science', 'social'];
 let rawMode = localStorage.getItem('racoon_mode');
 let mode = validModes.includes(rawMode) ? rawMode : 'math';
@@ -31,6 +39,7 @@ localStorage.setItem('racoon_grade', grade);
 
 let messageCount = 0;
 let isSending = false;
+const conversationHistory = []; // Memoria de mensajes para la IA
 
 /* ── Elementos del DOM ── */
 const chatBox   = document.getElementById('chat');
@@ -38,7 +47,7 @@ const input     = document.getElementById('input');
 const typing    = document.getElementById('typing');
 const modeLabel = document.getElementById('modeLabel');
 
-/* ── Auth Guard y Saludo Inicial ── */
+/* ── Auth Guard y Bienvenida ── */
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     window.location.href = 'landing.html';
@@ -51,16 +60,13 @@ onAuthStateChanged(auth, async (user) => {
   const avatarIconEl = document.getElementById("userAvatarIcon");
   if (avatarIconEl) avatarIconEl.textContent = getAvatarEmoji();
 
-  // Etiqueta de la materia
+  // Etiqueta de materia y placeholder
   if (modeLabel) modeLabel.innerText = modeNames[mode] || 'Matemáticas';
+  if (input) input.placeholder = placeholders[mode] || 'Escribe tu duda...';
 
-  // Mensaje de bienvenida único
+  // Mensaje de bienvenida inicial
   if (chatBox && chatBox.children.length === 0) {
-    let greeting = `🦝 ¡Hola! Soy el Profe Mapache. Estoy listo para ayudarte con **${modeNames[mode]}** en **${grade} grado**. ¿Qué duda o ejercicio tienes hoy?`;
-    const bonus = getStreakBonus();
-    if (bonus > 0) {
-      greeting += `\n\n🔥 ¡Racha activa! Recibes +${bonus} XP extra por mensaje.`;
-    }
+    const greeting = `🦝 ¡Hola! Soy el **Profe Mapache**. Estoy listo para ayudarte con **${modeNames[mode]}** en **${grade} grado**.\n\n¿Qué ejercicio o pregunta tienes hoy?`;
     addMessage('bot', greeting);
   }
 });
@@ -108,7 +114,7 @@ function addMessage(sender, text) {
   }, 40);
 }
 
-/* ── Sistema de Toast de XP ── */
+/* ── Toast de Recompensa de XP ── */
 function showXPToast(amount, leveledUp, newLvl) {
   let toast = document.getElementById('xp-toast');
   if (!toast) {
@@ -119,12 +125,12 @@ function showXPToast(amount, leveledUp, newLvl) {
   }
   toast.innerText = leveledUp
     ? `🎉 ¡Nivel ${newLvl}! +${amount} XP`
-    : `+${amount} XP`;
+    : `+${amount} XP ⭐`;
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2200);
 }
 
-/* ── Envío de mensaje ── */
+/* ── Envío de mensaje interactivo ── */
 async function sendMessage() {
   if (isSending || !input) return;
   const text = input.value.trim();
@@ -143,25 +149,29 @@ async function sendMessage() {
     const streakBonus = getStreakBonus();
     const xpGain = baseXP + streakBonus;
 
-    // 1. Intentar obtener respuesta de Gemini
-    let botResponse = await askGemini(text, mode, grade);
+    // 1. Consultar a Gemini con la memoria previa
+    let botResponse = await askGemini(text, mode, grade, conversationHistory);
 
-    // 2. Si la API de Gemini falla o está offline, usar motor local pedagógico
+    // 2. Si la API falla, recurrir al motor pedagógico local
     if (!botResponse || botResponse.trim().length === 0) {
       botResponse = getLocalResponse(text, mode);
     }
 
+    // 3. Guardar en memoria de conversación
+    conversationHistory.push({ role: 'user', text: text });
+    conversationHistory.push({ role: 'model', text: botResponse });
+
     if (typing) typing.style.display = 'none';
     addMessage('bot', botResponse);
 
-    // 3. Sumar XP y mostrar Toast
+    // 4. Conceder XP al estudiante
     const result = await addXP(xpGain);
     showXPToast(xpGain, result.leveled, result.lvl);
 
   } catch (err) {
-    console.error('[Chat Error]:', err);
+    console.error('[Chat Execution Error]:', err);
     if (typing) typing.style.display = 'none';
-    addMessage('bot', '🦝 ¡Excelente pregunta! Cuéntame qué parte del ejercicio te gustaría resolver paso a paso.');
+    addMessage('bot', '🦝 ¡Excelente! Vamos a resolverlo paso a paso. ¿Qué parte del ejercicio te gustaría calcular primero?');
   } finally {
     if (typing) typing.style.display = 'none';
     input.disabled = false;
@@ -176,7 +186,7 @@ function getLocalResponse(text, currentMode) {
 
   if (currentMode === 'math') {
     if (msg.includes('multiplic') || msg.includes('*') || msg.includes('x') || msg.includes('tabla') || msg.includes('veces')) {
-      return '🦝 **Multiplicar es sumar grupos iguales** de forma súper rápida.\n\nPor ejemplo: **3 × 4** significa tener **3 grupos de 4 galletas** (4 + 4 + 4 = 12 🍪).\n\n¿Qué números te gustaría multiplicar juntos?';
+      return '🦝 **Multiplicar es sumar grupos iguales**.\n\nPor ejemplo: **3 × 4** significa tener **3 grupos de 4 galletas** (4 + 4 + 4 = 12 🍪).\n\n¿Qué números te gustaría multiplicar juntos?';
     }
     if (msg.includes('sum') || msg.includes('+') || msg.includes('mas') || msg.includes('juntar') || msg.includes('total')) {
       return '🦝 **Sumar es juntar o añadir cantidades**.\n\nSi tienes **15 lápices** y te regalan **10 más**, los unes todos: 15 + 10 = 25 ✏️.\n\n¿Qué cantidades necesitas sumar?';
@@ -186,9 +196,6 @@ function getLocalResponse(text, currentMode) {
     }
     if (msg.includes('divid') || msg.includes('/') || msg.includes('repartir')) {
       return '🦝 **Dividir es repartir en partes iguales**.\n\nSi tienes 12 dulces 🍬 y 3 amigos, a cada uno le tocan: 12 ÷ 3 = 4.\n\n¿Entre cuántos quieres repartir?';
-    }
-    if (msg.includes('fraccion') || msg.includes('fracción') || msg.includes('mitad') || msg.includes('cuarto')) {
-      return '🦝 **Las fracciones son partes de un entero**.\n\nSi cortas una pizza 🍕 en 4 porciones iguales y comes 1, tomaste **1/4** de la pizza.\n\n¿Qué fracción te gustaría entender?';
     }
     return '🦝 En matemáticas vamos paso a paso. ¿Puedes escribir los números del ejercicio que estás resolviendo? 📐';
   }
@@ -200,24 +207,21 @@ function getLocalResponse(text, currentMode) {
     if (msg.includes('verbo') || msg.includes('accion')) {
       return '🦝 **Los verbos son palabras de acción** como *correr, saltar, estudiar y reír* 🏃‍♂️.\n\n¿Qué verbo buscas identificar?';
     }
-    if (msg.includes('sustantiv')) {
-      return '🦝 **Los sustantivos son nombres** de personas (*María*), animales (*mapache*) o cosas (*libro*) 📖.\n\n¿Qué palabras quieres clasificar?';
-    }
     return '🦝 El español es un idioma maravilloso ✍️. Cuéntame qué palabra, texto u oración estás estudiando.';
   }
 
   if (currentMode === 'english') {
     if (msg.includes('color')) return '🦝 Colors in English: 🔴 Red (Rojo), 🔵 Blue (Azul), 🟡 Yellow (Amarillo), 🟢 Green (Verde). What is your favorite color?';
     if (msg.includes('numero') || msg.includes('number')) return '🦝 Numbers in English: 1: One, 2: Two, 3: Three, 4: Four, 5: Five, 10: Ten! Let\'s count together!';
-    return '🦝 English is fun! 🌐 Can you tell me which words or sentences you want to practice today?';
+    return '🦝 English is fun! 🌐 What words or sentences do you want to practice today?';
   }
 
   if (currentMode === 'science') {
-    return '🦝 En ciencias exploramos el mundo que nos rodea 🌱. Cuéntame: ¿estás estudiando plantas, animales, el cuerpo humano o el universo?';
+    return '🦝 En ciencias exploramos el mundo que nos rodea 🌱. ¿Quieres estudiar plantas, animales, el cuerpo humano o el universo?';
   }
 
   if (currentMode === 'social') {
-    return '🦝 En sociales aprendemos sobre geografía, historia y culturas 🗺️. ¿Sobre qué país, mapa o época histórica tienes preguntas?';
+    return '🦝 En sociales aprendemos sobre geografía, historia y culturas 🗺️. ¿Sobre qué país o mapa tienes dudas?';
   }
 
   return '🦝 ¡Excelente pregunta! Cuéntame los detalles del tema y lo resolvemos juntos paso a paso ⭐';
