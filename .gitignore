@@ -10,5 +10,10 @@ node_modules/
 .vscode/
 .idea/
 
+# Local Environment & Secrets (ignored from Git for security)
+js/env.js
+.env
+*.local
+
 # Scratch / temp files
 *.tmp

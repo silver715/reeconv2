@@ -9,9 +9,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebas
 
 /* ── Credenciales de Firebase ──
    Estas credenciales son públicas y seguras gracias a las
-   Firestore Security Rules (ver firestore.rules).
-   Para usar tu propio proyecto, reemplaza este objeto con el
-   que te da Firebase al registrar tu app web. */
+   Firestore Security Rules (ver firestore.rules). */
 const firebaseConfig = {
   apiKey: "AIzaSyD470lQc8YBBNBPFVf7vWweb13Oe5EwH0c",
   authDomain: "rakun-ca4d1.firebaseapp.com",
@@ -28,8 +26,22 @@ export const auth = getAuth(app);
 export const db   = getFirestore(app);
 
 /* ── Gemini API (Google AI) ──
-   API key gratuita obtenida en https://aistudio.google.com
-   Usamos el modelo gemini-2.0-flash por su velocidad y capa gratuita generosa.
-   En un proyecto de producción, esta key iría en un backend/Cloud Function. */
-export const GEMINI_API_KEY = "AIzaSyBRiiaU6aqWbXLJynb4Qx-phbIKs41HjA0";
-export const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
+   Carga segura de clave:
+   1. Desde js/env.js (ignorado en .gitignore)
+   2. O desde localStorage ('rt_gemini_key')
+   3. O clave de respaldo */
+let localKey = "TU_GEMINI_API_KEY_AQUI";
+try {
+  const envModule = await import('./env.js').catch(() => null);
+  if (envModule && envModule.ENV_GEMINI_KEY) {
+    localKey = envModule.ENV_GEMINI_KEY;
+  }
+} catch (_) {}
+
+if (localKey === "TU_GEMINI_API_KEY_AQUI") {
+  const saved = localStorage.getItem("rt_gemini_key");
+  if (saved) localKey = saved;
+}
+
+export const GEMINI_API_KEY = localKey;
+export const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent";
