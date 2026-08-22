@@ -27,19 +27,18 @@ let _cache = {
 };
 let _ready = false;
 
-/* ── Catálogo de avatares disponibles ──
-   Precio: Básico = 100, Temático = 200, Especial = 500 V-Mapaches */
+/* ── Catálogo de avatares disponibles (Stickers Mapache) ──
+   Precio: Básico = 0-100, Temático = 200, Especial = 500 V-Mapaches */
 export const AVATARS = [
-  { id: 'raccoon_default',   name: 'Mapache Default',     emoji: '🦝', cost: 0,   category: 'basic'   },
-  { id: 'raccoon_scientist', name: 'Mapache Científico',  emoji: '🔬', cost: 100, category: 'basic'   },
-  { id: 'raccoon_artist',    name: 'Mapache Artista',     emoji: '🎨', cost: 100, category: 'basic'   },
-  { id: 'raccoon_musician',  name: 'Mapache Músico',      emoji: '🎵', cost: 100, category: 'basic'   },
-  { id: 'raccoon_astronaut', name: 'Mapache Astronauta',  emoji: '🚀', cost: 200, category: 'thematic'},
-  { id: 'raccoon_ninja',     name: 'Mapache Ninja',       emoji: '🥷', cost: 200, category: 'thematic'},
-  { id: 'raccoon_chef',      name: 'Mapache Chef',        emoji: '👨‍🍳', cost: 200, category: 'thematic'},
-  { id: 'raccoon_pirate',    name: 'Mapache Pirata',      emoji: '🏴‍☠️', cost: 200, category: 'thematic'},
-  { id: 'raccoon_golden',    name: 'Mapache Dorado',      emoji: '👑', cost: 500, category: 'special' },
-  { id: 'raccoon_robot',     name: 'Mapache Robot',       emoji: '🤖', cost: 500, category: 'special' },
+  { id: 'raccoon_happy',    name: 'Mapache Feliz',     img: 'img/avatars/raccoon_happy.png',    emoji: '✨', cost: 0,   category: 'basic'   },
+  { id: 'raccoon_sleepy',   name: 'Mapache Dormilón',  img: 'img/avatars/raccoon_sleepy.png',   emoji: '💤', cost: 0,   category: 'basic'   },
+  { id: 'raccoon_knife',    name: 'Mapache Fiero',     img: 'img/avatars/raccoon_knife.png',    emoji: '🔪', cost: 100, category: 'basic'   },
+  { id: 'raccoon_sad',      name: 'Mapache Llorón',    img: 'img/avatars/raccoon_sad.png',      emoji: '😢', cost: 100, category: 'basic'   },
+  { id: 'raccoon_trashcan', name: 'Mapache Basurero',  img: 'img/avatars/raccoon_trashcan.png', emoji: '🗑️', cost: 200, category: 'thematic'},
+  { id: 'raccoon_ghost',    name: 'Mapache Fantasma',  img: 'img/avatars/raccoon_ghost.png',    emoji: '👻', cost: 200, category: 'thematic'},
+  { id: 'raccoon_bandaid',  name: 'Mapache Valiente',  img: 'img/avatars/raccoon_bandaid.png',  emoji: '🩹', cost: 200, category: 'thematic'},
+  { id: 'raccoon_skeleton', name: 'Mapache Calavera',  img: 'img/avatars/raccoon_skeleton.png', emoji: '💀', cost: 500, category: 'special' },
+  { id: 'raccoon_melt',     name: 'Mapache Derretido', img: 'img/avatars/raccoon_melt.png',     emoji: '🫠', cost: 500, category: 'special' },
 ];
 
 /* ── Inicialización: cargar datos desde Firestore ──
@@ -228,6 +227,20 @@ export function getAvatarEmoji() {
   assertReady();
   const avatar = AVATARS.find(a => a.id === _cache.avatar);
   return avatar ? avatar.emoji : '🦝';
+}
+
+/* Obtener la ruta de la imagen PNG del avatar activo */
+export function getAvatarImg() {
+  assertReady();
+  const avatar = AVATARS.find(a => a.id === _cache.avatar);
+  return avatar ? avatar.img : 'img/avatars/raccoon_happy.png';
+}
+
+/* Obtener el objeto completo del avatar activo */
+export function getAvatarData() {
+  assertReady();
+  const avatar = AVATARS.find(a => a.id === _cache.avatar);
+  return avatar || AVATARS[0];
 }
 
 /* ── Datos de recompensas del Pase de Batalla ──

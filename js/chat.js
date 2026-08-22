@@ -6,7 +6,7 @@
 
 import { auth } from './firebase-config.js?v=2.3';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { initXP, addXP, getStreakBonus, getAvatarEmoji } from './xp.js?v=2.3';
+import { initXP, addXP, getStreakBonus, getAvatarEmoji, getAvatarImg } from './xp.js?v=2.3';
 import { askGemini } from './gemini.js?v=2.3';
 
 /* ── Nombres y etiquetas de materias ── */
@@ -58,7 +58,9 @@ onAuthStateChanged(auth, async (user) => {
 
   // Avatar personalizado en el header
   const avatarIconEl = document.getElementById("userAvatarIcon");
-  if (avatarIconEl) avatarIconEl.textContent = getAvatarEmoji();
+  if (avatarIconEl) {
+    avatarIconEl.innerHTML = `<img src="${getAvatarImg()}" alt="Avatar" style="width:30px; height:30px; object-fit:contain; vertical-align:middle;" />`;
+  }
 
   // Etiqueta de materia y placeholder
   if (modeLabel) modeLabel.innerText = modeNames[mode] || 'Matemáticas';

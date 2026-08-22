@@ -1,408 +1,402 @@
+/* ==============================================
+   AVATAR STORE STYLES — css/avatars.css (v2.3)
+   Diseño gamificado para la tienda de stickers de mapache.
+   ============================================== */
+
 :root {
-    --bg: #0a0a12;
-    --surface: #111128;
-    --surface2: #1a1a2e;
-    --border: rgba(123, 111, 255, 0.18);
-    --purple: #7b6fff;
-    --purple2: #a89fff;
-    --gold: #f5c842;
-    --text: #e0d8ff;
-    --text2: #7070a0;
-    
-    --success: #4cd964;
-    --danger: #ff3b30;
+  --bg: #0a0a12;
+  --surface: #111128;
+  --surface2: #161636;
+  --surface3: #1f1f45;
+  --border: rgba(123, 111, 255, 0.18);
+  --border2: rgba(123, 111, 255, 0.35);
+  --purple: #7b6fff;
+  --purple2: #a89fff;
+  --gold: #f5c842;
+  --gold2: #d4aa28;
+  --cyan: #00e5ff;
+  --green: #00e676;
+  --text: #e0d8ff;
+  --text2: #8e8ea8;
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 40px;
+  background: var(--bg);
+  background-image: 
+    radial-gradient(ellipse 70% 50% at 50% -15%, rgba(123, 111, 255, 0.15), transparent),
+    radial-gradient(ellipse 50% 40% at 85% 85%, rgba(0, 229, 255, 0.08), transparent);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 0 60px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Baloo 2', cursive;
-    margin: 0;
-}
-
-/* Header */
+/* ── HEADER DE TIENDA ── */
 .store-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: var(--surface);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  background: rgba(17, 17, 40, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .store-header h1 {
-    font-size: 1.8rem;
-    color: var(--gold);
-}
-
-.back-btn {
-    color: var(--purple2);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 12px;
-    background-color: var(--surface2);
-    border-radius: 8px;
-    transition: background-color 0.2s;
-}
-
-.back-btn:hover {
-    background-color: var(--purple);
-    color: white;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
 }
 
 .vb-display {
-    background-color: var(--surface2);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 0 10px rgba(245, 200, 66, 0.2);
+  background: rgba(0, 229, 255, 0.12);
+  border: 1.5px solid rgba(0, 229, 255, 0.4);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.2);
 }
 
-/* Main Content */
+/* ── CONTENEDOR PRINCIPAL ── */
 .store-main {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
 
-/* Current Avatar */
+/* ── SECCIÓN AVATAR EQUIPADO ── */
 .current-avatar-section {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 30px;
-    background-color: var(--surface);
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    animation: fadeUp 0.5s ease-out;
+  background: rgba(17, 17, 40, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border2);
+  border-radius: 24px;
+  padding: 24px 32px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(123, 111, 255, 0.1);
 }
 
 .current-avatar-section h2 {
-    color: var(--text2);
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.25rem;
+  color: var(--text2);
+  margin-bottom: 16px;
+}
+
+.current-avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .current-avatar-preview {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    background: radial-gradient(circle, var(--surface2) 0%, var(--surface) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid var(--gold);
-    box-shadow: 0 0 20px rgba(245, 200, 66, 0.4);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 111, 255, 0.25) 0%, rgba(17, 17, 40, 0.8) 100%);
+  border: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 28px rgba(245, 200, 66, 0.35);
+  padding: 10px;
 }
 
-.current-avatar-preview .avatar-emoji {
-    font-size: 4rem;
+.equipped-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  animation: heroAvatarFloat 3s ease-in-out infinite;
 }
 
 .avatar-name {
-    margin-top: 15px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--purple2);
-    font-family: 'Baloo 2', cursive;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
 }
 
-/* Avatar Grid */
+/* ── CATÁLOGO POR CATEGORÍAS ── */
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .category-header {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--border);
-    font-size: 1.6rem;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
 }
 
-.category-basic { color: var(--text); border-bottom-color: var(--text2); }
-.category-theme { color: var(--purple2); border-bottom-color: var(--purple); }
-.category-special { color: var(--gold); border-bottom-color: var(--gold); }
+.category-basic { border-bottom-color: var(--cyan); }
+.category-theme { border-bottom-color: var(--purple); }
+.category-special { border-bottom-color: var(--gold); }
 
 .avatar-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
-/* Avatar Card */
+/* ── TARJETA DE AVATAR ── */
 .avatar-card {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: rgba(17, 17, 40, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 
 .avatar-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transform: translateY(-6px);
+  border-color: var(--purple);
+  box-shadow: 0 12px 28px rgba(123, 111, 255, 0.25);
 }
 
-.card-emoji-container {
-    width: 80px;
-    height: 80px;
-    background-color: var(--surface2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
+.card-img-container {
+  width: 100px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card-emoji {
-    font-size: 3rem;
+.avatar-sticker-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+  transition: transform 0.2s;
+}
+
+.avatar-card:hover .avatar-sticker-img {
+  transform: scale(1.1) rotate(2deg);
 }
 
 .card-name {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-family: 'Baloo 2', cursive;
-    flex-grow: 1;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
 }
 
 .card-price {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    background-color: rgba(0,0,0,0.3);
-    padding: 5px 12px;
-    border-radius: 12px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
 }
 
-.price-affordable {
-    color: var(--success);
-}
-
-.price-expensive {
-    color: var(--danger);
-}
-
-.price-free {
-    color: var(--gold);
-}
+.price-owned { color: var(--gold); }
+.price-affordable { color: var(--green); }
+.price-expensive { color: #ff5252; }
 
 .btn-card {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    transition: all 0.2s;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
 }
 
 .btn-buy {
-    background: linear-gradient(135deg, var(--purple) 0%, #5b4fcc 100%);
-    color: white;
+  background: linear-gradient(135deg, #7b6fff, #6052f5);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(123, 111, 255, 0.3);
 }
-
 .btn-buy:hover:not(:disabled) {
-    background: linear-gradient(135deg, var(--purple2) 0%, var(--purple) 100%);
-    box-shadow: 0 0 15px rgba(123, 111, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(123, 111, 255, 0.45);
 }
-
 .btn-buy:disabled {
-    background: var(--surface2);
-    color: var(--text2);
-    cursor: not-allowed;
-    border: 1px solid var(--border);
+  background: #1c1c36;
+  color: var(--text2);
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .btn-equip {
-    background-color: transparent;
-    color: var(--purple2);
-    border: 1px solid var(--purple2);
+  background: transparent;
+  border: 1.5px solid var(--purple);
+  color: var(--purple2);
 }
-
 .btn-equip:hover {
-    background-color: rgba(123, 111, 255, 0.1);
+  background: rgba(123, 111, 255, 0.15);
+  color: #ffffff;
 }
 
 .btn-equipped {
-    background-color: var(--gold);
-    color: var(--bg);
-    border: none;
-    cursor: default;
-}
-
-/* Card States */
-.avatar-card.locked {
-    opacity: 0.8;
-}
-
-.avatar-card.locked .card-emoji {
-    filter: grayscale(100%);
-    opacity: 0.7;
+  background: var(--gold);
+  color: #0a0a12;
+  cursor: default;
+  font-weight: 800;
 }
 
 .avatar-card.equipped {
-    border-color: var(--gold);
-    box-shadow: 0 0 15px rgba(245, 200, 66, 0.2);
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(245, 200, 66, 0.3);
 }
 
-.avatar-card.equipped .card-emoji-container {
-    background: radial-gradient(circle, rgba(245, 200, 66, 0.2) 0%, var(--surface2) 100%);
-    border: 2px solid var(--gold);
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 15, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+.modal-overlay.hidden { display: none; }
+
+.modal-box {
+  background: #111128;
+  border: 1.5px solid rgba(123, 111, 255, 0.35);
+  border-radius: 24px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
-/* Modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    opacity: 1;
-    transition: opacity 0.3s ease;
+.modal-box h3 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 16px;
 }
 
-.modal.hidden {
-    display: none;
-    opacity: 0;
+.modal-avatar-preview {
+  width: 110px;
+  height: 100px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.modal-content {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 30px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    transform: scale(1);
-    transition: transform 0.3s ease;
-}
-
-.modal-title {
-    color: var(--text);
-    margin-bottom: 20px;
-}
-
-.modal-preview {
-    width: 100px;
-    height: 100px;
-    background-color: var(--surface2);
-    border-radius: 50%;
-    margin: 0 auto 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-emoji {
-    font-size: 4rem;
+.modal-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
 }
 
 .modal-avatar-name {
-    font-size: 1.4rem;
-    color: var(--purple2);
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--purple2);
+  margin-bottom: 6px;
 }
 
 .modal-price {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-bottom: 24px;
 }
 
 .modal-actions {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 12px;
 }
 
-.modal-actions .btn {
-    flex: 1;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
+.btn-cancel, .btn-confirm {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
 }
 
 .btn-cancel {
-    background-color: var(--surface2);
-    color: var(--text);
+  background: #1c1c36;
+  color: var(--text2);
 }
+.btn-cancel:hover { color: #ffffff; }
 
 .btn-confirm {
-    background: linear-gradient(135deg, var(--gold) 0%, #d4a72c 100%);
-    color: var(--bg);
+  background: linear-gradient(135deg, var(--gold) 0%, #d4a72c 100%);
+  color: #0a0a12;
+}
+.btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(245, 200, 66, 0.4);
 }
 
-/* Toast */
+/* ── TOAST ── */
 .toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--success);
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: bold;
-    z-index: 1000;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #1f1a45, #14112e);
+  border: 1px solid var(--purple);
+  color: var(--gold);
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  transition: all 0.3s;
 }
-
 .toast.hidden {
-    bottom: -50px;
-    opacity: 0;
+  bottom: -60px;
+  opacity: 0;
 }
 
-/* Animations */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes heroAvatarFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-@keyframes successBounce {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.animate-success {
-    animation: successBounce 0.5s ease;
-}
-
-/* Responsive */
 @media (max-width: 600px) {
-    .avatar-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .store-header h1 {
-        font-size: 1.4rem;
-    }
+  .store-header { padding: 14px 16px; }
+  .store-header h1 { font-size: 1.4rem; }
+  .avatar-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .avatar-card { padding: 16px 12px; }
 }

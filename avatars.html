@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎭 Tienda de Avatares - Racoon Teacher</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/avatars.css">
-    <link rel="stylesheet" href="css/transitions.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎭 Tienda de Avatares — Racoon Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2.3">
+  <link rel="stylesheet" href="css/avatars.css?v=2.3">
+  <link rel="stylesheet" href="css/transitions.css?v=2.3">
 </head>
 <body>
-    <header class="store-header">
-        <button onclick="navigateTo('index.html')" class="back-btn">← Volver</button>
-        <h1>🎭 Tienda de Avatares</h1>
-        <div class="vb-display">
-            💎 <span id="vbDisplay">0</span>
-        </div>
-    </header>
 
-    <main class="store-main">
-        <section class="current-avatar-section">
-            <h2>Tu Avatar Equipado</h2>
-            <div class="current-avatar-card">
-                <div id="currentAvatarEmoji" class="large-avatar-emoji">🦝</div>
-                <div id="currentAvatarName" class="current-avatar-name">Mapache Default</div>
-            </div>
-        </section>
-
-        <section class="store-catalog">
-            <h2>Catálogo de Avatares</h2>
-            <div id="avatarGrid" class="avatar-grid">
-                <!-- Avatar cards dynamically rendered here -->
-            </div>
-        </section>
-    </main>
-
-    <!-- Modal de Confirmación de Compra -->
-    <div id="confirmModal" class="modal-overlay hidden">
-        <div class="modal-box">
-            <h3>Confirmar Compra</h3>
-            <div id="modalAvatarEmoji" class="modal-avatar-emoji">🦝</div>
-            <p id="modalAvatarName" class="modal-avatar-name">Nombre Avatar</p>
-            <p class="modal-price">Precio: 💎 <span id="modalAvatarPrice">0</span></p>
-            <div class="modal-actions">
-                <button id="btnCancelBuy" class="btn-secondary">Cancelar</button>
-                <button id="btnConfirmBuy" class="btn-primary">Comprar 💎</button>
-            </div>
-        </div>
+  <header class="store-header">
+    <button onclick="navigateTo('index.html')" class="back-btn">← Volver al Menú</button>
+    <h1>🎭 Tienda de Avatares</h1>
+    <div class="vb-display">
+      💎 <span id="vbDisplay">0</span> V-Mapaches
     </div>
+  </header>
 
-    <script src="js/transitions.js"></script>
-    <script type="module" src="js/avatars.js"></script>
+  <main class="store-main">
+    <!-- Avatar Equipado Actualmente -->
+    <section class="current-avatar-section">
+      <h2>Tu Avatar Equipado</h2>
+      <div class="current-avatar-card">
+        <div id="currentAvatarPreview" class="current-avatar-preview">
+          <img id="equippedAvatarImg" src="img/avatars/raccoon_happy.png" alt="Avatar Activo" class="equipped-img" />
+        </div>
+        <div id="currentAvatarName" class="avatar-name">Mapache Feliz</div>
+      </div>
+    </section>
+
+    <!-- Catálogo de Stickers -->
+    <section class="store-catalog">
+      <h2>Colección de Stickers y Skins</h2>
+      <div id="avatarCategories">
+        <!-- Renderizado dinámicamente por js/avatars.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Confirmación de Compra -->
+  <div id="confirmModal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <h3>Confirmar Desbloqueo</h3>
+      <div class="modal-avatar-preview">
+        <img id="modalAvatarImg" src="img/avatars/raccoon_happy.png" alt="Avatar" class="modal-img" />
+      </div>
+      <p id="modalAvatarName" class="modal-avatar-name">Nombre Avatar</p>
+      <p class="modal-price">Precio: 💎 <span id="modalAvatarPrice">0</span> V-Mapaches</p>
+      <div class="modal-actions">
+        <button id="btnCancelBuy" class="btn-cancel" onclick="closeBuyModal()">Cancelar</button>
+        <button id="btnConfirmBuy" class="btn-confirm">Desbloquear 💎</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="js/transitions.js"></script>
+  <script type="module" src="js/avatars.js?v=2.3"></script>
 </body>
 </html>

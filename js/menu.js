@@ -37,7 +37,12 @@ onAuthStateChanged(auth, async (user) => {
 
   // 3. Avatar en el Header
   const avatarEl = document.getElementById("userAvatar");
-  if (avatarEl) avatarEl.textContent = getAvatarEmoji();
+  const avatarImgEl = document.getElementById("userAvatarImg");
+  if (avatarImgEl) {
+    avatarImgEl.src = getAvatarImg();
+  } else if (avatarEl) {
+    avatarEl.textContent = getAvatarEmoji();
+  }
 
   // 4. Estadísticas del HUD
   const userLevelEl = document.getElementById("userLevel");
