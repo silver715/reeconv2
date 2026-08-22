@@ -186,7 +186,7 @@ export async function addXP(amount) {
 
 /* ── Sistema de avatares ── */
 
-/* Comprar un avatar con V-Mapaches.
+/* ── Comprar un avatar con V-Mapaches ──
    Verifica que el usuario tenga suficientes V-Mapaches y que no lo tenga ya.
    Retorna { success, message } */
 export async function buyAvatar(avatarId) {
@@ -195,31 +195,43 @@ export async function buyAvatar(avatarId) {
   if (!avatar) return { success: false, message: 'Avatar no encontrado' };
 
   if (_cache.unlockedAvatars.includes(avatarId)) {
-    return { success: false, message: 'Ya tienes este avatar' };
+    return { success: false, message: 'Ya tienes este avatar desbloqueado' };
   }
 
   if (_cache.vb < avatar.cost) {
     return { success: false, message: `Necesitas ${avatar.cost} V-Mapaches (tienes ${_cache.vb})` };
   }
 
+  // Descontar V-Mapaches y registrar avatar
   _cache.vb -= avatar.cost;
-  _cache.unlockedAvatars.push(avatarId);
-  await persist();
+  if (!_cache.unlockedAvatars.includes(avatarId)) {
+    _cache.unlockedAvatars.push(avatarId);
+  }
+  _cache.avatar = avatarId;
+  persistAsync();
 
-  return { success: true, message: `¡${avatar.name} desbloqueado! 🎉` };
+  return { success: true, message: `¡${avatar.name} desbloqueado y equipado! 🎉` };
 }
 
 /* Equipar un avatar ya desbloqueado.
    Retorna { success, message } */
 export async function setAvatar(avatarId) {
   assertReady();
-  if (!_cache.unlockedAvatars.includes(avatarId)) {
+  const avatar = AVATARS.find(a => a.id === avatarId);
+  if (!avatar) return { success: false, message: 'Avatar no encontrado' };
+
+  const isFree = avatar.cost === 0;
+  if (!isFree && !_cache.unlockedAvatars.includes(avatarId)) {
     return { success: false, message: 'No tienes este avatar desbloqueado' };
   }
 
+  if (!_cache.unlockedAvatars.includes(avatarId)) {
+    _cache.unlockedAvatars.push(avatarId);
+  }
+
   _cache.avatar = avatarId;
-  await persist();
-  return { success: true, message: 'Avatar equipado ✨' };
+  persistAsync();
+  return { success: true, message: '¡Avatar equipado! ✨' };
 }
 
 /* Obtener el emoji del avatar activo */

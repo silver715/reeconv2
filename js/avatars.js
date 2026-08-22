@@ -1,9 +1,9 @@
 /* ==============================================
-   AVATAR STORE CONTROLLER — js/avatars.js (v2.3)
+   AVATAR STORE CONTROLLER — js/avatars.js (v2.5)
    Tienda y equipamiento de los 9 stickers de mapache.
    ============================================== */
 
-import { auth } from './firebase-config.js?v=2.4';
+import { auth } from './firebase-config.js?v=2.5';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import { 
   initXP, 
@@ -14,7 +14,7 @@ import {
   setAvatar, 
   AVATARS, 
   getAvatarData 
-} from './xp.js?v=2.4';
+} from './xp.js?v=2.5';
 
 // Variables de estado
 let currentVB = 0;
@@ -32,8 +32,59 @@ const modalAvatarImg = document.getElementById('modalAvatarImg');
 const modalAvatarName = document.getElementById('modalAvatarName');
 const modalAvatarPrice = document.getElementById('modalAvatarPrice');
 const btnConfirmBuy = document.getElementById('btnConfirmBuy');
-const btnCancelBuy = document.getElementById('btnCancelBuy');
 const toast = document.getElementById('toast');
+
+// Registro de funciones globales para eventos de click
+window.handleEquip = async (avatarId) => {
+  try {
+    const res = await setAvatar(avatarId);
+    if (res.success) {
+      showToast(res.message || '¡Avatar equipado! ✨');
+      renderStore();
+    } else {
+      showToast(res.message || 'No se pudo equipar el avatar');
+    }
+  } catch (err) {
+    console.error('[Equip Error]:', err);
+  }
+};
+
+window.openBuyModal = (avatarId) => {
+  const av = AVATARS.find(a => a.id === avatarId);
+  if (!av) return;
+
+  selectedAvatarToBuy = av;
+  if (modalAvatarImg) modalAvatarImg.src = av.img;
+  if (modalAvatarName) modalAvatarName.textContent = av.name;
+  if (modalAvatarPrice) modalAvatarPrice.textContent = av.cost;
+
+  if (confirmModal) confirmModal.classList.remove('hidden');
+};
+
+window.closeBuyModal = () => {
+  if (confirmModal) confirmModal.classList.add('hidden');
+  selectedAvatarToBuy = null;
+};
+
+if (btnConfirmBuy) {
+  btnConfirmBuy.addEventListener('click', async () => {
+    if (!selectedAvatarToBuy) return;
+    try {
+      const res = await buyAvatar(selectedAvatarToBuy.id);
+      if (res.success) {
+        window.closeBuyModal();
+        showToast(res.message || `¡Has desbloqueado ${selectedAvatarToBuy.name}! 🎉`);
+        renderStore();
+      } else {
+        alert(res.message || 'No tienes suficientes V-Mapaches.');
+        window.closeBuyModal();
+      }
+    } catch (err) {
+      console.error('[Store Error]:', err);
+      window.closeBuyModal();
+    }
+  });
+}
 
 // Inicialización con Auth
 onAuthStateChanged(auth, async (user) => {
@@ -101,12 +152,12 @@ function renderStore() {
       if (isEquipped) {
         btnHtml = `<button class="btn-card btn-equipped" disabled>Equipado ✨</button>`;
       } else if (isOwned) {
-        btnHtml = `<button class="btn-card btn-equip" onclick="handleEquip('${av.id}')">Equipar</button>`;
+        btnHtml = `<button class="btn-card btn-equip" onclick="window.handleEquip('${av.id}')">Equipar</button>`;
       } else {
         const costLabel = av.cost === 0 ? 'Gratis' : `${av.cost} 💎`;
         btnHtml = `
           <button class="btn-card btn-buy ${!canAfford ? 'disabled' : ''}" 
-                  onclick="openBuyModal('${av.id}')"
+                  onclick="window.openBuyModal('${av.id}')"
                   ${!canAfford ? 'disabled' : ''}>
             Desbloquear (${costLabel})
           </button>
@@ -131,55 +182,6 @@ function renderStore() {
     avatarCategories.appendChild(catSection);
   }
 }
-
-// Modal de compra
-window.openBuyModal = (avatarId) => {
-  const av = AVATARS.find(a => a.id === avatarId);
-  if (!av) return;
-
-  selectedAvatarToBuy = av;
-  if (modalAvatarImg) modalAvatarImg.src = av.img;
-  if (modalAvatarName) modalAvatarName.textContent = av.name;
-  if (modalAvatarPrice) modalAvatarPrice.textContent = av.cost;
-
-  if (confirmModal) confirmModal.classList.remove('hidden');
-};
-
-window.closeBuyModal = () => {
-  if (confirmModal) confirmModal.classList.add('hidden');
-  selectedAvatarToBuy = null;
-};
-
-if (btnConfirmBuy) {
-  btnConfirmBuy.addEventListener('click', async () => {
-    if (!selectedAvatarToBuy) return;
-    try {
-      const res = await buyAvatar(selectedAvatarToBuy.id);
-      if (res.success) {
-        await setAvatar(selectedAvatarToBuy.id); // Equipar automáticamente al comprar
-        window.closeBuyModal();
-        showToast(res.message || `¡Has desbloqueado ${selectedAvatarToBuy.name}! 🎉`);
-        renderStore();
-      } else {
-        alert(res.message || 'No tienes suficientes V-Mapaches.');
-        window.closeBuyModal();
-      }
-    } catch (err) {
-      console.error('[Store Error]:', err);
-      window.closeBuyModal();
-    }
-  });
-}
-
-window.handleEquip = async (avatarId) => {
-  try {
-    const res = await setAvatar(avatarId);
-    showToast(res.message || '¡Avatar equipado! ✨');
-    renderStore();
-  } catch (err) {
-    console.error('[Equip Error]:', err);
-  }
-};
 
 function showToast(msg) {
   if (!toast) return;
