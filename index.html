@@ -3,203 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racoon Teacher 🦝 — Menú Principal</title>
+  <title>Racoon Teacher 🦝 — Panel Principal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/transitions.css">
-  <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--bg); color: var(--text);
-      min-height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; padding: 20px;
-    }
-    .menu-header { text-align: center; margin-bottom: 40px; }
-    .menu-header .avatar {
-      font-size: 64px; display: block; margin-bottom: 12px;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
-    }
-    .menu-header h1 {
-      font-family: 'Baloo 2', cursive; font-size: 2.4rem; font-weight: 800;
-      background: linear-gradient(135deg, #7b6fff, #a89fff);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .welcome-msg { margin-top: 8px; color: var(--text2); font-size: 1rem; }
-    .welcome-msg span { color: var(--gold); font-weight: 700; }
-
-    /* ── Badge de racha diaria ── */
-    .streak-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 12px; padding: 6px 16px;
-      background: rgba(245,200,66,0.1);
-      border: 1px solid rgba(245,200,66,0.3);
-      border-radius: 20px; font-size: 0.85rem; font-weight: 700;
-      color: var(--gold); animation: fadeUp 0.5s ease;
-    }
-    .streak-badge.no-streak { display: none; }
-    .streak-bonus {
-      font-size: 0.75rem; color: var(--purple2);
-      background: rgba(123,111,255,0.15);
-      padding: 2px 8px; border-radius: 10px;
-      margin-left: 4px;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .menu-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px; max-width: 700px; width: 100%;
-    }
-    .menu-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 20px; text-align: center; cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-      text-decoration: none; color: inherit; display: block;
-    }
-    .menu-card:hover {
-      transform: translateY(-4px); border-color: var(--purple);
-      box-shadow: 0 8px 24px rgba(123,111,255,0.2);
-    }
-    .menu-card .card-icon { font-size: 44px; display: block; margin-bottom: 12px; }
-    .menu-card h3 {
-      font-family: 'Baloo 2', cursive; font-size: 1.15rem;
-      font-weight: 700; margin-bottom: 6px; color: var(--text);
-    }
-    .menu-card p { font-size: 0.82rem; color: var(--text2); line-height: 1.4; }
-
-    .logout-btn {
-      margin-top: 36px; background: transparent;
-      border: 1px solid rgba(255,80,80,0.3); color: rgba(255,120,120,0.8);
-      border-radius: 8px; padding: 10px 28px; font-size: 0.9rem;
-      font-family: 'Nunito', sans-serif; cursor: pointer; transition: all 0.2s;
-    }
-    .logout-btn:hover { border-color: #ff5050; color: #ff5050; background: rgba(255,80,80,0.08); }
-
-    /* ── MODAL DE GRADO ── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 200;
-      background: rgba(5,5,15,0.88); backdrop-filter: blur(6px);
-      align-items: center; justify-content: center; padding: 20px;
-    }
-    .modal-overlay.show { display: flex; }
-
-    .modal-box {
-      background: #111128; border: 1px solid rgba(123,111,255,0.3);
-      border-radius: 20px; padding: 32px 28px;
-      width: 100%; max-width: 400px; text-align: center;
-      animation: modalIn 0.25s cubic-bezier(0.22,1,0.36,1);
-    }
-    @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.92) translateY(16px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .modal-icon { font-size: 52px; display: block; margin-bottom: 10px; }
-    .modal-title {
-      font-family: 'Baloo 2', cursive; font-size: 1.4rem;
-      font-weight: 800; color: var(--text); margin-bottom: 6px;
-    }
-    .modal-sub { font-size: 0.85rem; color: var(--text2); margin-bottom: 24px; line-height: 1.5; }
-
-    .grade-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 10px; margin-bottom: 20px;
-    }
-    .grade-grid .grade-btn:last-child:nth-child(3n+1) {
-      grid-column: 1 / -1; max-width: 130px; margin: 0 auto;
-    }
-
-    .grade-btn {
-      background: #1a1a2e; border: 1.5px solid rgba(123,111,255,0.2);
-      border-radius: 12px; padding: 14px 8px; color: var(--text);
-      font-family: 'Baloo 2', cursive; font-weight: 700; font-size: 0.85rem;
-      cursor: pointer; transition: all 0.18s;
-      display: flex; flex-direction: column; align-items: center; gap: 5px;
-    }
-    .grade-btn .g-icon { font-size: 1.5rem; }
-    .grade-btn:hover {
-      border-color: var(--purple); background: rgba(123,111,255,0.12);
-      color: var(--purple2); transform: translateY(-2px);
-    }
-
-    .modal-cancel {
-      background: transparent; border: none; color: var(--text2);
-      font-size: 0.85rem; font-family: 'Nunito', sans-serif;
-      cursor: pointer; padding: 6px 12px; transition: color 0.2s;
-    }
-    .modal-cancel:hover { color: var(--text); }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2.1">
+  <link rel="stylesheet" href="css/transitions.css?v=2.1">
 </head>
 <body>
 
-  <div class="menu-header">
-    <span class="avatar" id="userAvatar">🦝</span>
-    <h1>Racoon Teacher</h1>
-    <p class="welcome-msg">Hola, <span id="userName">Estudiante</span> — ¿qué aprendemos hoy?</p>
-    <div class="streak-badge no-streak" id="streakBadge">
-      🔥 Racha: <span id="streakCount">0</span> días
-      <span class="streak-bonus" id="streakBonus"></span>
-    </div>
+  <div class="dashboard-container">
+
+    <!-- ── HUD HERO BANNER DEL ESTUDIANTE ── -->
+    <header class="profile-hero">
+      <div class="profile-hero-left">
+        <div class="hero-avatar-box">
+          <span id="userAvatar">🦝</span>
+        </div>
+        <div class="hero-title-group">
+          <h1>Racoon Teacher</h1>
+          <p class="hero-welcome">¡Hola, <strong id="userName">Estudiante</strong>! — ¿Qué aprendemos hoy? ✨</p>
+        </div>
+      </div>
+
+      <div class="profile-hud-stats">
+        <div class="hud-pill streak no-streak" id="streakBadge">
+          🔥 Racha: <span id="streakCount">0</span> días
+          <span class="streak-bonus" id="streakBonus"></span>
+        </div>
+        <div class="hud-pill lvl">
+          ⚔️ Nivel <span id="userLevel">1</span>
+        </div>
+        <div class="hud-pill coins">
+          💎 <span id="userVB">0</span> V-M
+        </div>
+        <button class="logout-link" onclick="handleLogout()" title="Cerrar Sesión">🚪 Salir</button>
+      </div>
+    </header>
+
+    <!-- ── SECCIÓN 1: MATERIAS CON TUTOR IA ── -->
+    <section>
+      <div class="section-header">
+        <h2>📚 Materias Escolares — Tutor IA 🦝</h2>
+        <p>Selecciona una materia para chatear con el Profe Mapache y resolver cualquier ejercicio paso a paso.</p>
+      </div>
+
+      <div class="subjects-grid">
+        <!-- Matemáticas -->
+        <a class="dashboard-card card-math" onclick="selectSubject('math', '📐', 'Matemáticas')">
+          <span class="card-badge">Tutor IA 🤖</span>
+          <div class="card-icon-box">📐</div>
+          <h3>Matemáticas</h3>
+          <p>Sumas, restas, multiplicaciones, fracciones y geometría explicadas con ejemplos fáciles.</p>
+          <span class="card-action-hint">Entrar al Aula →</span>
+        </a>
+
+        <!-- Español -->
+        <a class="dashboard-card card-spanish" onclick="selectSubject('spanish', '✍️', 'Español')">
+          <span class="card-badge">Tutor IA 🤖</span>
+          <div class="card-icon-box">✍️</div>
+          <h3>Español</h3>
+          <p>Gramática, sustantivos, verbos, ortografía y comprensión de lectura divertida.</p>
+          <span class="card-action-hint">Entrar al Aula →</span>
+        </a>
+
+        <!-- Inglés -->
+        <a class="dashboard-card card-english" onclick="selectSubject('english', '🌐', 'Inglés')">
+          <span class="card-badge">Tutor IA 🤖</span>
+          <div class="card-icon-box">🌐</div>
+          <h3>Inglés</h3>
+          <p>Vocabulario, saludos, colores, números, frases y pronunciación básica.</p>
+          <span class="card-action-hint">Entrar al Aula →</span>
+        </a>
+
+        <!-- Ciencias Naturales -->
+        <a class="dashboard-card card-science" onclick="selectSubject('science', '🌱', 'Ciencias Naturales')">
+          <span class="card-badge">Tutor IA 🤖</span>
+          <div class="card-icon-box">🌱</div>
+          <h3>Ciencias</h3>
+          <p>Plantas, animales, seres vivos, cuerpo humano, la Tierra y el sistema solar.</p>
+          <span class="card-action-hint">Entrar al Aula →</span>
+        </a>
+
+        <!-- Ciencias Sociales -->
+        <a class="dashboard-card card-social" onclick="selectSubject('social', '🗺️', 'Sociales')">
+          <span class="card-badge">Tutor IA 🤖</span>
+          <div class="card-icon-box">🗺️</div>
+          <h3>Sociales</h3>
+          <p>Historia, geografía, mapas, culturas del mundo, comunidad y democracia.</p>
+          <span class="card-action-hint">Entrar al Aula →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 2: GAMIFICACIÓN Y DESAFÍOS ── -->
+    <section>
+      <div class="section-header">
+        <h2>🎮 Centro de Gamificación y Desafíos</h2>
+        <p>Compite en trivias, acumula experiencia para subir de nivel y viste a tu mapache con avatares exclusivos.</p>
+      </div>
+
+      <div class="activities-grid">
+        <!-- Quiz -->
+        <a class="dashboard-card card-quiz" onclick="selectSubject('quiz', '📝', 'Quiz')" id="quizCard">
+          <span class="card-badge" style="color:var(--gold); border-color:rgba(245,200,66,0.3); background:rgba(245,200,66,0.12);">+200 XP Extra ⭐</span>
+          <div class="card-icon-box">📝</div>
+          <h3>Quizzes</h3>
+          <p>Responde 5 preguntas rápidas por materia, gana estrellas y sube tu puntuación.</p>
+          <span class="card-action-hint">Jugar Trivia →</span>
+        </a>
+
+        <!-- Pase de Batalla -->
+        <a class="dashboard-card card-bp" onclick="navigateTo('battlepass.html')">
+          <span class="card-badge">100 Niveles ⚔️</span>
+          <div class="card-icon-box">⚔️</div>
+          <h3>Pase de Batalla</h3>
+          <p>Desbloquea 29 recompensas, monedas V-Mapaches y títulos legendarios.</p>
+          <span class="card-action-hint">Ver Pase →</span>
+        </a>
+
+        <!-- Leaderboard -->
+        <a class="dashboard-card card-ranking" onclick="navigateTo('leaderboard.html')">
+          <span class="card-badge">Top Global 🏆</span>
+          <div class="card-icon-box">🏆</div>
+          <h3>Ranking</h3>
+          <p>Compite con otros compañeros en tiempo real y sube al podio de honor.</p>
+          <span class="card-action-hint">Ver Tabla →</span>
+        </a>
+
+        <!-- Tienda de Avatares -->
+        <a class="dashboard-card card-avatars" onclick="navigateTo('avatars.html')">
+          <span class="card-badge">10 Personajes 🎭</span>
+          <div class="card-icon-box">🎭</div>
+          <h3>Tienda</h3>
+          <p>Usa tus V-Mapaches ganados para desbloquear skins temáticas y especiales.</p>
+          <span class="card-action-hint">Ir a Tienda →</span>
+        </a>
+      </div>
+    </section>
+
   </div>
 
-  <div class="menu-grid">
-    <a class="menu-card" onclick="selectSubject('math', '📐', 'Matemáticas')">
-      <span class="card-icon">📐</span>
-      <h3>Matemáticas</h3>
-      <p>Resuelve ejercicios y dudas con el profe mapache</p>
-    </a>
-    <a class="menu-card" onclick="selectSubject('spanish', '✍️', 'Español')">
-      <span class="card-icon">✍️</span>
-      <h3>Español</h3>
-      <p>Gramática, ortografía y comprensión de lectura</p>
-    </a>
-    <a class="menu-card" onclick="selectSubject('english', '🌐', 'Inglés')">
-      <span class="card-icon">🌐</span>
-      <h3>Inglés</h3>
-      <p>Practica vocabulario, verbos y frases en inglés</p>
-    </a>
-    <a class="menu-card" onclick="selectSubject('science', '🌱', 'Ciencias Naturales')">
-      <span class="card-icon">🌱</span>
-      <h3>Ciencias Naturales</h3>
-      <p>Explora plantas, animales, el cuerpo y el universo</p>
-    </a>
-    <a class="menu-card" onclick="selectSubject('social', '🗺️', 'Sociales')">
-      <span class="card-icon">🗺️</span>
-      <h3>Sociales</h3>
-      <p>Historia, geografía, culturas y gobierno</p>
-    </a>
-    <a class="menu-card" onclick="selectSubject('quiz', '📝', 'Quiz')" id="quizCard">
-      <span class="card-icon">📝</span>
-      <h3>Quiz</h3>
-      <p>Pon a prueba tus conocimientos y gana XP extra</p>
-    </a>
-    <a class="menu-card" onclick="navigateTo('battlepass.html')">
-      <span class="card-icon">⚔️</span>
-      <h3>Pase de Batalla</h3>
-      <p>Tu progreso, logros y recompensas</p>
-    </a>
-    <a class="menu-card" onclick="navigateTo('leaderboard.html')">
-      <span class="card-icon">🏆</span>
-      <h3>Ranking</h3>
-      <p>Compite con otros estudiantes por el primer lugar</p>
-    </a>
-    <a class="menu-card" onclick="navigateTo('avatars.html')">
-      <span class="card-icon">🎭</span>
-      <h3>Avatares</h3>
-      <p>Personaliza tu mapache con V-Mapaches</p>
-    </a>
-  </div>
-
-  <button class="logout-btn" onclick="handleLogout()">🚪 Cerrar sesión</button>
-
-  <!-- MODAL DE GRADO -->
+  <!-- ── MODAL DE GRADO Y MATERIA ── -->
   <div class="modal-overlay" id="gradeModal">
     <div class="modal-box">
       <span class="modal-icon" id="modalIcon">📐</span>
