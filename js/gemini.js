@@ -4,7 +4,7 @@
    de conversación (Multi-turn Context) y resiliencia.
    ============================================== */
 
-import { GEMINI_API_KEY, GEMINI_ENDPOINT } from './firebase-config.js?v=2.3';
+import { GEMINI_API_KEY, GEMINI_ENDPOINT } from './firebase-config.js?v=2.4';
 
 const subjectLabels = {
   math:    'Matemáticas',

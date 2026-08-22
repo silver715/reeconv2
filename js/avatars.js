@@ -3,7 +3,7 @@
    Tienda y equipamiento de los 9 stickers de mapache.
    ============================================== */
 
-import { auth } from './firebase-config.js?v=2.3';
+import { auth } from './firebase-config.js?v=2.4';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import { 
   initXP, 
@@ -14,7 +14,7 @@ import {
   setAvatar, 
   AVATARS, 
   getAvatarData 
-} from './xp.js?v=2.3';
+} from './xp.js?v=2.4';
 
 // Variables de estado
 let currentVB = 0;

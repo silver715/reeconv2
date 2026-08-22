@@ -1,13 +1,13 @@
 /* ==============================================
-   CHAT CONTROLLER — js/chat.js (v2.3 Multiturno)
+   CHAT CONTROLLER — js/chat.js (v2.4)
    Aula interactiva con memoria de sesión, renderizado
    Markdown enriquecido y respaldo pedagógico local.
    ============================================== */
 
-import { auth } from './firebase-config.js?v=2.3';
+import { auth } from './firebase-config.js?v=2.4';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { initXP, addXP, getStreakBonus, getAvatarEmoji, getAvatarImg } from './xp.js?v=2.3';
-import { askGemini } from './gemini.js?v=2.3';
+import { initXP, addXP, getStreakBonus, getAvatarEmoji, getAvatarImg } from './xp.js?v=2.4';
+import { askGemini } from './gemini.js?v=2.4';
 
 /* ── Nombres y etiquetas de materias ── */
 const modeNames = {
@@ -44,8 +44,22 @@ const conversationHistory = []; // Memoria de mensajes para la IA
 /* ── Elementos del DOM ── */
 const chatBox   = document.getElementById('chat');
 const input     = document.getElementById('input');
+const sendBtn   = document.getElementById('sendBtn');
 const typing    = document.getElementById('typing');
 const modeLabel = document.getElementById('modeLabel');
+
+/* ── Registrar función global y escuchadores de eventos ── */
+window.sendMessage = sendMessage;
+
+if (input) {
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
+}
+
+if (sendBtn) {
+  sendBtn.addEventListener('click', sendMessage);
+}
 
 /* ── Auth Guard y Bienvenida ── */
 onAuthStateChanged(auth, async (user) => {
@@ -59,7 +73,12 @@ onAuthStateChanged(auth, async (user) => {
   // Avatar personalizado en el header
   const avatarIconEl = document.getElementById("userAvatarIcon");
   if (avatarIconEl) {
-    avatarIconEl.innerHTML = `<img src="${getAvatarImg()}" alt="Avatar" style="width:30px; height:30px; object-fit:contain; vertical-align:middle;" />`;
+    try {
+      const imgSrc = (typeof getAvatarImg === 'function') ? getAvatarImg() : 'img/avatars/raccoon_happy.png';
+      avatarIconEl.innerHTML = `<img src="${imgSrc}" alt="Avatar" style="width:30px; height:30px; object-fit:contain; vertical-align:middle;" />`;
+    } catch {
+      avatarIconEl.textContent = getAvatarEmoji();
+    }
   }
 
   // Etiqueta de materia y placeholder
@@ -72,14 +91,6 @@ onAuthStateChanged(auth, async (user) => {
     addMessage('bot', greeting);
   }
 });
-
-/* ── Escuchadores de entrada ── */
-if (input) {
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
-  });
-}
-window.sendMessage = sendMessage;
 
 /* ── Formateador de Markdown para la UI ── */
 function formatMarkdown(text) {
@@ -140,6 +151,7 @@ async function sendMessage() {
 
   isSending = true;
   input.disabled = true;
+  if (sendBtn) sendBtn.disabled = true;
   addMessage('user', text);
   input.value = '';
   if (typing) typing.style.display = 'flex';
@@ -177,6 +189,7 @@ async function sendMessage() {
   } finally {
     if (typing) typing.style.display = 'none';
     input.disabled = false;
+    if (sendBtn) sendBtn.disabled = false;
     input.focus();
     isSending = false;
   }

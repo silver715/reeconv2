@@ -4,10 +4,10 @@
    racha diaria, modal de materias y selector de grado.
    ============================================== */
 
-import { auth, db } from './firebase-config.js?v=2.1';
+import { auth, db } from './firebase-config.js?v=2.4';
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { initXP, checkStreak, getStreakBonus, getAvatarEmoji, getLvl, getVB } from './xp.js?v=2.1';
+import { initXP, checkStreak, getStreakBonus, getAvatarEmoji, getAvatarImg, getLvl, getVB } from './xp.js?v=2.4';
 
 let pendingMode = null;
 let pendingIsQuiz = false;
