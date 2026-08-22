@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racoon Teacher 🦝 — Aprende jugando</title>
+  <title>Racoon Teacher 🦝 — Tutor Escolar con IA y Gamificación</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/landing.css">
-  <link rel="stylesheet" href="css/transitions.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing.css?v=2.5">
+  <link rel="stylesheet" href="css/transitions.css?v=2.5">
 </head>
 <body>
 
+  <!-- ── NAVEGACIÓN PRINCIPAL ── -->
   <nav>
-    <div class="nav-logo">
-      <img src="img/logo_raccoon.jpeg" alt="Racoon"> Racoon Teacher
+    <a href="#" class="nav-logo">
+      <img src="img/avatars/raccoon_happy.png" alt="Racoon Logo" class="nav-logo-icon">
+      Racoon Teacher
+    </a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Funciones</a>
+      <a href="#stickers" class="nav-link">Avatares</a>
+      <a href="#subjects" class="nav-link">Materias</a>
+      <a href="#how-it-works" class="nav-link">Cómo Funciona</a>
     </div>
-    <button class="nav-btn" onclick="goToLogin()">Iniciar sesión →</button>
+    <button class="nav-btn" onclick="goToLogin()">Ingresar al Aula →</button>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- ── HERO SECTION ── -->
+  <header class="hero">
     <div class="hero-bg">
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
@@ -27,124 +35,281 @@
     </div>
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-badge">✨ Tutor gratuito para primaria</div>
-        <h1>La forma <span class="line-accent">divertida,</span><br>efectiva y gratis<br>de aprender</h1>
-        <p class="hero-sub">Racoon Teacher es tu tutor mapache personal. Aprende <strong>Matemáticas, Español, Inglés, Ciencias y Sociales</strong> mientras subes de nivel y desbloqueas recompensas épicas.</p>
-        <button class="btn-primary" onclick="goToLogin()">🚀 Empieza ahora — es gratis</button>
-        <button class="btn-secondary" onclick="goToLogin()">Ya tengo una cuenta</button>
-      </div>
-      <div class="hero-image">
-        <img src="img/hero_raccoon.jpeg" alt="Mapache leyendo">
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Materias</div></div>
-    <div class="stat-item"><div class="stat-num gold">100</div><div class="stat-lbl">Niveles</div></div>
-    <div class="stat-item"><div class="stat-num green">29</div><div class="stat-lbl">Recompensas</div></div>
-  </div>
-
-  <!-- SPLIT 1: detective -->
-  <div class="split fade-in">
-    <div class="split-img">
-      <img src="img/feature_1.jpeg" alt="Mapache detective">
-    </div>
-    <div class="split-text">
-      <div class="section-tag">Método socrático</div>
-      <h2 class="section-title">Te guía, no te da<br>la respuesta 🕵️</h2>
-      <p class="section-sub">Como un buen detective, el mapache analiza tu duda y te hace las preguntas correctas para que tú mismo encuentres la solución. Aprenderás de verdad, no de memoria.</p>
-    </div>
-  </div>
-
-  <!-- SPLIT 2: reading gray (reverse) -->
-  <div class="split reverse fade-in" style="padding-top:0;">
-    <div class="split-img">
-      <img src="img/feature_2.jpeg" alt="Mapache con libro">
-    </div>
-    <div class="split-text">
-      <div class="section-tag">5 materias disponibles</div>
-      <h2 class="section-title">Un tutor para<br>todas tus materias 📚</h2>
-      <p class="section-sub">Matemáticas, Español, Inglés, Ciencias Naturales y Sociales. El mapache conoce el currículo de primaria y responde con pistas adaptadas a cada tema.</p>
-    </div>
-  </div>
-
-  <!-- FEATURES -->
-  <section class="features-section fade-in">
-    <div class="section-tag">Por qué funciona</div>
-    <h2 class="section-title">Aprender nunca fue<br>tan adictivo 🎮</h2>
-    <div class="features-grid">
-      <div class="feat-card"><span class="feat-icon">🧠</span><div class="feat-title">Aprende con pistas</div><div class="feat-desc">No te damos la respuesta directa — te guiamos paso a paso para que lo entiendas de verdad.</div></div>
-      <div class="feat-card"><span class="feat-icon">⚔️</span><div class="feat-title">Pase de Batalla</div><div class="feat-desc">Gana XP con cada pregunta y desbloquea skins, emotes y V-Mapaches al subir de nivel.</div></div>
-      <div class="feat-card"><span class="feat-icon">💎</span><div class="feat-title">V-Mapaches</div><div class="feat-desc">La moneda del aula. Gánalos respondiendo y úsalos para desbloquear recompensas premium.</div></div>
-  </section>
-
-  <!-- SUBJECTS -->
-  <section class="subjects-section fade-in">
-    <div class="section-tag">Materias</div>
-    <h2 class="section-title">5 materias, infinitas<br>dudas resueltas</h2>
-    <div class="subjects-grid">
-      <div class="subject-pill"><span class="s-icon">📐</span><div class="s-name">Matemáticas</div></div>
-      <div class="subject-pill"><span class="s-icon">✍️</span><div class="s-name">Español</div></div>
-      <div class="subject-pill"><span class="s-icon">🌐</span><div class="s-name">Inglés</div></div>
-      <div class="subject-pill"><span class="s-icon">🌱</span><div class="s-name">Ciencias</div></div>
-      <div class="subject-pill"><span class="s-icon">🗺️</span><div class="s-name">Sociales</div></div>
-      <div class="subject-pill" style="border-color:rgba(245,200,66,0.2)"><span class="s-icon">⭐</span><div class="s-name" style="color:var(--gold)">Próximamente</div></div>
-    </div>
-  </section>
-
-  <!-- BATTLEPASS -->
-  <div class="bp-preview fade-in">
-    <div class="bp-inner">
-      <div class="bp-raccoon">
-        <img src="img/logo_raccoon.jpeg" alt="Mapache celebrando">
-      </div>
-      <div class="bp-text">
-        <div class="bp-tag">⚔️ Temporada 1</div>
-        <h3>🦝 Pase de Batalla — Mapache Salvaje</h3>
-        <p>Cada respuesta te da XP. Sube de nivel y desbloquea skins épicas, emotes y V-Mapaches.</p>
-        <div class="rewards-row">
-          <div class="reward-chip">🦝</div>
-          <div class="reward-chip">💎</div>
-          <div class="reward-chip">🕺</div>
-          <div class="reward-chip">🌙</div>
-          <div class="reward-chip gold-chip">✨</div>
-          <div class="reward-chip gold-chip">👑</div>
-          <div class="reward-chip gold-chip">🏆</div>
+        <div class="hero-badge">✨ Plataforma Educativa Gamificada</div>
+        <h1>El tutor con IA que hace que aprender sea <span class="line-accent">divertido y motivador</span></h1>
+        <p class="hero-sub">
+          <strong>Racoon Teacher</strong> acompaña a estudiantes de primaria con explicaciones socráticas paso a paso en <strong>Matemáticas, Español, Inglés, Ciencias y Sociales</strong>, mientras ganan XP, suben en el ranking y desbloquean stickers exclusivos.
+        </p>
+        <div class="hero-cta-group">
+          <button class="btn-primary" onclick="goToLogin()">🚀 Empezar a Aprender — Gratis</button>
+          <button class="btn-secondary" onclick="goToLogin()">Ya tengo una cuenta</button>
         </div>
-        <button class="btn-primary" style="font-size:0.88rem;padding:11px 20px;" onclick="goToLogin()">Ver mi pase de batalla →</button>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-raccoon-card">
+          <img src="img/avatars/raccoon_happy.png" alt="Mapache Tutor" class="hero-raccoon-img">
+        </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- HOW IT WORKS -->
-  <section class="how-section fade-in">
-    <div class="section-tag">Cómo funciona</div>
-    <h2 class="section-title">En 3 pasos, listo 🚀</h2>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-text"><h4>Elige tu materia</h4><p>Entra al aula y selecciona la materia con la que necesitas ayuda hoy.</p></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-text"><h4>Hazle la pregunta al mapache</h4><p>Escribe tu duda o ejercicio. El profe mapache te guía con pistas sin darte la respuesta.</p></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-text"><h4>Gana XP y sube de nivel</h4><p>Cada mensaje te da puntos de experiencia. Desbloquea recompensas en el Pase de Batalla.</p></div></div>
+  <!-- ── BARRA DE ESTADÍSTICAS ── -->
+  <section class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num cyan">5</div>
+      <div class="stat-lbl">Materias con IA</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num gold">100</div>
+      <div class="stat-lbl">Niveles de Pase</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num green">29</div>
+      <div class="stat-lbl">Recompensas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">9</div>
+      <div class="stat-lbl">Skins de Mapache</div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="final-cta fade-in">
-    <div class="final-cta-inner">
-      <div class="final-raccoon">
-        <img src="img/hero_raccoon.jpeg" alt="Mapache">
+  <!-- ── CARACTERÍSTICAS PRINCIPALES (GRID 3x2) ── -->
+  <section class="section-wrapper fade-in" id="features">
+    <div class="section-header-center">
+      <div class="section-tag">Ecosistema Completo</div>
+      <h2 class="section-title">Aprender nunca fue tan adictivo 🎮</h2>
+      <p class="section-sub">Combinamos inteligencia artificial pedagógica con las mejores mecánicas de videojuegos para que los niños aprendan con entusiasmo.</p>
+    </div>
+
+    <div class="features-grid-6">
+      <!-- 1 -->
+      <div class="feat-card-modern">
+        <div class="feat-icon-box">🧠</div>
+        <h3>Tutor IA Socrático</h3>
+        <p>No damos la respuesta directa; guiamos al estudiante paso a paso con preguntas cotidianas para que comprenda los conceptos a fondo.</p>
       </div>
-      <h2>¿Listo para aprender<br>con el mapache?</h2>
-      <p>Gratis, sin registros complicados, sin internet.<br>Solo tú, tus dudas y el profe mapache.</p>
-      <div class="cta-btns">
-        <button class="btn-primary" onclick="goToLogin()">🚀 Empezar ahora — es gratis</button>
-        <button class="btn-secondary" onclick="goToLogin()">Ya tengo una cuenta</button>
+
+      <!-- 2 -->
+      <div class="feat-card-modern">
+        <div class="feat-icon-box">📝</div>
+        <h3>Quizzes con Estrellas</h3>
+        <p>Trivias interactivas de 5 preguntas por materia. Calificación inmediata, estrellas de rendimiento y bonificaciones de hasta +200 XP.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="feat-card-modern">
+        <div class="feat-icon-box">⚔️</div>
+        <h3>Pase de Batalla de 100 Niveles</h3>
+        <p>Cada ejercicio resuelto suma experiencia. Avanza de nivel y desbloquea skins, emotes, mochilas y monedas virtuales.</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="feat-card-modern">
+        <div class="feat-icon-box">💎</div>
+        <h3>Economía de V-Mapaches</h3>
+        <p>Moneda virtual educativa ganada por mérito académico. Úsala en la tienda para comprar tus disfraces y stickers favoritos.</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="feat-card-modern">
+        <div class="feat-icon-box">🏆</div>
+        <h3>Ranking y Podio Global</h3>
+        <p>Tabla de posiciones en tiempo real con podio de oro, plata y bronce para fomentar la sana competencia entre estudiantes.</p>
+      </div>
+
+      <!-- 6 -->
+      <div class="feat-card-modern">
+        <div class="feat-icon-box">🔥</div>
+        <h3>Racha Diaria Activa</h3>
+        <p>Motiva el hábito de estudio diario. Cada día consecutivo activo incrementa el multiplicador de puntos de experiencia extra.</p>
       </div>
     </div>
   </section>
 
-  <footer>🦝 Racoon Teacher — Hecho con ❤️ para estudiantes de primaria &nbsp;|&nbsp; Temporada 1: Mapache Salvaje</footer>
+  <!-- ── SHOWCASE DE AVATARES Y STICKERS ── -->
+  <section class="section-wrapper fade-in" id="stickers">
+    <div class="section-header-center">
+      <div class="section-tag">Personalización</div>
+      <h2 class="section-title">Colecciona los 9 Stickers del Mapache 🎭</h2>
+      <p class="section-sub">Desbloquea estilos únicos en la tienda y personaliza la apariencia de tu Profe Mapache en todo el sistema.</p>
+    </div>
+
+    <div class="stickers-showcase">
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_happy.png" alt="Feliz">
+        <div class="sticker-showcase-name">Feliz ✨</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_sleepy.png" alt="Dormilón">
+        <div class="sticker-showcase-name">Dormilón 💤</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_knife.png" alt="Fiero">
+        <div class="sticker-showcase-name">Fiero 🔪</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_sad.png" alt="Llorón">
+        <div class="sticker-showcase-name">Llorón 😢</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_trashcan.png" alt="Basurero">
+        <div class="sticker-showcase-name">Basurero 🗑️</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_ghost.png" alt="Fantasma">
+        <div class="sticker-showcase-name">Fantasma 👻</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_bandaid.png" alt="Valiente">
+        <div class="sticker-showcase-name">Valiente 🩹</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_skeleton.png" alt="Calavera">
+        <div class="sticker-showcase-name">Calavera 💀</div>
+      </div>
+      <div class="sticker-showcase-card">
+        <img src="img/avatars/raccoon_melt.png" alt="Derretido">
+        <div class="sticker-showcase-name">Derretido 🫠</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MATERIAS ESCOLARES ── -->
+  <section class="section-wrapper fade-in" id="subjects">
+    <div class="section-header-center">
+      <div class="section-tag">Currículo Escolar</div>
+      <h2 class="section-title">5 materias, infinitas dudas resueltas 📚</h2>
+      <p class="section-sub">El mapache adapta su lenguaje y complejidad pedagógica según el grado escolar del estudiante (Transición a 4°).</p>
+    </div>
+
+    <div class="subjects-grid-landing">
+      <div class="subject-card-landing">
+        <span class="s-icon-large">📐</span>
+        <h4>Matemáticas</h4>
+        <p>Sumas, restas, tablas de multiplicar, fracciones y lógica con figuras.</p>
+      </div>
+
+      <div class="subject-card-landing">
+        <span class="s-icon-large">✍️</span>
+        <h4>Español</h4>
+        <p>Gramática, sustantivos, verbos, oraciones y ortografía divertida.</p>
+      </div>
+
+      <div class="subject-card-landing">
+        <span class="s-icon-large">🌐</span>
+        <h4>Inglés</h4>
+        <p>Vocabulario, saludos, colores, números y frases cotidianas en inglés.</p>
+      </div>
+
+      <div class="subject-card-landing">
+        <span class="s-icon-large">🌱</span>
+        <h4>Ciencias</h4>
+        <p>Seres vivos, plantas, ecosistemas, el cuerpo humano y el universo.</p>
+      </div>
+
+      <div class="subject-card-landing">
+        <span class="s-icon-large">🗺️</span>
+        <h4>Sociales</h4>
+        <p>Historia, geografía, mapas, culturas del mundo y vida en comunidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CÓMO FUNCIONA ── -->
+  <section class="section-wrapper fade-in" id="how-it-works">
+    <div class="section-header-center">
+      <div class="section-tag">Paso a Paso</div>
+      <h2 class="section-title">Empieza a aprender en 3 pasos 🚀</h2>
+      <p class="section-sub">Una experiencia diseñada para ser intuitiva y accesible desde computadores, tablets o teléfonos móviles.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card-modern">
+        <div class="step-number">01</div>
+        <h4>Elige tu Materia y Grado</h4>
+        <p>Selecciona la asignatura que necesitas repasar y el mapache calibrará sus explicaciones a tu nivel escolar.</p>
+      </div>
+
+      <div class="step-card-modern">
+        <div class="step-number">02</div>
+        <h4>Pregunta o Juega un Quiz</h4>
+        <p>Escribe cualquier ejercicio o responde trivias interactivas para poner a prueba tus conocimientos al instante.</p>
+      </div>
+
+      <div class="step-card-modern">
+        <div class="step-number">03</div>
+        <h4>Gana XP y Desbloquea Skins</h4>
+        <p>Sube de nivel en el Pase de Batalla, acumula V-Mapaches y viste a tu mapache con los mejores avatares.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BANNER FINAL CTA ── -->
+  <section class="final-cta-section fade-in">
+    <div class="final-cta-card">
+      <h2>¿Listo para aprender con el Mapache? 🦝</h2>
+      <p>Plataforma gratuita, interactiva y 100% segura para niños. Crea tu cuenta o inicia sesión en segundos.</p>
+      <div class="hero-cta-group" style="justify-content:center;">
+        <button class="btn-primary" onclick="goToLogin()">🚀 Crear Cuenta / Iniciar Sesión</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER COMPLETO Y MODERNO ── -->
+  <footer>
+    <div class="footer-inner">
+      <!-- Columna 1: Marca & Misión -->
+      <div class="footer-brand">
+        <h3>
+          <img src="img/avatars/raccoon_happy.png" alt="Logo" style="width:32px; height:32px; object-fit:contain;">
+          Racoon Teacher
+        </h3>
+        <p>Plataforma educativa interactiva con inteligencia artificial y gamificación diseñada para transformar el aprendizaje en la educación primaria.</p>
+        <div class="footer-badge-safe">🛡️ 100% Seguro para Niños · Sin Anuncios</div>
+      </div>
+
+      <!-- Columna 2: Materias -->
+      <div class="footer-col">
+        <h4>📚 Materias IA</h4>
+        <ul>
+          <li><a onclick="goToLogin()">📐 Matemáticas</a></li>
+          <li><a onclick="goToLogin()">✍️ Español</a></li>
+          <li><a onclick="goToLogin()">🌐 Inglés</a></li>
+          <li><a onclick="goToLogin()">🌱 Ciencias Naturales</a></li>
+          <li><a onclick="goToLogin()">🗺️ Ciencias Sociales</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Gamificación -->
+      <div class="footer-col">
+        <h4>🎮 Gamificación</h4>
+        <ul>
+          <li><a onclick="goToLogin()">⚔️ Pase de Batalla</a></li>
+          <li><a onclick="goToLogin()">📝 Quizzes Interactivos</a></li>
+          <li><a onclick="goToLogin()">🏆 Ranking Global</a></li>
+          <li><a onclick="goToLogin()">🎭 Tienda de Avatares</a></li>
+          <li><a onclick="goToLogin()">🔥 Racha Diaria</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Proyecto & Grados -->
+      <div class="footer-col">
+        <h4>🎓 Grados Escolares</h4>
+        <ul>
+          <li><a onclick="goToLogin()">Transición y Preescolar</a></li>
+          <li><a onclick="goToLogin()">Primero y Segundo</a></li>
+          <li><a onclick="goToLogin()">Tercero y Cuarto</a></li>
+          <li><a onclick="goToLogin()">Acceso Docentes y Padres</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Racoon Teacher. Todos los derechos reservados.</div>
+      <div>Proyecto de Grado · Educación Primaria con IA & Gamificación</div>
+    </div>
+  </footer>
 
   <script src="js/transitions.js"></script>
   <script>
