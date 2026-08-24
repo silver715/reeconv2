@@ -58,6 +58,11 @@ REGLAS DE RESPUESTA:
     }
   };
 
+  if (!GEMINI_API_KEY || GEMINI_API_KEY === "TU_GEMINI_API_KEY_AQUI" || GEMINI_API_KEY.trim().length === 0) {
+    console.info("[Gemini] No se ha configurado una API Key válida en js/env.js ni en localStorage ('rt_gemini_key'). Usando motor pedagógico local.");
+    return null;
+  }
+
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 12000);

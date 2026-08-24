@@ -141,22 +141,62 @@ function showResults() {
     document.getElementById('quizScreen').classList.add('hidden');
     document.getElementById('resultsScreen').classList.remove('hidden');
     document.getElementById('progressBar').style.width = `100%`;
-    
+
+    const modeNames = {
+        math: 'Matemáticas',
+        spanish: 'Español',
+        english: 'Inglés',
+        science: 'Ciencias',
+        social: 'Sociales'
+    };
+    const subjectName = modeNames[mode] || 'esta materia';
+
+    const avatarImg   = document.getElementById('resultsAvatar');
+    const badgeEl     = document.getElementById('resultsBadge');
+    const titleEl     = document.getElementById('resultsTitle');
+    const subtitleEl  = document.getElementById('resultsSubtitle');
+    const starsEl     = document.getElementById('starsContainer');
+    const scoreEl     = document.getElementById('scoreText');
+    const xpEl        = document.getElementById('xpEarnedText');
+    const accuracyEl  = document.getElementById('accuracyText');
+
     let starsHtml = '';
-    if (score === 5) starsHtml = '⭐⭐⭐';
-    else if (score === 4) starsHtml = '⭐⭐';
-    else if (score >= 3) starsHtml = '⭐';
-    else starsHtml = 'Sigue practicando 🦊';
-    
-    document.getElementById('starsContainer').innerHTML = starsHtml;
-    document.getElementById('scoreText').textContent = `Puntaje: ${score} / 5`;
-    
     let xp = score * 100;
-    if (score === 5) xp += 200; // Perfect bonus
-    
-    document.getElementById('xpEarnedText').textContent = `+${xp} XP`;
-    
-    // Call addXP
+    const accuracy = Math.round((score / 5) * 100);
+
+    if (score === 5) {
+        starsHtml = '⭐⭐⭐';
+        xp += 200; // Bonus por puntaje perfecto (+700 XP total)
+        if (titleEl) titleEl.textContent = '¡Puntaje Perfecto! 👑';
+        if (subtitleEl) subtitleEl.textContent = `¡Dominas ${subjectName} como todo un maestro!`;
+        if (avatarImg) avatarImg.src = 'img/avatars/raccoon_happy.png';
+        if (badgeEl) badgeEl.textContent = '🏆';
+    } else if (score >= 4) {
+        starsHtml = '⭐⭐';
+        if (titleEl) titleEl.textContent = '¡Excelente Trabajo! 🎉';
+        if (subtitleEl) subtitleEl.textContent = `¡Muy buen desempeño en ${subjectName}!`;
+        if (avatarImg) avatarImg.src = 'img/avatars/raccoon_happy.png';
+        if (badgeEl) badgeEl.textContent = '🌟';
+    } else if (score >= 3) {
+        starsHtml = '⭐';
+        if (titleEl) titleEl.textContent = '¡Buen Esfuerzo! 👏';
+        if (subtitleEl) subtitleEl.textContent = `Vas por buen camino, ¡sigue practicando ${subjectName}!`;
+        if (avatarImg) avatarImg.src = 'img/avatars/raccoon_happy.png';
+        if (badgeEl) badgeEl.textContent = '👍';
+    } else {
+        starsHtml = '🩶🩶🩶';
+        if (titleEl) titleEl.textContent = '¡No te Rindas! 💪';
+        if (subtitleEl) subtitleEl.textContent = `El Profe Mapache te ayudará a repasar ${subjectName}.`;
+        if (avatarImg) avatarImg.src = 'img/avatars/raccoon_sad.png';
+        if (badgeEl) badgeEl.textContent = '🩹';
+    }
+
+    if (starsEl) starsEl.innerHTML = starsHtml;
+    if (scoreEl) scoreEl.textContent = `${score} / 5`;
+    if (xpEl) xpEl.textContent = `+${xp} XP`;
+    if (accuracyEl) accuracyEl.textContent = `${accuracy}%`;
+
+    // Conceder XP al estudiante
     addXP(xp);
 }
 

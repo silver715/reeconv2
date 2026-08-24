@@ -171,10 +171,51 @@
       color: var(--purple2);
     }
 
+    .hud-pill.vb,
     .hud-pill.coins {
       background: rgba(0, 229, 255, 0.12);
       border: 1px solid rgba(0, 229, 255, 0.4);
       color: var(--cyan);
+    }
+
+    .hud-action-btn {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hud-action-btn.profile-btn {
+      background: rgba(123, 111, 255, 0.15);
+      border: 1px solid rgba(123, 111, 255, 0.4);
+      color: var(--purple2);
+    }
+    .hud-action-btn.profile-btn:hover {
+      background: rgba(123, 111, 255, 0.3);
+      border-color: var(--purple);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .hud-action-btn.admin-btn {
+      background: rgba(245, 200, 66, 0.15);
+      border: 1px solid rgba(245, 200, 66, 0.4);
+      color: var(--gold);
+    }
+    .hud-action-btn.admin-btn:hover {
+      background: rgba(245, 200, 66, 0.3);
+      border-color: var(--gold);
+      color: #ffffff;
+      transform: translateY(-2px);
     }
 
     .logout-link {
@@ -192,6 +233,123 @@
     .logout-link:hover {
       background: rgba(255, 80, 80, 0.2);
       border-color: #ff5050;
+      color: #ffffff;
+    }
+
+    /* ── ESTILOS DEL MODAL DE PERFIL Y SEGURIDAD ── */
+    .profile-modal-box {
+      background: #111128;
+      border: 1px solid rgba(123, 111, 255, 0.35);
+      border-radius: 24px;
+      padding: 32px 28px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(123, 111, 255, 0.2);
+      animation: modalIn 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .profile-tab-nav {
+      display: flex;
+      background: var(--surface2);
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .profile-tab-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      color: var(--text2);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 10px 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .profile-tab-btn.active {
+      background: var(--purple);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(123, 111, 255, 0.35);
+    }
+
+    .profile-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .profile-form-group label {
+      font-size: 0.82rem;
+      color: var(--text2);
+      font-weight: 600;
+    }
+
+    .profile-form-group input,
+    .profile-form-group select {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .profile-form-group input:focus,
+    .profile-form-group select:focus {
+      border-color: var(--purple);
+    }
+
+    .btn-save-profile {
+      background: linear-gradient(135deg, var(--purple), #5b46e0);
+      border: 1px solid var(--purple2);
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 20px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(123, 111, 255, 0.35);
+    }
+
+    .btn-save-profile:hover {
+      background: linear-gradient(135deg, #8d82ff, #6a53f0);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(123, 111, 255, 0.5);
+    }
+
+    .profile-alert {
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .profile-alert.success {
+      display: block;
+      background: rgba(0, 230, 118, 0.15);
+      border: 1px solid var(--green);
+      color: #ffffff;
+    }
+
+    .profile-alert.error {
+      display: block;
+      background: rgba(255, 71, 87, 0.15);
+      border: 1px solid #ff4757;
       color: #ffffff;
     }
 
@@ -479,9 +637,11 @@
         <div class="hud-pill lvl">
           ⚔️ Nivel <span id="userLevel">1</span>
         </div>
-        <div class="hud-pill coins">
+        <div class="hud-pill vb">
           💎 <span id="userVB">0</span> V-M
         </div>
+        <button class="hud-action-btn profile-btn" onclick="openProfileModal()" title="Gestionar mi nombre y contraseña">⚙️ Mi Perfil</button>
+        <a href="admin.html" id="adminPanelLink" class="hud-action-btn admin-btn" style="display:none;" title="Panel de Administración CRUD">🛠️ Panel Admin</a>
         <button class="logout-link" onclick="handleLogout()" title="Cerrar Sesión">🚪 Salir</button>
       </div>
     </header>
@@ -596,21 +756,12 @@
       <div class="modal-title" id="modalTitle">Matemáticas</div>
       <div class="modal-sub">¿En qué grado estás?<br>El mapache ajusta sus explicaciones para ti 🦝</div>
 
-      <div class="grade-grid">
-        <button class="grade-btn" onclick="confirmGrade('Transición')">
-          <span class="g-icon">🌱</span>Transición
-        </button>
-        <button class="grade-btn" onclick="confirmGrade('Primero')">
-          <span class="g-icon">1️⃣</span>Primero
-        </button>
-        <button class="grade-btn" onclick="confirmGrade('Segundo')">
-          <span class="g-icon">2️⃣</span>Segundo
-        </button>
-        <button class="grade-btn" onclick="confirmGrade('Tercero')">
-          <span class="g-icon">3️⃣</span>Tercero
-        </button>
+      <div class="grade-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 280px; margin: 0 auto 24px;">
         <button class="grade-btn" onclick="confirmGrade('Cuarto')">
           <span class="g-icon">4️⃣</span>Cuarto
+        </button>
+        <button class="grade-btn" onclick="confirmGrade('Quinto')">
+          <span class="g-icon">5️⃣</span>Quinto
         </button>
       </div>
 
@@ -618,9 +769,70 @@
     </div>
   </div>
 
+  <!-- ── MODAL: MI PERFIL Y SEGURIDAD ── -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="profile-modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h2 style="font-family:'Baloo 2', cursive; font-size:1.4rem; color:#fff; font-weight:800;">⚙️ Mi Perfil y Cuenta</h2>
+        <button class="modal-cancel" onclick="closeProfileModal()" style="padding:4px 8px; font-size:1.2rem;">✕</button>
+      </div>
+
+      <!-- Pestañas -->
+      <div class="profile-tab-nav">
+        <button type="button" class="profile-tab-btn active" id="tabBtnProfile" onclick="switchProfileTab('info')">👤 Mis Datos</button>
+        <button type="button" class="profile-tab-btn" id="tabBtnPassword" onclick="switchProfileTab('security')">🔒 Seguridad</button>
+      </div>
+
+      <!-- Banner de Notificación / Error -->
+      <div id="profileAlert" class="profile-alert"></div>
+
+      <!-- TAB 1: DATOS PERSONALES -->
+      <form id="profileInfoForm" onsubmit="handleUpdateProfile(event)">
+        <div class="profile-form-group">
+          <label for="profName">Nombre del Estudiante</label>
+          <input type="text" id="profName" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="profile-form-group">
+          <label for="profEmail">Correo Electrónico (Registrado)</label>
+          <input type="text" id="profEmail" disabled style="opacity:0.6; cursor:not-allowed;">
+        </div>
+
+        <button type="submit" class="btn-save-profile" id="btnSaveProfileInfo">Guardar Cambios de Perfil</button>
+      </form>
+
+      <!-- TAB 2: CAMBIAR CONTRASEÑA -->
+      <form id="profilePasswordForm" style="display:none;" onsubmit="handleUpdatePassword(event)">
+        <div class="profile-form-group">
+          <label for="profCurrentPw">Contraseña Actual *</label>
+          <input type="password" id="profCurrentPw" placeholder="Ingresa tu clave actual" required>
+        </div>
+
+        <div class="profile-form-group">
+          <label for="profNewPw">Nueva Contraseña *</label>
+          <input type="password" id="profNewPw" placeholder="Nueva clave segura" required>
+          <span style="font-size:0.75rem; color:var(--text2); margin-top:3px;">
+            Mínimo 6 caracteres con al menos 1 mayúscula, 1 minúscula y 1 número.
+          </span>
+        </div>
+
+        <div class="profile-form-group">
+          <label for="profConfirmPw">Confirmar Nueva Contraseña *</label>
+          <input type="password" id="profConfirmPw" placeholder="Repite la nueva contraseña" required>
+        </div>
+
+        <button type="submit" class="btn-save-profile" id="btnSavePassword">Actualizar Contraseña</button>
+      </form>
+
+      <div style="text-align: center; margin-top: 14px;">
+        <button type="button" class="modal-cancel" onclick="closeProfileModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/nav.js"></script>
   <script src="js/transitions.js"></script>
-  <script type="module" src="js/menu.js?v=2.4"></script>
+  <script type="module" src="js/menu.js?v=3.1"></script>
 
 </body>
 </html>

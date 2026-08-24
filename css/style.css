@@ -173,6 +173,7 @@ body {
   color: var(--purple2);
 }
 
+.hud-pill.vb,
 .hud-pill.coins {
   background: rgba(0, 229, 255, 0.12);
   border: 1px solid rgba(0, 229, 255, 0.4);
@@ -547,4 +548,39 @@ body {
     grid-column: auto;
     max-width: none;
   }
+}
+
+/* ── BOTÓN UNIVERSAL DE VOLVER (.back-btn) ── */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--surface2, #1a1730);
+  color: var(--text, #f0f0ff);
+  border: 1px solid var(--border, rgba(123, 111, 255, 0.25));
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  user-select: none;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #7b6fff, #5b4de0);
+  color: #ffffff;
+  border-color: #9d93ff;
+  transform: translateX(-3px);
+  box-shadow: 0 6px 20px rgba(123, 111, 255, 0.45);
+}
+
+.back-btn:active {
+  transform: scale(0.96);
 }

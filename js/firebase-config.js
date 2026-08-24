@@ -44,4 +44,4 @@ if (localKey === "TU_GEMINI_API_KEY_AQUI") {
 }
 
 export const GEMINI_API_KEY = localKey;
-export const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent";
+export const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent";

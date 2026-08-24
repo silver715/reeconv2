@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz 🦝 — Racoon Teacher</title>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/transitions.css">
+    <link rel="stylesheet" href="css/style.css?v=3.3">
+    <link rel="stylesheet" href="css/quiz.css?v=3.3">
+    <link rel="stylesheet" href="css/transitions.css?v=3.3">
 </head>
 <body>
     <header class="quiz-header">
@@ -32,18 +32,50 @@
         </div>
 
         <div id="resultsScreen" class="results-card hidden fadeUp">
-            <h2>¡Quiz Completado! 🎉</h2>
-            <div id="starsContainer" class="stars"></div>
-            <p id="scoreText" class="score-text">Puntaje: 0 / 5</p>
-            <p id="xpEarnedText" class="xp-earned">+0 XP</p>
+            <div class="results-avatar-wrapper">
+                <img id="resultsAvatar" src="img/avatars/raccoon_happy.png" alt="Mapache" class="results-raccoon-img">
+                <div id="resultsBadge" class="results-trophy-badge">🏆</div>
+            </div>
+
+            <h2 id="resultsTitle" class="results-title">¡Quiz Completado! 🎉</h2>
+            <p id="resultsSubtitle" class="results-subtitle">¡Excelente esfuerzo!</p>
+
+            <div id="starsContainer" class="stars">⭐⭐⭐</div>
+
+            <div class="results-stats-grid">
+                <div class="stat-box">
+                    <span class="stat-icon">🎯</span>
+                    <div class="stat-info">
+                        <span class="stat-label">Aciertos</span>
+                        <span id="scoreText" class="stat-value">5 / 5</span>
+                    </div>
+                </div>
+
+                <div class="stat-box stat-xp">
+                    <span class="stat-icon">⚡</span>
+                    <div class="stat-info">
+                        <span class="stat-label">XP Ganada</span>
+                        <span id="xpEarnedText" class="stat-value xp-value">+700 XP</span>
+                    </div>
+                </div>
+
+                <div class="stat-box stat-accuracy">
+                    <span class="stat-icon">📊</span>
+                    <div class="stat-info">
+                        <span class="stat-label">Precisión</span>
+                        <span id="accuracyText" class="stat-value">100%</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="results-actions">
-                <button class="btn-primary" onclick="window.restartQuiz()">Reintentar 🔄</button>
-                <button class="btn-secondary" onclick="navigateTo('index.html')">Ir al Menú 🏠</button>
+                <button class="btn btn-primary" onclick="window.restartQuiz()">🔄 Reintentar Quiz</button>
+                <button class="btn btn-secondary" onclick="navigateTo('index.html')">🏠 Ir al Menú</button>
             </div>
         </div>
     </main>
 
     <script src="js/transitions.js"></script>
-    <script type="module" src="js/quiz.js"></script>
+    <script type="module" src="js/quiz.js?v=3.3"></script>
 </body>
 </html>

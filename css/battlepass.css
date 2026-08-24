@@ -55,6 +55,31 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
+.bp-header .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.bp-header .back-btn:hover {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple2);
+  transform: translateX(-3px);
+  box-shadow: 0 4px 16px rgba(123, 111, 255, 0.4);
+}
+
 .bp-header-center {
   text-align: center;
   flex: 1;

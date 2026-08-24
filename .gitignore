@@ -15,5 +15,10 @@ js/env.js
 .env
 *.local
 
+# Virtual environments
+.venv/
+env/
+venv/
+
 # Scratch / temp files
 *.tmp

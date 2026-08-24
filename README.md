@@ -191,31 +191,39 @@ service cloud.firestore {
 ### Paso 3 — Configurar Gemini API Key
 
 1. Accede a **[Google AI Studio](https://aistudio.google.com)**.
-2. Inicia sesión con tu cuenta de Google.
-3. Clic en **"Get API key"** (menú izquierdo) → **"Create API key"**.
-4. Copia la clave generada (comenzará con el prefijo `AIzaSy...`).
-5. Abre `js/firebase-config.js` y asigna la clave a la constante `GEMINI_API_KEY`:
-
-```javascript
-export const GEMINI_API_KEY = "AIzaSyBRiiaU6aqWbXLJynb4Qx-phbIKs41HjA0";
-export const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
-```
+2. Inicia sesión con tu cuenta de Google y haz clic en **"Get API key"** → **"Create API key"**.
+3. Copia el archivo de ejemplo `js/env.example.js` como `js/env.js`:
+   ```bash
+   cp js/env.example.js js/env.js
+   ```
+   *(En Windows PowerShell: `copy js\env.example.js js\env.js`)*
+4. Abre `js/env.js` y pega tu clave generada:
+   ```javascript
+   export const ENV_GEMINI_KEY = "AIzaSyTuClaveReal...";
+   ```
 
 ---
 
-### Paso 4 — Ejecutar el Proyecto Localmente
+### Paso 4 — Ejecutar el Proyecto en Cualquier Computador
 
-Debido al uso de módulos ES6 (`import`/`export`), los navegadores bloquean la ejecución directa mediante el protocolo `file://`. Se requiere un servidor web local:
+Debido al uso de módulos ES6 (`import`/`export`), los navegadores requieren un servidor HTTP local. Tienes varias opciones muy sencillas:
 
-#### Opción A — Servidor Python (Incluido):
+#### Opción A — Con Python (Recomendada y sin instalar nada extra):
 ```bash
 python -m http.server 3000
 ```
-Abre en tu navegador: `http://localhost:3000/landing.html`.
+*(En macOS/Linux si usas Python 3: `python3 -m http.server 3000`)*
 
-#### Opción B — Con VS Code:
+#### Opción B — Con Node.js / NPX:
+```bash
+npx serve -l 3000
+```
+
+#### Opción C — Con VS Code:
 1. Instala la extensión **Live Server** en VS Code.
-2. Clic derecho sobre `landing.html` → **"Open with Live Server"**.
+2. Clic derecho sobre `landing.html` o `index.html` → **"Open with Live Server"**.
+
+👉 Abre en cualquier navegador: **`http://localhost:3000`** (o `http://127.0.0.1:3000`).
 
 ---
 
@@ -228,18 +236,20 @@ La base de datos utiliza dos colecciones principales vinculadas por el `uid` del
 ```
 Firestore Root
 ├── 📁 users/{uid}
-│     ├── name: "Carlos Pérez"        (string)
-│     ├── username: "carlitos123"     (string)
-│     └── createdAt: 1723145000000    (number, timestamp)
+│     ├── name: "Santiago Vásquez"     (string, Nombre del Estudiante)
+│     ├── email: "usuario@correo.com"  (string)
+│     ├── password: "Password123"      (string, Contraseña segura)
+│     ├── role: "student" | "admin"    (string)
+│     └── createdAt: 1787523151432     (number, timestamp)
 │
 └── 📁 progress/{uid}
-      ├── xp: 450                     (number, 0-999)
-      ├── lvl: 12                     (number, 1-100)
-      ├── vb: 1300                    (number, V-Mapaches)
-      ├── streak: 5                   (number, días consecutivos)
-      ├── lastActiveDate: "2026-08-08"(string, YYYY-MM-DD)
-      ├── avatar: "raccoon_ninja"     (string, ID del avatar activo)
-      └── unlockedAvatars: [...]      (array de strings, IDs desbloqueados)
+      ├── lvl: 1                       (number, 1-100)
+      ├── xp: 0                        (number, 0-999)
+      ├── vb: 100                      (number, V-Mapaches 💎)
+      ├── streak: 1                    (number, días consecutivos 🔥)
+      ├── lastActiveDate: "2026-08-23" (string, YYYY-MM-DD)
+      ├── avatar: "raccoon_happy"      (string, ID del avatar activo)
+      └── unlockedAvatars: [...]       (array de strings, IDs desbloqueados)
 ```
 
 ---

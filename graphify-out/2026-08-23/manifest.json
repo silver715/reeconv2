@@ -1,0 +1,260 @@
+{
+  "js/auth.js": {
+    "mtime": 1787525850.9205291,
+    "seen": 1787535511.0914369,
+    "ast_hash": "b431536822c01e1fd641157de32d147f",
+    "semantic_hash": ""
+  },
+  "js/avatars.js": {
+    "mtime": 1787521760.8671067,
+    "seen": 1787525484.9215262,
+    "ast_hash": "4cbd3e03a7f2348b3cd839c13bc7197d",
+    "semantic_hash": ""
+  },
+  "js/battlepass.js": {
+    "mtime": 1787521755.155654,
+    "seen": 1787525484.9215262,
+    "ast_hash": "6d83762565ec04f88507d49f3c82467b",
+    "semantic_hash": ""
+  },
+  "js/chat.js": {
+    "mtime": 1787512593.8508985,
+    "seen": 1787513443.9920318,
+    "ast_hash": "b6c43f596dc6ce781f2b4268249f3484",
+    "semantic_hash": "b6c43f596dc6ce781f2b4268249f3484"
+  },
+  "js/env.example.js": {
+    "mtime": 1787512593.8508985,
+    "seen": 1787513443.9920318,
+    "ast_hash": "115f09167fb51def11732cb78cceed4b",
+    "semantic_hash": "115f09167fb51def11732cb78cceed4b"
+  },
+  "js/firebase-config.js": {
+    "mtime": 1787535485.7005157,
+    "seen": 1787535511.0914369,
+    "ast_hash": "c77f9f555ef09ae3901083afacdb437c",
+    "semantic_hash": ""
+  },
+  "js/gemini.js": {
+    "mtime": 1787528589.893275,
+    "seen": 1787535511.0914369,
+    "ast_hash": "1d9dfcd14755148f2950ab4a31838782",
+    "semantic_hash": ""
+  },
+  "js/leaderboard.js": {
+    "mtime": 1787523738.1699035,
+    "seen": 1787525484.9215262,
+    "ast_hash": "4d8d525ee390e488b748b56fc39aefc5",
+    "semantic_hash": ""
+  },
+  "js/menu.js": {
+    "mtime": 1787523661.328783,
+    "seen": 1787525484.9215262,
+    "ast_hash": "872aa306b2db564745e38bdb437efc18",
+    "semantic_hash": ""
+  },
+  "js/nav.js": {
+    "mtime": 1786294707.4722316,
+    "seen": 1787513443.9920318,
+    "ast_hash": "320e5704c30067c15370c57132a7c1dc",
+    "semantic_hash": "320e5704c30067c15370c57132a7c1dc"
+  },
+  "js/quiz.js": {
+    "mtime": 1786294707.4722316,
+    "seen": 1787513443.9920318,
+    "ast_hash": "a144158ecae929015f7d4af658b6d954",
+    "semantic_hash": "a144158ecae929015f7d4af658b6d954"
+  },
+  "js/transitions.js": {
+    "mtime": 1786294707.4722316,
+    "seen": 1787513443.9920318,
+    "ast_hash": "821aceefc0345541fef2916db76d6d5c",
+    "semantic_hash": "821aceefc0345541fef2916db76d6d5c"
+  },
+  "js/xp.js": {
+    "mtime": 1787525048.2361543,
+    "seen": 1787525484.9215262,
+    "ast_hash": "3ce14122c52cbac72938a676b986e44a",
+    "semantic_hash": ""
+  },
+  "scratch/extract_avatars.py": {
+    "mtime": 1787512593.8711696,
+    "seen": 1787513443.9920318,
+    "ast_hash": "a0feadf2e8650107c4890ef5f1d95289",
+    "semantic_hash": "a0feadf2e8650107c4890ef5f1d95289"
+  },
+  "js/admin.js": {
+    "mtime": 1787525870.2933486,
+    "seen": 1787535511.0914369,
+    "ast_hash": "cf5f8458040cae18c7cb6882a1658d11",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1787513426.0660868,
+    "seen": 1787516120.4874864,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1787513426.0660868,
+    "seen": 1787516120.4874864,
+    "ast_hash": "a831cf3669f1e6ab85d8a80ebe655f99",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1786294707.40166,
+    "seen": 1787516120.4874864,
+    "ast_hash": "ecd8a7c9f3d24438e4c5b09ead0f8994",
+    "semantic_hash": ""
+  },
+  "admin.html": {
+    "mtime": 1787524704.9867983,
+    "seen": 1787525484.9215262,
+    "ast_hash": "32d58fe95bdfc68f180a8ee4b007ca32",
+    "semantic_hash": ""
+  },
+  "avatars.html": {
+    "mtime": 1787535909.1480467,
+    "seen": 1787535966.4048789,
+    "ast_hash": "72685bcd70e5a82096345c023a35c9bb",
+    "semantic_hash": ""
+  },
+  "battlepass.html": {
+    "mtime": 1787535882.8188584,
+    "seen": 1787535966.4048789,
+    "ast_hash": "d83a67aeaec066859704afd5c1b19bd6",
+    "semantic_hash": ""
+  },
+  "chat.html": {
+    "mtime": 1787535900.1290455,
+    "seen": 1787535966.4048789,
+    "ast_hash": "6179c5dc5355d348212a1324760509cb",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1787524697.6368847,
+    "seen": 1787525484.9215262,
+    "ast_hash": "3112207358d3d484f58191feee45676d",
+    "semantic_hash": ""
+  },
+  "landing.html": {
+    "mtime": 1787512593.8711696,
+    "seen": 1787516120.4874864,
+    "ast_hash": "349ae6823b84107943546a3ae38875ca",
+    "semantic_hash": ""
+  },
+  "leaderboard.html": {
+    "mtime": 1787535918.264275,
+    "seen": 1787535966.4048789,
+    "ast_hash": "148f2c3b15eb7d931412e854397f5dfd",
+    "semantic_hash": ""
+  },
+  "quiz.html": {
+    "mtime": 1787535928.3757122,
+    "seen": 1787535966.4048789,
+    "ast_hash": "8121e6643ff69614feb0351019762b94",
+    "semantic_hash": ""
+  },
+  "user.html": {
+    "mtime": 1787524712.6706264,
+    "seen": 1787525484.9215262,
+    "ast_hash": "74bfa59019c7771771e02db5800fe0af",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_bandaid.png": {
+    "mtime": 1787512593.8012066,
+    "seen": 1787516120.4874864,
+    "ast_hash": "52c3a17e743f06433dd1aca391151cf4",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_ghost.png": {
+    "mtime": 1787512593.8107567,
+    "seen": 1787516120.4874864,
+    "ast_hash": "4bf5ebcb3a44962e026a2ab37df984f9",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_happy.png": {
+    "mtime": 1787512593.8132963,
+    "seen": 1787516120.4874864,
+    "ast_hash": "e7cacd8878ac132f44f1b0829aecd40b",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_knife.png": {
+    "mtime": 1787512593.8132963,
+    "seen": 1787516120.4874864,
+    "ast_hash": "a71733f81f46a5a314c1cf57af789816",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_melt.png": {
+    "mtime": 1787512593.8132963,
+    "seen": 1787516120.4874864,
+    "ast_hash": "cea7b035381c33fa851616f60d4e1f26",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_sad.png": {
+    "mtime": 1787512593.823347,
+    "seen": 1787516120.4874864,
+    "ast_hash": "c892fab98bd6a8fb2a582a06ca36da6e",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_skeleton.png": {
+    "mtime": 1787512593.823347,
+    "seen": 1787516120.4874864,
+    "ast_hash": "ded8bdc265f1eab937f631c6b4e6019a",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_sleepy.png": {
+    "mtime": 1787512593.8312292,
+    "seen": 1787516120.4874864,
+    "ast_hash": "47e844c585618368afbeb1327bf5a1e9",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_trashcan.png": {
+    "mtime": 1787512593.8312292,
+    "seen": 1787516120.4874864,
+    "ast_hash": "6b165902ff364b819a14c86c1070af83",
+    "semantic_hash": ""
+  },
+  "img/feature_1.jpeg": {
+    "mtime": 1786294707.4344852,
+    "seen": 1787516120.4874864,
+    "ast_hash": "5cca496f95218ef17414ef3f0fd5f259",
+    "semantic_hash": ""
+  },
+  "img/feature_2.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "ab477d4fca51c678d2ec2aac28f4bfe7",
+    "semantic_hash": ""
+  },
+  "img/feature_3.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "94b98cec888132c210ec98b73e98a493",
+    "semantic_hash": ""
+  },
+  "img/feature_4.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "78f0257737082b11aa8a6f91123e286e",
+    "semantic_hash": ""
+  },
+  "img/hero_raccoon.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "78f0257737082b11aa8a6f91123e286e",
+    "semantic_hash": ""
+  },
+  "img/logo_raccoon.jpeg": {
+    "mtime": 1786294707.452154,
+    "seen": 1787516120.4874864,
+    "ast_hash": "94b98cec888132c210ec98b73e98a493",
+    "semantic_hash": ""
+  },
+  "js/validators.js": {
+    "mtime": 1787516635.983533,
+    "seen": 1787516690.736948,
+    "ast_hash": "e944246de02e7ad0f932dae8162b109e",
+    "semantic_hash": ""
+  }
+}

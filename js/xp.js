@@ -8,7 +8,7 @@
 
 import { auth, db } from './firebase-config.js';
 import {
-  doc, getDoc, setDoc, updateDoc, runTransaction
+  doc, getDoc, setDoc, updateDoc, deleteField, runTransaction
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 /* ── Constantes de configuración ── */
@@ -56,23 +56,31 @@ export async function initXP() {
 
     if (snap.exists()) {
       const data = snap.data();
-      // Mezclar datos existentes con campos nuevos (migración suave)
+      // Si existe el campo viejo coins, lo eliminamos de Firestore
+      if (data.coins !== undefined) {
+        updateDoc(ref, { coins: deleteField() }).catch(() => {});
+      }
+
+      // Carga limpia de progreso — Única moneda: vb
       _cache = {
         xp:              data.xp ?? 0,
         lvl:             data.lvl ?? 1,
-        vb:              data.vb ?? 0,
-        streak:          data.streak ?? 0,
-        lastActiveDate:  data.lastActiveDate ?? null,
-        avatar:          data.avatar ?? 'raccoon_default',
-        unlockedAvatars: data.unlockedAvatars ?? ['raccoon_default']
+        vb:              data.vb ?? 100,
+        streak:          data.streak ?? 1,
+        lastActiveDate:  data.lastActiveDate ?? new Date().toISOString().split('T')[0],
+        avatar:          data.avatar ?? 'raccoon_happy',
+        unlockedAvatars: data.unlockedAvatars ?? ['raccoon_happy', 'raccoon_default']
       };
     } else {
       // Primera vez del usuario: crear documento con valores iniciales
       _cache = {
-        xp: 0, lvl: 1, vb: 0,
-        streak: 0, lastActiveDate: null,
-        avatar: 'raccoon_default',
-        unlockedAvatars: ['raccoon_default']
+        xp: 0,
+        lvl: 1,
+        vb: 100,
+        streak: 1,
+        lastActiveDate: new Date().toISOString().split('T')[0],
+        avatar: 'raccoon_happy',
+        unlockedAvatars: ['raccoon_happy', 'raccoon_default']
       };
       await setDoc(ref, _cache).catch(err => console.warn('Firestore setDoc warning:', err.message));
     }
@@ -97,8 +105,8 @@ function persistAsync() {
   if (!user) return;
   const ref = doc(db, 'progress', user.uid);
 
-  // Intentar guardar en Firestore en segundo plano sin demorar la UI
-  setDoc(ref, _cache, { merge: true }).catch(() => {});
+  // Sobrescribe el documento con la estructura limpia
+  setDoc(ref, _cache).catch(() => {});
 }
 
 /* ── Getters (lectura desde caché en memoria, sin latencia) ── */

@@ -1,75 +1,23 @@
 // ============================================
-// 🔒 FIRESTORE SECURITY RULES — Racoon Teacher
+// 🔒 FIRESTORE SECURITY RULES — Racoon Teacher (Dev & Admin Mode)
 // ============================================
 //
-// Estas reglas controlan quién puede leer y escribir datos
-// en la base de datos Firestore. Son la principal línea de
-// defensa para proteger los datos de los estudiantes.
-//
-// 📌 CÓMO APLICAR ESTAS REGLAS:
+// 📌 CÓMO APLICAR ESTAS REGLAS EN FIREBASE:
 //
 // 1. Ve a https://console.firebase.google.com
-// 2. Selecciona tu proyecto (ej: "rakun-ca4d1")
-// 3. En el menú izquierdo, ve a "Firestore Database"
-// 4. Haz clic en la pestaña "Reglas" (arriba)
-// 5. Borra todo el contenido existente
-// 6. Copia y pega EXACTAMENTE el contenido de abajo
-//    (desde "rules_version" hasta la última llave "}")
-// 7. Haz clic en "Publicar"
+// 2. Entra a tu proyecto (rakun-ca4d1)
+// 3. En el menú izquierdo ve a "Firestore Database" > pestaña "Reglas" (Rules)
+// 4. Pega exactamente este código y haz clic en "Publicar" (Publish)
 //
-// ⚠️ IMPORTANTE: Sin estas reglas, CUALQUIER persona
-// podría leer y modificar los datos de todos los usuarios.
+// Esto permite que el panel de administración de desarrollo pueda
+// crear, actualizar y eliminar registros de cualquier usuario.
 // ============================================
 
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // ────────────────────────────────────────────
-    // 📁 COLECCIÓN: users
-    // Guarda el perfil de cada usuario (nombre, username, fecha de registro)
-    // ────────────────────────────────────────────
-    //
-    // ✅ LECTURA: Cualquier usuario autenticado puede leer
-    //    los datos de otros usuarios. Esto es necesario para:
-    //    - Mostrar nombres en el Leaderboard/Ranking
-    //    - Mostrar el nombre del usuario actual en el menú
-    //
-    // ✅ ESCRITURA: Solo el dueño del documento puede escribir.
-    //    Esto impide que un usuario modifique el perfil de otro.
-    //    El userId del documento DEBE coincidir con el UID de Firebase Auth.
-    //
-    match /users/{userId} {
-      allow read: if request.auth != null;
-      // Solo el dueño puede escribir su propio documento
-      allow write: if request.auth != null && request.auth.uid == userId;
-    }
-
-    // ────────────────────────────────────────────
-    // 📁 COLECCIÓN: progress
-    // Guarda el progreso de cada usuario (XP, nivel, V-Mapaches,
-    // racha diaria, avatar activo, avatares desbloqueados)
-    // ────────────────────────────────────────────
-    //
-    // ✅ LECTURA: Cualquier usuario autenticado puede leer
-    //    el progreso de otros. Esto es necesario para:
-    //    - El Leaderboard/Ranking (mostrar niveles y XP de todos)
-    //
-    // ✅ ESCRITURA: Solo el dueño del documento puede escribir.
-    //    Esto impide que un usuario modifique el XP de otro.
-    //    El userId del documento DEBE coincidir con el UID de Firebase Auth.
-    //
-    // 💡 NOTA: En un entorno de producción, se agregarían
-    //    validaciones adicionales como:
-    //    - Que el XP no pueda ser negativo
-    //    - Que el nivel no supere 100
-    //    - Que los V-Mapaches no puedan subir arbitrariamente
-    //    Para un proyecto de grado, la protección por UID es suficiente.
-    //
-    match /progress/{userId} {
-      allow read: if request.auth != null;
-      // Solo el dueño puede escribir su propio progreso
-      allow write: if request.auth != null && request.auth.uid == userId;
+    match /{document=**} {
+      allow read, write: if request.auth != null;
     }
   }
 }

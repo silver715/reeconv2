@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Racoon Teacher 🦝 — Panel de Administración CRUD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=1.0">
+  <link rel="stylesheet" href="css/transitions.css?v=1.0">
+</head>
+<body>
+
+  <div class="admin-container">
+
+    <!-- ── ENCABEZADO SUPERIOR ── -->
+    <header class="admin-header">
+      <div class="admin-title-group">
+        <div class="admin-badge-icon">🦝</div>
+        <div>
+          <h1>Panel de Administración CRUD</h1>
+          <p>Base de Datos Firebase Firestore & Gestión de Estudiantes</p>
+        </div>
+      </div>
+
+      <div class="admin-header-actions">
+        <a href="index.html" class="btn-admin">← Ir al Aula</a>
+        <button class="btn-admin primary" onclick="openCreateModal()">+ Nuevo Estudiante</button>
+        <button class="btn-admin" onclick="exportToCSV()">📥 Exportar CSV</button>
+        <button class="btn-admin" onclick="handleAdminLogout()">🚪 Salir</button>
+      </div>
+    </header>
+
+    <!-- ── TARJETAS KPI DE MÉTRICAS ── -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-info">
+          <h3>Total Estudiantes</h3>
+          <div class="kpi-value" id="kpiTotalStudents">0</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon">⚡</div>
+        <div class="kpi-info">
+          <h3>XP Acumulada</h3>
+          <div class="kpi-value" id="kpiTotalXP">0</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon">⚔️</div>
+        <div class="kpi-info">
+          <h3>Nivel Promedio</h3>
+          <div class="kpi-value" id="kpiAvgLevel">1.0</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon">💎</div>
+        <div class="kpi-info">
+          <h3>V-Mapaches Totales</h3>
+          <div class="kpi-value" id="kpiTotalVB">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TOOLBAR DE BÚSQUEDA Y FILTRADO ── -->
+    <section class="crud-toolbar">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="adminSearchInput" placeholder="Buscar por nombre, correo o UID..." oninput="handleSearchFilter()">
+      </div>
+
+      <div class="filter-group">
+        <select id="adminSortFilter" class="filter-select" onchange="handleSearchFilter()">
+          <option value="xp-desc">Mayor XP</option>
+          <option value="name-asc">Nombre (A-Z)</option>
+          <option value="lvl-desc">Mayor Nivel</option>
+          <option value="vb-desc">Más V-Mapaches</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- ── TABLA CRUD ── -->
+    <section class="table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Estudiante / Correo</th>
+            <th>Nivel</th>
+            <th>XP</th>
+            <th>V-Mapaches (💎)</th>
+            <th>Racha</th>
+            <th>Rol</th>
+            <th style="text-align: right;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody">
+          <tr>
+            <td colspan="7" style="text-align: center; padding: 32px; color: var(--text2);">
+              Cargando base de datos de Firebase... 🦝
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <!-- ── MODAL: CREAR ESTUDIANTE ── -->
+  <div class="modal-overlay" id="createStudentModal">
+    <div class="modal-card">
+      <div class="modal-header-admin">
+        <h2>➕ Registrar Nuevo Usuario / Estudiante</h2>
+        <button class="btn-close-modal" onclick="closeAdminModal('createStudentModal')">✕</button>
+      </div>
+
+      <form id="createStudentForm" onsubmit="handleCreateStudentSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group-admin span-2">
+            <label>Nombre del Estudiante *</label>
+            <input type="text" id="createName" placeholder="Ej: Camilo Torres" required>
+          </div>
+
+          <div class="form-group-admin span-2">
+            <label>Correo Electrónico *</label>
+            <input type="email" id="createEmail" placeholder="estudiante@correo.com" required>
+          </div>
+
+          <div class="form-group-admin span-2">
+            <label>Contraseña Inicial * (Mín. 6 chars, 1 Mayúscula, 1 Minúscula, 1 Número)</label>
+            <input type="password" id="createPassword" placeholder="Ej: Racoon2026" required>
+          </div>
+
+          <div class="form-group-admin span-2">
+            <label>Rol en el Sistema</label>
+            <select id="createRole">
+              <option value="student" selected>Estudiante</option>
+              <option value="admin">Administrador</option>
+            </select>
+          </div>
+
+          <div class="form-group-admin">
+            <label>Nivel Inicial</label>
+            <input type="number" id="createLevel" value="1" min="1" max="100">
+          </div>
+
+          <div class="form-group-admin">
+            <label>V-Mapaches (💎)</label>
+            <input type="number" id="createVB" value="100" min="0">
+          </div>
+        </div>
+
+        <div class="modal-footer-admin">
+          <button type="button" class="btn-admin" onclick="closeAdminModal('createStudentModal')">Cancelar</button>
+          <button type="submit" class="btn-admin primary" id="btnSubmitCreate">Guardar en Firebase</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── MODAL: EDITAR ESTUDIANTE ── -->
+  <div class="modal-overlay" id="editStudentModal">
+    <div class="modal-card">
+      <div class="modal-header-admin">
+        <h2>✏️ Modificar Datos del Usuario</h2>
+        <button class="btn-close-modal" onclick="closeAdminModal('editStudentModal')">✕</button>
+      </div>
+
+      <form id="editStudentForm" onsubmit="handleEditStudentSubmit(event)">
+        <input type="hidden" id="editUserId">
+
+        <div class="form-grid">
+          <div class="form-group-admin span-2">
+            <label>Nombre del Estudiante</label>
+            <input type="text" id="editName" required>
+          </div>
+
+          <div class="form-group-admin">
+            <label>Nivel</label>
+            <input type="number" id="editLevel" min="1" max="100" required>
+          </div>
+
+          <div class="form-group-admin">
+            <label>Puntos de Experiencia (XP)</label>
+            <input type="number" id="editXP" min="0" required>
+          </div>
+
+          <div class="form-group-admin">
+            <label>V-Mapaches (💎)</label>
+            <input type="number" id="editVB" min="0" required>
+          </div>
+
+          <div class="form-group-admin">
+            <label>Racha Diaria (🔥)</label>
+            <input type="number" id="editStreak" min="0" required>
+          </div>
+
+          <div class="form-group-admin span-2">
+            <label>Rol</label>
+            <select id="editRole">
+              <option value="student">Estudiante</option>
+              <option value="admin">Administrador</option>
+            </select>
+          </div>
+
+          <div class="form-group-admin span-2">
+            <label>Contraseña en Base de Datos (Firestore)</label>
+            <input type="text" id="editPassword" placeholder="Ej: Racoon2026">
+          </div>
+        </div>
+
+        <div class="modal-footer-admin">
+          <button type="button" class="btn-admin" onclick="closeAdminModal('editStudentModal')">Cancelar</button>
+          <button type="submit" class="btn-admin primary" id="btnSubmitEdit">Actualizar Firestore</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── MODAL: CAMBIAR CONTRASEÑA ── -->
+  <div class="modal-overlay" id="passwordModal">
+    <div class="modal-card">
+      <div class="modal-header-admin">
+        <h2>🔑 Reestablecer Contraseña</h2>
+        <button class="btn-close-modal" onclick="closeAdminModal('passwordModal')">✕</button>
+      </div>
+
+      <form id="passwordForm" onsubmit="handlePasswordSubmit(event)">
+        <input type="hidden" id="pwUserId">
+        <input type="hidden" id="pwUserEmail">
+
+        <p style="font-size:0.85rem; color:var(--text2); margin-bottom:16px;">
+          Reestablecer contraseña para el estudiante: <strong id="pwStudentName" style="color:#fff;"></strong>
+        </p>
+
+        <div class="form-grid full">
+          <div class="form-group-admin">
+            <label>Nueva Contraseña * (Mín. 6 chars, 1 Mayúscula, 1 Minúscula, 1 Número)</label>
+            <input type="password" id="adminNewPassword" placeholder="Ej: NuevaClave2026" required>
+          </div>
+        </div>
+
+        <div class="modal-footer-admin">
+          <button type="button" class="btn-admin" onclick="closeAdminModal('passwordModal')">Cancelar</button>
+          <button type="submit" class="btn-admin primary">Reestablecer Clave</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── MODAL: CONFIRMAR ELIMINACIÓN ── -->
+  <div class="modal-overlay" id="deleteConfirmModal">
+    <div class="modal-card" style="max-width: 440px; text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: 12px;">🗑️</div>
+      <h2 style="font-family:'Baloo 2', cursive; color:#ffffff; margin-bottom: 8px;">¿Eliminar Estudiante?</h2>
+      <p style="font-size: 0.88rem; color: var(--text2); margin-bottom: 24px;">
+        Esta acción eliminará de forma permanente los registros de <strong id="deleteStudentName" style="color:var(--danger);"></strong> en las colecciones de Firestore.
+      </p>
+
+      <input type="hidden" id="deleteUserId">
+
+      <div style="display: flex; justify-content: center; gap: 12px;">
+        <button class="btn-admin" onclick="closeAdminModal('deleteConfirmModal')">Cancelar</button>
+        <button class="btn-admin" style="background:var(--danger); border-color:var(--danger); color:#fff;" onclick="executeStudentDelete()">Sí, Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOAST NOTIFICACIONES ── -->
+  <div id="adminToast" class="admin-toast">
+    <span id="toastIcon">✅</span>
+    <span id="toastMsg">Operación exitosa</span>
+  </div>
+
+  <script src="js/transitions.js"></script>
+  <script type="module" src="js/admin.js?v=3.1"></script>
+
+</body>
+</html>

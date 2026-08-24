@@ -4,7 +4,7 @@
 
 import { auth } from './firebase-config.js?v=2.3';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { initXP, getXP, getLvl, getVB, REWARDS, XP_PER_LVL } from './xp.js?v=2.3';
+import { initXP, getXP, getLvl, getVB, REWARDS, XP_PER_LVL } from './xp.js?v=2.8';
 
 let currentTab = 'all';
 

@@ -13,23 +13,24 @@ onAuthStateChanged(auth, async (user) => {
     window.location.href = 'landing.html';
     return;
   }
-  await loadLeaderboard(user.uid);
+  await loadLeaderboard(user);
 });
 
-const AVATAR_EMOJIS = {
-  'raccoon_default':   '🦝',
-  'raccoon_scientist': '🔬',
-  'raccoon_artist':    '🎨',
-  'raccoon_musician':  '🎵',
-  'raccoon_astronaut': '🚀',
-  'raccoon_ninja':     '🥷',
-  'raccoon_chef':      '👨‍🍳',
-  'raccoon_pirate':    '🏴‍☠️',
-  'raccoon_golden':    '👑',
-  'raccoon_robot':     '🤖',
+const AVATAR_IMAGES = {
+  'raccoon_happy':    'img/avatars/raccoon_happy.png',
+  'raccoon_default':  'img/avatars/raccoon_happy.png',
+  'raccoon_bandaid':  'img/avatars/raccoon_bandaid.png',
+  'raccoon_ghost':    'img/avatars/raccoon_ghost.png',
+  'raccoon_knife':    'img/avatars/raccoon_knife.png',
+  'raccoon_melt':     'img/avatars/raccoon_melt.png',
+  'raccoon_sad':      'img/avatars/raccoon_sad.png',
+  'raccoon_skeleton': 'img/avatars/raccoon_skeleton.png',
+  'raccoon_sleepy':   'img/avatars/raccoon_sleepy.png',
+  'raccoon_trashcan': 'img/avatars/raccoon_trashcan.png',
 };
 
-async function loadLeaderboard(currentUserId) {
+async function loadLeaderboard(currentUser) {
+  const currentUserId = currentUser.uid;
   const loadingEl = document.getElementById('loading');
   const contentEl = document.getElementById('leaderboard-content');
   const podiumEl = document.getElementById('podium');
@@ -38,15 +39,23 @@ async function loadLeaderboard(currentUserId) {
   const usersMap = {};
   const players = [];
 
-  // 1. Cargar perfiles de usuarios
+  // 1. Cargar perfiles de usuarios desde la colección 'users'
   try {
     const usersSnapshot = await getDocs(collection(db, 'users'));
     usersSnapshot.forEach((docSnap) => {
       const uData = docSnap.data();
-      usersMap[docSnap.id] = uData.name || uData.username || 'Estudiante';
+      const resolvedName = uData.name || (uData.email ? uData.email.split('@')[0] : null);
+      if (resolvedName) {
+        usersMap[docSnap.id] = resolvedName;
+      }
     });
   } catch (uErr) {
     console.warn('[Leaderboard] Advertencia al leer usuarios:', uErr.message);
+  }
+
+  // Asegurar el nombre del usuario actual si tiene displayName en Auth
+  if (!usersMap[currentUserId] && currentUser.displayName) {
+    usersMap[currentUserId] = currentUser.displayName;
   }
 
   // 2. Cargar progreso de todos los usuarios
@@ -57,16 +66,27 @@ async function loadLeaderboard(currentUserId) {
       const level = pData.lvl || pData.level || 1;
       const xp = pData.xp || 0;
       const totalXp = (level - 1) * 1000 + xp;
-      const avatarKey = pData.avatar || 'raccoon_default';
-      const avatarEmoji = AVATAR_EMOJIS[avatarKey] || '🦝';
+      const avatarKey = pData.avatar || 'raccoon_happy';
+      const avatarImg = AVATAR_IMAGES[avatarKey] || AVATAR_IMAGES['raccoon_happy'];
+
+      // Obtener el nombre más descriptivo posible
+      let displayName = usersMap[docSnap.id];
+      if (!displayName) {
+        if (docSnap.id === currentUserId) {
+          displayName = currentUser.displayName || (currentUser.email ? currentUser.email.split('@')[0] : 'Estudiante');
+        } else {
+          // Si es un usuario de prueba antiguo sin documento de perfil
+          displayName = `Estudiante ${docSnap.id.slice(0, 4)}`;
+        }
+      }
 
       players.push({
         userId: docSnap.id,
-        name: usersMap[docSnap.id] || (docSnap.id === currentUserId ? 'Tú' : 'Estudiante'),
+        name: displayName,
         level: level,
         xp: xp,
         totalXp: totalXp,
-        avatarEmoji: avatarEmoji
+        avatarImg: avatarImg
       });
     });
   } catch (pErr) {
@@ -106,7 +126,9 @@ async function loadLeaderboard(currentUserId) {
 
     podiumEl.innerHTML = podiumOrder.map(player => `
       <div class="podium-item ${player.class}">
-        <div class="podium-avatar">${player.avatarEmoji}</div>
+        <div class="podium-avatar">
+          <img src="${player.avatarImg}" alt="Avatar" style="width:50px; height:50px; object-fit:contain;" />
+        </div>
         <div class="podium-name">${player.name}</div>
         <div class="podium-medal">${player.medal}</div>
         <div class="podium-level">Lvl ${player.level}</div>
@@ -126,7 +148,12 @@ async function loadLeaderboard(currentUserId) {
       return `
         <tr class="${rowClass}" style="animation-delay: ${delay}s">
           <td class="pos-col ${posClass}">${pos}</td>
-          <td class="name-col"><span class="avatar-icon">${player.avatarEmoji}</span> ${player.name} ${isCurrent ? '<strong>(Tú)</strong>' : ''}</td>
+          <td class="name-col">
+            <span class="avatar-icon" style="display:inline-flex; align-items:center; vertical-align:middle; margin-right:8px;">
+              <img src="${player.avatarImg}" alt="Avatar" style="width:28px; height:28px; object-fit:contain;" />
+            </span>
+            ${player.name} ${isCurrent ? '<strong style="color:var(--gold); margin-left:6px;">(Tú)</strong>' : ''}
+          </td>
           <td class="level-col">Nivel ${player.level}</td>
           <td class="xp-col">${player.totalXp} XP</td>
         </tr>

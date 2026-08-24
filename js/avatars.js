@@ -14,7 +14,7 @@ import {
   setAvatar, 
   AVATARS, 
   getAvatarData 
-} from './xp.js?v=2.5';
+} from './xp.js?v=2.8';
 
 // Variables de estado
 let currentVB = 0;
