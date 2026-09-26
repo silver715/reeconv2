@@ -13,7 +13,7 @@
       "file_type": "code",
       "norm_label": "addxp()",
       "source_file": "js/xp.js",
-      "source_location": "L166"
+      "source_location": "L153"
     },
     {
       "id": "js_xp_assertready",
@@ -25,7 +25,7 @@
       "file_type": "code",
       "norm_label": "assertready()",
       "source_file": "js/xp.js",
-      "source_location": "L95"
+      "source_location": "L87"
     },
     {
       "id": "js_xp_buyavatar",
@@ -37,7 +37,7 @@
       "file_type": "code",
       "norm_label": "buyavatar()",
       "source_file": "js/xp.js",
-      "source_location": "L200"
+      "source_location": "L185"
     },
     {
       "id": "js_xp_checkstreak",
@@ -49,7 +49,7 @@
       "file_type": "code",
       "norm_label": "checkstreak()",
       "source_file": "js/xp.js",
-      "source_location": "L124"
+      "source_location": "L113"
     },
     {
       "id": "js_xp_getavatar",
@@ -61,7 +61,7 @@
       "file_type": "code",
       "norm_label": "getavatar()",
       "source_file": "js/xp.js",
-      "source_location": "L117"
+      "source_location": "L109"
     },
     {
       "id": "js_xp_getavatardata",
@@ -73,7 +73,7 @@
       "file_type": "code",
       "norm_label": "getavatardata()",
       "source_file": "js/xp.js",
-      "source_location": "L260"
+      "source_location": "L245"
     },
     {
       "id": "js_xp_getavataremoji",
@@ -85,7 +85,7 @@
       "file_type": "code",
       "norm_label": "getavataremoji()",
       "source_file": "js/xp.js",
-      "source_location": "L246"
+      "source_location": "L231"
     },
     {
       "id": "js_xp_getavatarimg",
@@ -97,7 +97,7 @@
       "file_type": "code",
       "norm_label": "getavatarimg()",
       "source_file": "js/xp.js",
-      "source_location": "L253"
+      "source_location": "L238"
     },
     {
       "id": "js_xp_getlvl",
@@ -109,7 +109,7 @@
       "file_type": "code",
       "norm_label": "getlvl()",
       "source_file": "js/xp.js",
-      "source_location": "L114"
+      "source_location": "L106"
     },
     {
       "id": "js_xp_getstreak",
@@ -121,7 +121,7 @@
       "file_type": "code",
       "norm_label": "getstreak()",
       "source_file": "js/xp.js",
-      "source_location": "L116"
+      "source_location": "L108"
     },
     {
       "id": "js_xp_getstreakbonus",
@@ -133,7 +133,7 @@
       "file_type": "code",
       "norm_label": "getstreakbonus()",
       "source_file": "js/xp.js",
-      "source_location": "L159"
+      "source_location": "L146"
     },
     {
       "id": "js_xp_getunlockedavatars",
@@ -145,7 +145,7 @@
       "file_type": "code",
       "norm_label": "getunlockedavatars()",
       "source_file": "js/xp.js",
-      "source_location": "L118"
+      "source_location": "L110"
     },
     {
       "id": "js_xp_getvb",
@@ -157,7 +157,7 @@
       "file_type": "code",
       "norm_label": "getvb()",
       "source_file": "js/xp.js",
-      "source_location": "L115"
+      "source_location": "L107"
     },
     {
       "id": "js_xp_getxp",
@@ -169,7 +169,7 @@
       "file_type": "code",
       "norm_label": "getxp()",
       "source_file": "js/xp.js",
-      "source_location": "L113"
+      "source_location": "L105"
     },
     {
       "id": "js_xp_persistasync",
@@ -181,7 +181,7 @@
       "file_type": "code",
       "norm_label": "persistasync()",
       "source_file": "js/xp.js",
-      "source_location": "L103"
+      "source_location": "L95"
     },
     {
       "id": "js_xp_setavatar",
@@ -193,7 +193,7 @@
       "file_type": "code",
       "norm_label": "setavatar()",
       "source_file": "js/xp.js",
-      "source_location": "L226"
+      "source_location": "L211"
     },
     {
       "id": "js_chat_addmessage",
@@ -205,7 +205,19 @@
       "file_type": "code",
       "norm_label": "addmessage()",
       "source_file": "js/chat.js",
-      "source_location": "L115"
+      "source_location": "L380"
+    },
+    {
+      "id": "js_chat_endvoicecall",
+      "label": "endVoiceCall()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "endvoicecall()",
+      "source_file": "js/chat.js",
+      "source_location": "L211"
     },
     {
       "id": "js_chat_formatmarkdown",
@@ -216,6 +228,18 @@
       "community_name": "chat.js",
       "file_type": "code",
       "norm_label": "formatmarkdown()",
+      "source_file": "js/chat.js",
+      "source_location": "L361"
+    },
+    {
+      "id": "js_chat_getaudiocontext",
+      "label": "getAudioContext()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "getaudiocontext()",
       "source_file": "js/chat.js",
       "source_location": "L96"
     },
@@ -229,7 +253,19 @@
       "file_type": "code",
       "norm_label": "getlocalresponse()",
       "source_file": "js/chat.js",
-      "source_location": "L199"
+      "source_location": "L645"
+    },
+    {
+      "id": "js_chat_playcallsound",
+      "label": "playCallSound()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "playcallsound()",
+      "source_file": "js/chat.js",
+      "source_location": "L107"
     },
     {
       "id": "js_chat_sendmessage",
@@ -241,7 +277,19 @@
       "file_type": "code",
       "norm_label": "sendmessage()",
       "source_file": "js/chat.js",
-      "source_location": "L147"
+      "source_location": "L473"
+    },
+    {
+      "id": "js_chat_sendsticker",
+      "label": "sendSticker()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "sendsticker()",
+      "source_file": "js/chat.js",
+      "source_location": "L525"
     },
     {
       "id": "js_chat_showxptoast",
@@ -253,7 +301,31 @@
       "file_type": "code",
       "norm_label": "showxptoast()",
       "source_file": "js/chat.js",
-      "source_location": "L131"
+      "source_location": "L457"
+    },
+    {
+      "id": "js_chat_speaktext",
+      "label": "speakText()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "speaktext()",
+      "source_file": "js/chat.js",
+      "source_location": "L138"
+    },
+    {
+      "id": "js_chat_startvoicecall",
+      "label": "startVoiceCall()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "startvoicecall()",
+      "source_file": "js/chat.js",
+      "source_location": "L179"
     },
     {
       "id": "js_nav_gotochat",
@@ -265,19 +337,7 @@
       "file_type": "code",
       "norm_label": "gotochat()",
       "source_file": "js/nav.js",
-      "source_location": "L5"
-    },
-    {
-      "id": "js_transitions_navigateto",
-      "label": "navigateTo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "transitions.js",
-      "file_type": "code",
-      "norm_label": "navigateto()",
-      "source_file": "js/transitions.js",
-      "source_location": "L2"
+      "source_location": "L3"
     },
     {
       "id": "js_admin_escapehtml",
@@ -289,7 +349,7 @@
       "file_type": "code",
       "norm_label": "escapehtml()",
       "source_file": "js/admin.js",
-      "source_location": "L550"
+      "source_location": "L545"
     },
     {
       "id": "js_admin_loadadmindata",
@@ -301,7 +361,7 @@
       "file_type": "code",
       "norm_label": "loadadmindata()",
       "source_file": "js/admin.js",
-      "source_location": "L88"
+      "source_location": "L83"
     },
     {
       "id": "js_admin_renderstudentstable",
@@ -313,7 +373,7 @@
       "file_type": "code",
       "norm_label": "renderstudentstable()",
       "source_file": "js/admin.js",
-      "source_location": "L195"
+      "source_location": "L190"
     },
     {
       "id": "js_admin_showtoast",
@@ -325,7 +385,7 @@
       "file_type": "code",
       "norm_label": "showtoast()",
       "source_file": "js/admin.js",
-      "source_location": "L532"
+      "source_location": "L527"
     },
     {
       "id": "js_admin_updatekpicards",
@@ -337,7 +397,55 @@
       "file_type": "code",
       "norm_label": "updatekpicards()",
       "source_file": "js/admin.js",
-      "source_location": "L167"
+      "source_location": "L162"
+    },
+    {
+      "id": "js_leaderboard_loadleaderboard",
+      "label": "loadLeaderboard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "loadleaderboard()",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L38"
+    },
+    {
+      "id": "js_menu_restoregradegrid",
+      "label": "restoreGradeGrid()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "restoregradegrid()",
+      "source_file": "js/menu.js",
+      "source_location": "L367"
+    },
+    {
+      "id": "js_menu_showprofilealert",
+      "label": "showProfileAlert()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "showprofilealert()",
+      "source_file": "js/menu.js",
+      "source_location": "L266"
+    },
+    {
+      "id": "js_menu_showsubjectselection",
+      "label": "showSubjectSelection()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "showsubjectselection()",
+      "source_file": "js/menu.js",
+      "source_location": "L324"
     },
     {
       "id": "js_validators_normalizeemail",
@@ -349,7 +457,7 @@
       "file_type": "code",
       "norm_label": "normalizeemail()",
       "source_file": "js/validators.js",
-      "source_location": "L32"
+      "source_location": "L29"
     },
     {
       "id": "js_validators_validatepassword",
@@ -361,7 +469,7 @@
       "file_type": "code",
       "norm_label": "validatepassword()",
       "source_file": "js/validators.js",
-      "source_location": "L13"
+      "source_location": "L10"
     },
     {
       "id": "js_auth_handlesubmit",
@@ -373,7 +481,7 @@
       "file_type": "code",
       "norm_label": "handlesubmit()",
       "source_file": "js/auth.js",
-      "source_location": "L89"
+      "source_location": "L110"
     },
     {
       "id": "js_auth_setloading",
@@ -385,7 +493,7 @@
       "file_type": "code",
       "norm_label": "setloading()",
       "source_file": "js/auth.js",
-      "source_location": "L191"
+      "source_location": "L211"
     },
     {
       "id": "js_auth_showerror",
@@ -397,7 +505,7 @@
       "file_type": "code",
       "norm_label": "showerror()",
       "source_file": "js/auth.js",
-      "source_location": "L181"
+      "source_location": "L201"
     },
     {
       "id": "js_auth_translateerror",
@@ -409,7 +517,43 @@
       "file_type": "code",
       "norm_label": "translateerror()",
       "source_file": "js/auth.js",
-      "source_location": "L200"
+      "source_location": "L220"
+    },
+    {
+      "id": "js_auth_updatemodeui",
+      "label": "updateModeUI()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "auth.js",
+      "file_type": "code",
+      "norm_label": "updatemodeui()",
+      "source_file": "js/auth.js",
+      "source_location": "L77"
+    },
+    {
+      "id": "js_peeking_mascots_initpeekingmascots",
+      "label": "initPeekingMascots()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "initPeekingMascots",
+      "file_type": "code",
+      "norm_label": "initpeekingmascots()",
+      "source_file": "js/peeking-mascots.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "js_peeking_mascots_initpeekingmascots_playpop",
+      "label": "playPop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "initPeekingMascots",
+      "file_type": "code",
+      "norm_label": "playpop()",
+      "source_file": "js/peeking-mascots.js",
+      "source_location": "L73"
     },
     {
       "id": "js_avatars_renderstore",
@@ -421,7 +565,7 @@
       "file_type": "code",
       "norm_label": "renderstore()",
       "source_file": "js/avatars.js",
-      "source_location": "L99"
+      "source_location": "L96"
     },
     {
       "id": "js_avatars_showtoast",
@@ -433,7 +577,7 @@
       "file_type": "code",
       "norm_label": "showtoast()",
       "source_file": "js/avatars.js",
-      "source_location": "L186"
+      "source_location": "L203"
     },
     {
       "id": "js_battlepass_init",
@@ -445,7 +589,7 @@
       "file_type": "code",
       "norm_label": "init()",
       "source_file": "js/battlepass.js",
-      "source_location": "L21"
+      "source_location": "L17"
     },
     {
       "id": "js_battlepass_rendergrid",
@@ -457,7 +601,7 @@
       "file_type": "code",
       "norm_label": "rendergrid()",
       "source_file": "js/battlepass.js",
-      "source_location": "L87"
+      "source_location": "L71"
     },
     {
       "id": "js_battlepass_renderstats",
@@ -469,19 +613,7 @@
       "file_type": "code",
       "norm_label": "renderstats()",
       "source_file": "js/battlepass.js",
-      "source_location": "L44"
-    },
-    {
-      "id": "js_battlepass_rendertab",
-      "label": "renderTab()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "battlepass.js",
-      "file_type": "code",
-      "norm_label": "rendertab()",
-      "source_file": "js/battlepass.js",
-      "source_location": "L63"
+      "source_location": "L48"
     },
     {
       "id": "js_battlepass_renderxpbar",
@@ -493,7 +625,7 @@
       "file_type": "code",
       "norm_label": "renderxpbar()",
       "source_file": "js/battlepass.js",
-      "source_location": "L28"
+      "source_location": "L24"
     },
     {
       "id": "js_quiz_generatequiz",
@@ -505,7 +637,7 @@
       "file_type": "code",
       "norm_label": "generatequiz()",
       "source_file": "js/quiz.js",
-      "source_location": "L85"
+      "source_location": "L271"
     },
     {
       "id": "js_quiz_initquiz",
@@ -517,7 +649,7 @@
       "file_type": "code",
       "norm_label": "initquiz()",
       "source_file": "js/quiz.js",
-      "source_location": "L64"
+      "source_location": "L206"
     },
     {
       "id": "js_quiz_renderquestion",
@@ -529,7 +661,31 @@
       "file_type": "code",
       "norm_label": "renderquestion()",
       "source_file": "js/quiz.js",
-      "source_location": "L92"
+      "source_location": "L277"
+    },
+    {
+      "id": "js_quiz_rendersvgstars",
+      "label": "renderSvgStars()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "rendersvgstars()",
+      "source_file": "js/quiz.js",
+      "source_location": "L387"
+    },
+    {
+      "id": "js_quiz_setbubblephrase",
+      "label": "setBubblePhrase()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "setbubblephrase()",
+      "source_file": "js/quiz.js",
+      "source_location": "L194"
     },
     {
       "id": "js_quiz_showresults",
@@ -541,7 +697,31 @@
       "file_type": "code",
       "norm_label": "showresults()",
       "source_file": "js/quiz.js",
-      "source_location": "L140"
+      "source_location": "L402"
+    },
+    {
+      "id": "js_quiz_spawnxpparticle",
+      "label": "spawnXpParticle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "spawnxpparticle()",
+      "source_file": "js/quiz.js",
+      "source_location": "L377"
+    },
+    {
+      "id": "js_quiz_updatehud",
+      "label": "updateHud()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "updatehud()",
+      "source_file": "js/quiz.js",
+      "source_location": "L252"
     },
     {
       "id": "js_xp_initxp",
@@ -553,7 +733,7 @@
       "file_type": "code",
       "norm_label": "initxp()",
       "source_file": "js/xp.js",
-      "source_location": "L46"
+      "source_location": "L38"
     },
     {
       "id": "js_gemini_askgemini",
@@ -565,55 +745,31 @@
       "file_type": "code",
       "norm_label": "askgemini()",
       "source_file": "js/gemini.js",
-      "source_location": "L17"
+      "source_location": "L22"
     },
     {
-      "id": "js_leaderboard_loadleaderboard",
-      "label": "loadLeaderboard()",
+      "id": "js_gemini_askgeminivoice",
+      "label": "askGeminiVoice()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "gemini.js",
+      "file_type": "code",
+      "norm_label": "askgeminivoice()",
+      "source_file": "js/gemini.js",
+      "source_location": "L112"
+    },
+    {
+      "id": "js_transitions_navigateto",
+      "label": "navigateTo()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "leaderboard.js",
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
       "file_type": "code",
-      "norm_label": "loadleaderboard()",
-      "source_file": "js/leaderboard.js",
-      "source_location": "L32"
-    },
-    {
-      "id": "js_menu_restoregradegrid",
-      "label": "restoreGradeGrid()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "menu.js",
-      "file_type": "code",
-      "norm_label": "restoregradegrid()",
-      "source_file": "js/menu.js",
-      "source_location": "L357"
-    },
-    {
-      "id": "js_menu_showprofilealert",
-      "label": "showProfileAlert()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "menu.js",
-      "file_type": "code",
-      "norm_label": "showprofilealert()",
-      "source_file": "js/menu.js",
-      "source_location": "L271"
-    },
-    {
-      "id": "js_menu_showsubjectselection",
-      "label": "showSubjectSelection()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "menu.js",
-      "file_type": "code",
-      "norm_label": "showsubjectselection()",
-      "source_file": "js/menu.js",
-      "source_location": "L320"
+      "norm_label": "navigateto()",
+      "source_file": "js/transitions.js",
+      "source_location": "L2"
     },
     {
       "id": "js_xp",
@@ -635,7 +791,7 @@
       "file_type": "code",
       "norm_label": "avatars",
       "source_file": "js/xp.js",
-      "source_location": "L32"
+      "source_location": "L25"
     },
     {
       "id": "js_xp_cache",
@@ -646,7 +802,7 @@
       "file_type": "code",
       "norm_label": "_cache",
       "source_file": "js/xp.js",
-      "source_location": "L19"
+      "source_location": "L13"
     },
     {
       "id": "js_xp_max_level",
@@ -657,7 +813,7 @@
       "file_type": "code",
       "norm_label": "max_level",
       "source_file": "js/xp.js",
-      "source_location": "L16"
+      "source_location": "L10"
     },
     {
       "id": "js_xp_rewards",
@@ -668,7 +824,7 @@
       "file_type": "code",
       "norm_label": "rewards",
       "source_file": "js/xp.js",
-      "source_location": "L269"
+      "source_location": "L252"
     },
     {
       "id": "js_xp_xp_per_lvl",
@@ -679,7 +835,19 @@
       "file_type": "code",
       "norm_label": "xp_per_lvl",
       "source_file": "js/xp.js",
-      "source_location": "L15"
+      "source_location": "L9"
+    },
+    {
+      "id": "readme_motor_de_xp_e_inmutabilidad_de_ui_persistasync",
+      "label": "Motor de XP e Inmutabilidad de UI (`persistAsync`)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "xp.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "motor de xp e inmutabilidad de ui (`persistasync`)",
+      "source_file": "README.md",
+      "source_location": "L307"
     },
     {
       "id": "js_chat",
@@ -693,6 +861,61 @@
       "source_location": "L1"
     },
     {
+      "id": "js_chat_bannerhangupbtn",
+      "label": "bannerHangupBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "bannerhangupbtn",
+      "source_file": "js/chat.js",
+      "source_location": "L83"
+    },
+    {
+      "id": "js_chat_callbannerstatus",
+      "label": "callBannerStatus",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "callbannerstatus",
+      "source_file": "js/chat.js",
+      "source_location": "L86"
+    },
+    {
+      "id": "js_chat_callbtn",
+      "label": "callBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "callbtn",
+      "source_file": "js/chat.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "js_chat_calltimerel",
+      "label": "callTimerEl",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "calltimerel",
+      "source_file": "js/chat.js",
+      "source_location": "L84"
+    },
+    {
+      "id": "js_chat_callwavebars",
+      "label": "callWaveBars",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "callwavebars",
+      "source_file": "js/chat.js",
+      "source_location": "L85"
+    },
+    {
       "id": "js_chat_chatbox",
       "label": "chatBox",
       "_origin": "ast",
@@ -701,7 +924,51 @@
       "file_type": "code",
       "norm_label": "chatbox",
       "source_file": "js/chat.js",
-      "source_location": "L45"
+      "source_location": "L41"
+    },
+    {
+      "id": "js_chat_chatherobanner",
+      "label": "chatHeroBanner",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "chatherobanner",
+      "source_file": "js/chat.js",
+      "source_location": "L52"
+    },
+    {
+      "id": "js_chat_closeherobtn",
+      "label": "closeHeroBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "closeherobtn",
+      "source_file": "js/chat.js",
+      "source_location": "L53"
+    },
+    {
+      "id": "js_chat_closesettingsbtn",
+      "label": "closeSettingsBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "closesettingsbtn",
+      "source_file": "js/chat.js",
+      "source_location": "L57"
+    },
+    {
+      "id": "js_chat_closestickerbtn",
+      "label": "closeStickerBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "closestickerbtn",
+      "source_file": "js/chat.js",
+      "source_location": "L50"
     },
     {
       "id": "js_chat_conversationhistory",
@@ -712,7 +979,29 @@
       "file_type": "code",
       "norm_label": "conversationhistory",
       "source_file": "js/chat.js",
-      "source_location": "L42"
+      "source_location": "L38"
+    },
+    {
+      "id": "js_chat_geminikeyinput",
+      "label": "geminiKeyInput",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "geminikeyinput",
+      "source_file": "js/chat.js",
+      "source_location": "L59"
+    },
+    {
+      "id": "js_chat_gradebadge",
+      "label": "gradeBadge",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "gradebadge",
+      "source_file": "js/chat.js",
+      "source_location": "L46"
     },
     {
       "id": "js_chat_input",
@@ -723,7 +1012,29 @@
       "file_type": "code",
       "norm_label": "input",
       "source_file": "js/chat.js",
-      "source_location": "L46"
+      "source_location": "L42"
+    },
+    {
+      "id": "js_chat_keyfeedback",
+      "label": "keyFeedback",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "keyfeedback",
+      "source_file": "js/chat.js",
+      "source_location": "L61"
+    },
+    {
+      "id": "js_chat_mascotstickers",
+      "label": "mascotStickers",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "mascotstickers",
+      "source_file": "js/chat.js",
+      "source_location": "L64"
     },
     {
       "id": "js_chat_modelabel",
@@ -734,7 +1045,7 @@
       "file_type": "code",
       "norm_label": "modelabel",
       "source_file": "js/chat.js",
-      "source_location": "L49"
+      "source_location": "L45"
     },
     {
       "id": "js_chat_modenames",
@@ -745,7 +1056,18 @@
       "file_type": "code",
       "norm_label": "modenames",
       "source_file": "js/chat.js",
-      "source_location": "L13"
+      "source_location": "L9"
+    },
+    {
+      "id": "js_chat_opensettingsbtn",
+      "label": "openSettingsBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "opensettingsbtn",
+      "source_file": "js/chat.js",
+      "source_location": "L56"
     },
     {
       "id": "js_chat_placeholders",
@@ -756,7 +1078,18 @@
       "file_type": "code",
       "norm_label": "placeholders",
       "source_file": "js/chat.js",
-      "source_location": "L21"
+      "source_location": "L17"
+    },
+    {
+      "id": "js_chat_quickchipsbar",
+      "label": "quickChipsBar",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "quickchipsbar",
+      "source_file": "js/chat.js",
+      "source_location": "L47"
     },
     {
       "id": "js_chat_rawgrade",
@@ -767,7 +1100,7 @@
       "file_type": "code",
       "norm_label": "rawgrade",
       "source_file": "js/chat.js",
-      "source_location": "L34"
+      "source_location": "L30"
     },
     {
       "id": "js_chat_rawmode",
@@ -778,7 +1111,18 @@
       "file_type": "code",
       "norm_label": "rawmode",
       "source_file": "js/chat.js",
-      "source_location": "L31"
+      "source_location": "L27"
+    },
+    {
+      "id": "js_chat_savekeybtn",
+      "label": "saveKeyBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "savekeybtn",
+      "source_file": "js/chat.js",
+      "source_location": "L60"
     },
     {
       "id": "js_chat_sendbtn",
@@ -789,7 +1133,51 @@
       "file_type": "code",
       "norm_label": "sendbtn",
       "source_file": "js/chat.js",
-      "source_location": "L47"
+      "source_location": "L43"
+    },
+    {
+      "id": "js_chat_settingsmodal",
+      "label": "settingsModal",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "settingsmodal",
+      "source_file": "js/chat.js",
+      "source_location": "L58"
+    },
+    {
+      "id": "js_chat_stickerdrawer",
+      "label": "stickerDrawer",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "stickerdrawer",
+      "source_file": "js/chat.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "js_chat_stickergrid",
+      "label": "stickerGrid",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "stickergrid",
+      "source_file": "js/chat.js",
+      "source_location": "L51"
+    },
+    {
+      "id": "js_chat_togglestickerbtn",
+      "label": "toggleStickerBtn",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "code",
+      "norm_label": "togglestickerbtn",
+      "source_file": "js/chat.js",
+      "source_location": "L48"
     },
     {
       "id": "js_chat_typing",
@@ -800,7 +1188,7 @@
       "file_type": "code",
       "norm_label": "typing",
       "source_file": "js/chat.js",
-      "source_location": "L48"
+      "source_location": "L44"
     },
     {
       "id": "js_chat_validmodes",
@@ -811,29 +1199,41 @@
       "file_type": "code",
       "norm_label": "validmodes",
       "source_file": "js/chat.js",
-      "source_location": "L30"
+      "source_location": "L26"
     },
     {
-      "id": "js_env_example",
-      "label": "env.example.js",
+      "id": "js_chat_voicecallbanner",
+      "label": "voiceCallBanner",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "env.example.js",
+      "community": 1,
+      "community_name": "chat.js",
       "file_type": "code",
-      "norm_label": "env.example.js",
-      "source_file": "js/env.example.js",
-      "source_location": "L1"
+      "norm_label": "voicecallbanner",
+      "source_file": "js/chat.js",
+      "source_location": "L82"
     },
     {
-      "id": "js_env_example_env_gemini_key",
-      "label": "ENV_GEMINI_KEY",
+      "id": "js_chat_voicemicbtn",
+      "label": "voiceMicBtn",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "env.example.js",
+      "community": 1,
+      "community_name": "chat.js",
       "file_type": "code",
-      "norm_label": "env_gemini_key",
-      "source_file": "js/env.example.js",
-      "source_location": "L7"
+      "norm_label": "voicemicbtn",
+      "source_file": "js/chat.js",
+      "source_location": "L81"
+    },
+    {
+      "id": "readme_formateador_de_markdown_e_interfaz_educativa",
+      "label": "Formateador de Markdown e Interfaz Educativa",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "chat.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "formateador de markdown e interfaz educativa",
+      "source_file": "README.md",
+      "source_location": "L314"
     },
     {
       "id": "js_nav",
@@ -844,28 +1244,6 @@
       "file_type": "code",
       "norm_label": "nav.js",
       "source_file": "js/nav.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "js_transitions",
-      "label": "transitions.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "transitions.js",
-      "file_type": "code",
-      "norm_label": "transitions.js",
-      "source_file": "js/transitions.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "scratch_extract_avatars",
-      "label": "extract_avatars.py",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "extract_avatars.py",
-      "file_type": "code",
-      "norm_label": "extract_avatars.py",
-      "source_file": "scratch/extract_avatars.py",
       "source_location": "L1"
     },
     {
@@ -888,7 +1266,7 @@
       "file_type": "code",
       "norm_label": "admin_emails",
       "source_file": "js/admin.js",
-      "source_location": "L26"
+      "source_location": "L21"
     },
     {
       "id": "js_admin_allstudents",
@@ -899,7 +1277,7 @@
       "file_type": "code",
       "norm_label": "allstudents",
       "source_file": "js/admin.js",
-      "source_location": "L32"
+      "source_location": "L27"
     },
     {
       "id": "js_admin_avatar_images",
@@ -910,7 +1288,7 @@
       "file_type": "code",
       "norm_label": "avatar_images",
       "source_file": "js/admin.js",
-      "source_location": "L35"
+      "source_location": "L30"
     },
     {
       "id": "js_admin_filteredstudents",
@@ -921,91 +1299,51 @@
       "file_type": "code",
       "norm_label": "filteredstudents",
       "source_file": "js/admin.js",
-      "source_location": "L33"
+      "source_location": "L28"
     },
     {
-      "id": "readme_gu\u00eda_de_configuraci\u00f3n_paso_a_paso",
-      "label": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
+      "id": "js_leaderboard",
+      "label": "leaderboard.js",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83d\ude80 guia de configuracion paso a paso",
-      "source_file": "README.md",
-      "source_location": "L131"
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "leaderboard.js",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L1"
     },
     {
-      "id": "readme_opci\u00f3n_a_servidor_python_incluido",
-      "label": "Opci\u00f3n A \u2014 Servidor Python (Incluido):",
+      "id": "js_leaderboard_avatar_images",
+      "label": "AVATAR_IMAGES",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "opcion a \u2014 servidor python (incluido):",
-      "source_file": "README.md",
-      "source_location": "L210"
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "avatar_images",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L25"
     },
     {
-      "id": "readme_opci\u00f3n_b_con_vs_code",
-      "label": "Opci\u00f3n B \u2014 Con VS Code:",
+      "id": "js_leaderboard_urlparams",
+      "label": "urlParams",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "opcion b \u2014 con vs code:",
-      "source_file": "README.md",
-      "source_location": "L216"
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "urlparams",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L8"
     },
     {
-      "id": "readme_paso_1_configurar_firebase_auth_firestore",
-      "label": "Paso 1 \u2014 Configurar Firebase (Auth + Firestore)",
+      "id": "js_menu",
+      "label": "menu.js",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "paso 1 \u2014 configurar firebase (auth + firestore)",
-      "source_file": "README.md",
-      "source_location": "L133"
-    },
-    {
-      "id": "readme_paso_2_configurar_reglas_de_seguridad_security_rules",
-      "label": "Paso 2 \u2014 Configurar Reglas de Seguridad (Security Rules)",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "paso 2 \u2014 configurar reglas de seguridad (security rules)",
-      "source_file": "README.md",
-      "source_location": "L161"
-    },
-    {
-      "id": "readme_paso_3_configurar_gemini_api_key",
-      "label": "Paso 3 \u2014 Configurar Gemini API Key",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "paso 3 \u2014 configurar gemini api key",
-      "source_file": "README.md",
-      "source_location": "L191"
-    },
-    {
-      "id": "readme_paso_4_ejecutar_el_proyecto_localmente",
-      "label": "Paso 4 \u2014 Ejecutar el Proyecto Localmente",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "paso 4 \u2014 ejecutar el proyecto localmente",
-      "source_file": "README.md",
-      "source_location": "L206"
+      "community": 14,
+      "community_name": "admin.js",
+      "file_type": "code",
+      "norm_label": "menu.js",
+      "source_file": "js/menu.js",
+      "source_location": "L1"
     },
     {
       "id": "agents_rules_graphify",
@@ -1064,90 +1402,6 @@
       "source_location": "L6"
     },
     {
-      "id": "readme_arquitectura_y_funcionamiento_t\u00e9cnico",
-      "label": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83d\udd2c arquitectura y funcionamiento tecnico",
-      "source_file": "README.md",
-      "source_location": "L222"
-    },
-    {
-      "id": "readme_autenticaci\u00f3n_simplificada_para_ni\u00f1os",
-      "label": "Autenticaci\u00f3n Simplificada para Ni\u00f1os",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "autenticacion simplificada para ninos",
-      "source_file": "README.md",
-      "source_location": "L314"
-    },
-    {
-      "id": "readme_diagrama_de_secuencia_del_chat",
-      "label": "Diagrama de Secuencia del Chat:",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "diagrama de secuencia del chat:",
-      "source_file": "README.md",
-      "source_location": "L266"
-    },
-    {
-      "id": "readme_estructura_de_la_base_de_datos_firestore",
-      "label": "Estructura de la Base de Datos (Firestore)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "estructura de la base de datos (firestore)",
-      "source_file": "README.md",
-      "source_location": "L224"
-    },
-    {
-      "id": "readme_formateador_de_markdown_e_interfaz_educativa",
-      "label": "Formateador de Markdown e Interfaz Educativa",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "formateador de markdown e interfaz educativa",
-      "source_file": "README.md",
-      "source_location": "L304"
-    },
-    {
-      "id": "readme_integraci\u00f3n_con_gemini_api_y_fallback_local",
-      "label": "Integraci\u00f3n con Gemini API y Fallback Local",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "integracion con gemini api y fallback local",
-      "source_file": "README.md",
-      "source_location": "L247"
-    },
-    {
-      "id": "readme_motor_de_xp_e_inmutabilidad_de_ui_persistasync",
-      "label": "Motor de XP e Inmutabilidad de UI (`persistAsync`)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "motor de xp e inmutabilidad de ui (`persistasync`)",
-      "source_file": "README.md",
-      "source_location": "L297"
-    },
-    {
       "id": "js_validators",
       "label": "validators.js",
       "_origin": "ast",
@@ -1178,7 +1432,18 @@
       "file_type": "code",
       "norm_label": "cardsubtitle",
       "source_file": "js/auth.js",
-      "source_location": "L31"
+      "source_location": "L27"
+    },
+    {
+      "id": "js_auth_emailinput",
+      "label": "emailInput",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "auth.js",
+      "file_type": "code",
+      "norm_label": "emailinput",
+      "source_file": "js/auth.js",
+      "source_location": "L16"
     },
     {
       "id": "js_auth_errormsg",
@@ -1189,7 +1454,7 @@
       "file_type": "code",
       "norm_label": "errormsg",
       "source_file": "js/auth.js",
-      "source_location": "L25"
+      "source_location": "L21"
     },
     {
       "id": "js_auth_loginbtn",
@@ -1200,7 +1465,7 @@
       "file_type": "code",
       "norm_label": "loginbtn",
       "source_file": "js/auth.js",
-      "source_location": "L26"
+      "source_location": "L22"
     },
     {
       "id": "js_auth_modetext",
@@ -1211,7 +1476,7 @@
       "file_type": "code",
       "norm_label": "modetext",
       "source_file": "js/auth.js",
-      "source_location": "L29"
+      "source_location": "L25"
     },
     {
       "id": "js_auth_namegroup",
@@ -1222,7 +1487,7 @@
       "file_type": "code",
       "norm_label": "namegroup",
       "source_file": "js/auth.js",
-      "source_location": "L23"
+      "source_location": "L19"
     },
     {
       "id": "js_auth_nameinput",
@@ -1233,7 +1498,7 @@
       "file_type": "code",
       "norm_label": "nameinput",
       "source_file": "js/auth.js",
-      "source_location": "L22"
+      "source_location": "L18"
     },
     {
       "id": "js_auth_passwordinput",
@@ -1244,7 +1509,7 @@
       "file_type": "code",
       "norm_label": "passwordinput",
       "source_file": "js/auth.js",
-      "source_location": "L21"
+      "source_location": "L17"
     },
     {
       "id": "js_auth_pwhint",
@@ -1255,7 +1520,7 @@
       "file_type": "code",
       "norm_label": "pwhint",
       "source_file": "js/auth.js",
-      "source_location": "L30"
+      "source_location": "L26"
     },
     {
       "id": "js_auth_rememberme",
@@ -1266,7 +1531,29 @@
       "file_type": "code",
       "norm_label": "rememberme",
       "source_file": "js/auth.js",
-      "source_location": "L24"
+      "source_location": "L20"
+    },
+    {
+      "id": "js_auth_tablogin",
+      "label": "tabLogin",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "auth.js",
+      "file_type": "code",
+      "norm_label": "tablogin",
+      "source_file": "js/auth.js",
+      "source_location": "L28"
+    },
+    {
+      "id": "js_auth_tabregister",
+      "label": "tabRegister",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "auth.js",
+      "file_type": "code",
+      "norm_label": "tabregister",
+      "source_file": "js/auth.js",
+      "source_location": "L29"
     },
     {
       "id": "js_auth_togglepwbtn",
@@ -1277,7 +1564,7 @@
       "file_type": "code",
       "norm_label": "togglepwbtn",
       "source_file": "js/auth.js",
-      "source_location": "L27"
+      "source_location": "L23"
     },
     {
       "id": "js_firebase_config",
@@ -1299,7 +1586,7 @@
       "file_type": "code",
       "norm_label": "app",
       "source_file": "js/firebase-config.js",
-      "source_location": "L23"
+      "source_location": "L18"
     },
     {
       "id": "js_firebase_config_auth",
@@ -1310,7 +1597,7 @@
       "file_type": "code",
       "norm_label": "auth",
       "source_file": "js/firebase-config.js",
-      "source_location": "L25"
+      "source_location": "L20"
     },
     {
       "id": "js_firebase_config_db",
@@ -1321,7 +1608,7 @@
       "file_type": "code",
       "norm_label": "db",
       "source_file": "js/firebase-config.js",
-      "source_location": "L26"
+      "source_location": "L21"
     },
     {
       "id": "js_firebase_config_firebaseconfig",
@@ -1332,7 +1619,7 @@
       "file_type": "code",
       "norm_label": "firebaseconfig",
       "source_file": "js/firebase-config.js",
-      "source_location": "L13"
+      "source_location": "L8"
     },
     {
       "id": "js_firebase_config_gemini_api_key",
@@ -1343,7 +1630,7 @@
       "file_type": "code",
       "norm_label": "gemini_api_key",
       "source_file": "js/firebase-config.js",
-      "source_location": "L46"
+      "source_location": "L32"
     },
     {
       "id": "js_firebase_config_gemini_endpoint",
@@ -1354,7 +1641,18 @@
       "file_type": "code",
       "norm_label": "gemini_endpoint",
       "source_file": "js/firebase-config.js",
-      "source_location": "L47"
+      "source_location": "L33"
+    },
+    {
+      "id": "js_peeking_mascots",
+      "label": "peeking-mascots.js",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "initPeekingMascots",
+      "file_type": "code",
+      "norm_label": "peeking-mascots.js",
+      "source_file": "js/peeking-mascots.js",
+      "source_location": "L1"
     },
     {
       "id": "js_avatars",
@@ -1376,7 +1674,7 @@
       "file_type": "code",
       "norm_label": "avatarcategories",
       "source_file": "js/avatars.js",
-      "source_location": "L29"
+      "source_location": "L26"
     },
     {
       "id": "js_avatars_btnconfirmbuy",
@@ -1387,7 +1685,7 @@
       "file_type": "code",
       "norm_label": "btnconfirmbuy",
       "source_file": "js/avatars.js",
-      "source_location": "L34"
+      "source_location": "L31"
     },
     {
       "id": "js_avatars_confirmmodal",
@@ -1398,7 +1696,7 @@
       "file_type": "code",
       "norm_label": "confirmmodal",
       "source_file": "js/avatars.js",
-      "source_location": "L30"
+      "source_location": "L27"
     },
     {
       "id": "js_avatars_currentavatarname",
@@ -1409,7 +1707,7 @@
       "file_type": "code",
       "norm_label": "currentavatarname",
       "source_file": "js/avatars.js",
-      "source_location": "L28"
+      "source_location": "L25"
     },
     {
       "id": "js_avatars_equippedavatarimg",
@@ -1420,7 +1718,7 @@
       "file_type": "code",
       "norm_label": "equippedavatarimg",
       "source_file": "js/avatars.js",
-      "source_location": "L27"
+      "source_location": "L24"
     },
     {
       "id": "js_avatars_modalavatarimg",
@@ -1431,7 +1729,7 @@
       "file_type": "code",
       "norm_label": "modalavatarimg",
       "source_file": "js/avatars.js",
-      "source_location": "L31"
+      "source_location": "L28"
     },
     {
       "id": "js_avatars_modalavatarname",
@@ -1442,7 +1740,7 @@
       "file_type": "code",
       "norm_label": "modalavatarname",
       "source_file": "js/avatars.js",
-      "source_location": "L32"
+      "source_location": "L29"
     },
     {
       "id": "js_avatars_modalavatarprice",
@@ -1453,7 +1751,7 @@
       "file_type": "code",
       "norm_label": "modalavatarprice",
       "source_file": "js/avatars.js",
-      "source_location": "L33"
+      "source_location": "L30"
     },
     {
       "id": "js_avatars_toast",
@@ -1464,7 +1762,7 @@
       "file_type": "code",
       "norm_label": "toast",
       "source_file": "js/avatars.js",
-      "source_location": "L35"
+      "source_location": "L32"
     },
     {
       "id": "js_avatars_unlockedavatars",
@@ -1475,7 +1773,7 @@
       "file_type": "code",
       "norm_label": "unlockedavatars",
       "source_file": "js/avatars.js",
-      "source_location": "L21"
+      "source_location": "L18"
     },
     {
       "id": "js_avatars_vbdisplay",
@@ -1486,7 +1784,7 @@
       "file_type": "code",
       "norm_label": "vbdisplay",
       "source_file": "js/avatars.js",
-      "source_location": "L26"
+      "source_location": "L23"
     },
     {
       "id": "js_battlepass",
@@ -1508,29 +1806,7 @@
       "file_type": "code",
       "norm_label": "raritybg",
       "source_file": "js/battlepass.js",
-      "source_location": "L77"
-    },
-    {
-      "id": "js_battlepass_typeclass",
-      "label": "typeClass",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "battlepass.js",
-      "file_type": "code",
-      "norm_label": "typeclass",
-      "source_file": "js/battlepass.js",
-      "source_location": "L84"
-    },
-    {
-      "id": "js_battlepass_typename",
-      "label": "typeName",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "battlepass.js",
-      "file_type": "code",
-      "norm_label": "typename",
-      "source_file": "js/battlepass.js",
-      "source_location": "L85"
+      "source_location": "L63"
     },
     {
       "id": "js_quiz",
@@ -1544,6 +1820,17 @@
       "source_location": "L1"
     },
     {
+      "id": "js_quiz_correctphrases",
+      "label": "correctPhrases",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "correctphrases",
+      "source_file": "js/quiz.js",
+      "source_location": "L178"
+    },
+    {
       "id": "js_quiz_currentquestions",
       "label": "currentQuestions",
       "_origin": "ast",
@@ -1552,7 +1839,29 @@
       "file_type": "code",
       "norm_label": "currentquestions",
       "source_file": "js/quiz.js",
-      "source_location": "L58"
+      "source_location": "L160"
+    },
+    {
+      "id": "js_quiz_idlephrases",
+      "label": "idlePhrases",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "idlephrases",
+      "source_file": "js/quiz.js",
+      "source_location": "L170"
+    },
+    {
+      "id": "js_quiz_incorrectphrases",
+      "label": "incorrectPhrases",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "incorrectphrases",
+      "source_file": "js/quiz.js",
+      "source_location": "L186"
     },
     {
       "id": "js_quiz_questionsbank",
@@ -1563,7 +1872,18 @@
       "file_type": "code",
       "norm_label": "questionsbank",
       "source_file": "js/quiz.js",
-      "source_location": "L15"
+      "source_location": "L17"
+    },
+    {
+      "id": "js_quiz_userskindata",
+      "label": "userSkinData",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "quiz.js",
+      "file_type": "code",
+      "norm_label": "userskindata",
+      "source_file": "js/quiz.js",
+      "source_location": "L168"
     },
     {
       "id": "readme",
@@ -1578,16 +1898,28 @@
       "source_location": "L1"
     },
     {
-      "id": "readme_caracter\u00edsticas_principales",
-      "label": "\u2728 Caracter\u00edsticas Principales",
+      "id": "readme_arquitectura_y_funcionamiento_t\u00e9cnico",
+      "label": "\ud83d\udd2c Arquitectura y Funcionamiento T\u00e9cnico",
       "_origin": "ast",
       "community": 6,
       "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u2728 caracteristicas principales",
+      "norm_label": "\ud83d\udd2c arquitectura y funcionamiento tecnico",
       "source_file": "README.md",
-      "source_location": "L42"
+      "source_location": "L230"
+    },
+    {
+      "id": "readme_autenticaci\u00f3n_simplificada_para_ni\u00f1os",
+      "label": "Autenticaci\u00f3n Simplificada para Ni\u00f1os",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "autenticacion simplificada para ninos",
+      "source_file": "README.md",
+      "source_location": "L324"
     },
     {
       "id": "readme_descripci\u00f3n_general",
@@ -1602,16 +1934,16 @@
       "source_location": "L29"
     },
     {
-      "id": "readme_dise\u00f1o_y_experiencia_de_usuario_ui_ux",
-      "label": "\ud83c\udfa8 Dise\u00f1o y Experiencia de Usuario (UI/UX)",
+      "id": "readme_diagrama_de_secuencia_del_chat",
+      "label": "Diagrama de Secuencia del Chat:",
       "_origin": "ast",
       "community": 6,
       "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\ud83c\udfa8 diseno y experiencia de usuario (ui/ux)",
+      "norm_label": "diagrama de secuencia del chat:",
       "source_file": "README.md",
-      "source_location": "L66"
+      "source_location": "L276"
     },
     {
       "id": "readme_estructura_de_archivos_del_proyecto",
@@ -1626,16 +1958,40 @@
       "source_location": "L85"
     },
     {
-      "id": "readme_leaderboard_ranking_global",
-      "label": "\ud83c\udfc6 Leaderboard / Ranking Global",
+      "id": "readme_estructura_de_la_base_de_datos_firestore",
+      "label": "Estructura de la Base de Datos (Firestore)",
       "_origin": "ast",
       "community": 6,
       "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\ud83c\udfc6 leaderboard / ranking global",
+      "norm_label": "estructura de la base de datos (firestore)",
       "source_file": "README.md",
-      "source_location": "L61"
+      "source_location": "L232"
+    },
+    {
+      "id": "readme_gu\u00eda_de_configuraci\u00f3n_paso_a_paso",
+      "label": "\ud83d\ude80 Gu\u00eda de Configuraci\u00f3n Paso a Paso",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83d\ude80 guia de configuracion paso a paso",
+      "source_file": "README.md",
+      "source_location": "L131"
+    },
+    {
+      "id": "readme_integraci\u00f3n_con_gemini_api_y_fallback_local",
+      "label": "Integraci\u00f3n con Gemini API y Fallback Local",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "integracion con gemini api y fallback local",
+      "source_file": "README.md",
+      "source_location": "L257"
     },
     {
       "id": "readme_licencia_y_cr\u00e9ditos",
@@ -1647,7 +2003,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udcc4 licencia y creditos",
       "source_file": "README.md",
-      "source_location": "L336"
+      "source_location": "L346"
     },
     {
       "id": "readme_materias_y_quizzes_disponibles",
@@ -1659,19 +2015,91 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udcda materias y quizzes disponibles",
       "source_file": "README.md",
-      "source_location": "L324"
+      "source_location": "L334"
     },
     {
-      "id": "readme_quizzes_interactivos",
-      "label": "\ud83d\udcdd Quizzes Interactivos",
+      "id": "readme_opci\u00f3n_a_con_python_recomendada_y_sin_instalar_nada_extra",
+      "label": "Opci\u00f3n A \u2014 Con Python (Recomendada y sin instalar nada extra):",
       "_origin": "ast",
       "community": 6,
       "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\ud83d\udcdd quizzes interactivos",
+      "norm_label": "opcion a \u2014 con python (recomendada y sin instalar nada extra):",
       "source_file": "README.md",
-      "source_location": "L56"
+      "source_location": "L211"
+    },
+    {
+      "id": "readme_opci\u00f3n_b_con_node_js_npx",
+      "label": "Opci\u00f3n B \u2014 Con Node.js / NPX:",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "opcion b \u2014 con node.js / npx:",
+      "source_file": "README.md",
+      "source_location": "L217"
+    },
+    {
+      "id": "readme_opci\u00f3n_c_con_vs_code",
+      "label": "Opci\u00f3n C \u2014 Con VS Code:",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "opcion c \u2014 con vs code:",
+      "source_file": "README.md",
+      "source_location": "L222"
+    },
+    {
+      "id": "readme_paso_1_configurar_firebase_auth_firestore",
+      "label": "Paso 1 \u2014 Configurar Firebase (Auth + Firestore)",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "paso 1 \u2014 configurar firebase (auth + firestore)",
+      "source_file": "README.md",
+      "source_location": "L133"
+    },
+    {
+      "id": "readme_paso_2_configurar_reglas_de_seguridad_security_rules",
+      "label": "Paso 2 \u2014 Configurar Reglas de Seguridad (Security Rules)",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "paso 2 \u2014 configurar reglas de seguridad (security rules)",
+      "source_file": "README.md",
+      "source_location": "L161"
+    },
+    {
+      "id": "readme_paso_3_configurar_gemini_api_key",
+      "label": "Paso 3 \u2014 Configurar Gemini API Key",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "paso 3 \u2014 configurar gemini api key",
+      "source_file": "README.md",
+      "source_location": "L191"
+    },
+    {
+      "id": "readme_paso_4_ejecutar_el_proyecto_en_cualquier_computador",
+      "label": "Paso 4 \u2014 Ejecutar el Proyecto en Cualquier Computador",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "paso 4 \u2014 ejecutar el proyecto en cualquier computador",
+      "source_file": "README.md",
+      "source_location": "L207"
     },
     {
       "id": "readme_racoon_teacher_v2_0_plataforma_educativa_gamificada",
@@ -1684,18 +2112,6 @@
       "norm_label": "\ud83e\udd9d racoon teacher v2.0 \u2014 plataforma educativa gamificada",
       "source_file": "README.md",
       "source_location": "L1"
-    },
-    {
-      "id": "readme_sistema_de_gamificaci\u00f3n_completo",
-      "label": "\ud83c\udfae Sistema de Gamificaci\u00f3n Completo",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83c\udfae sistema de gamificacion completo",
-      "source_file": "README.md",
-      "source_location": "L50"
     },
     {
       "id": "readme_tabla_de_contenidos",
@@ -1722,18 +2138,6 @@
       "source_location": "L74"
     },
     {
-      "id": "readme_tutor_educativo_con_ia_gemini_api_gemini_flash_latest",
-      "label": "\ud83e\udde0 Tutor Educativo con IA (Gemini API `gemini-flash-latest`)",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "\ud83e\udd9d Racoon Teacher v2.0 \u2014 Plataforma Educativa Gamificada",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83e\udde0 tutor educativo con ia (gemini api `gemini-flash-latest`)",
-      "source_file": "README.md",
-      "source_location": "L44"
-    },
-    {
       "id": "js_gemini",
       "label": "gemini.js",
       "_origin": "ast",
@@ -1745,6 +2149,17 @@
       "source_location": "L1"
     },
     {
+      "id": "js_gemini_candidate_models",
+      "label": "CANDIDATE_MODELS",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "gemini.js",
+      "file_type": "code",
+      "norm_label": "candidate_models",
+      "source_file": "js/gemini.js",
+      "source_location": "L14"
+    },
+    {
       "id": "js_gemini_subjectlabels",
       "label": "subjectLabels",
       "_origin": "ast",
@@ -1753,40 +2168,282 @@
       "file_type": "code",
       "norm_label": "subjectlabels",
       "source_file": "js/gemini.js",
-      "source_location": "L9"
+      "source_location": "L5"
     },
     {
-      "id": "js_leaderboard",
-      "label": "leaderboard.js",
+      "id": "js_transitions",
+      "label": "transitions.js",
       "_origin": "ast",
       "community": 8,
-      "community_name": "leaderboard.js",
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
       "file_type": "code",
-      "norm_label": "leaderboard.js",
-      "source_file": "js/leaderboard.js",
+      "norm_label": "transitions.js",
+      "source_file": "js/transitions.js",
       "source_location": "L1"
     },
     {
-      "id": "js_leaderboard_avatar_images",
-      "label": "AVATAR_IMAGES",
+      "id": "readme_caracter\u00edsticas_principales",
+      "label": "\u2728 Caracter\u00edsticas Principales",
       "_origin": "ast",
       "community": 8,
-      "community_name": "leaderboard.js",
-      "file_type": "code",
-      "norm_label": "avatar_images",
-      "source_file": "js/leaderboard.js",
-      "source_location": "L19"
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\u2728 caracteristicas principales",
+      "source_file": "README.md",
+      "source_location": "L42"
     },
     {
-      "id": "js_menu",
-      "label": "menu.js",
+      "id": "readme_dise\u00f1o_y_experiencia_de_usuario_ui_ux",
+      "label": "\ud83c\udfa8 Dise\u00f1o y Experiencia de Usuario (UI/UX)",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "menu.js",
-      "file_type": "code",
-      "norm_label": "menu.js",
-      "source_file": "js/menu.js",
-      "source_location": "L1"
+      "community": 8,
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83c\udfa8 diseno y experiencia de usuario (ui/ux)",
+      "source_file": "README.md",
+      "source_location": "L66"
+    },
+    {
+      "id": "readme_leaderboard_ranking_global",
+      "label": "\ud83c\udfc6 Leaderboard / Ranking Global",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83c\udfc6 leaderboard / ranking global",
+      "source_file": "README.md",
+      "source_location": "L61"
+    },
+    {
+      "id": "readme_quizzes_interactivos",
+      "label": "\ud83d\udcdd Quizzes Interactivos",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83d\udcdd quizzes interactivos",
+      "source_file": "README.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "readme_sistema_de_gamificaci\u00f3n_completo",
+      "label": "\ud83c\udfae Sistema de Gamificaci\u00f3n Completo",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83c\udfae sistema de gamificacion completo",
+      "source_file": "README.md",
+      "source_location": "L50"
+    },
+    {
+      "id": "readme_tutor_educativo_con_ia_gemini_api_gemini_flash_latest",
+      "label": "\ud83e\udde0 Tutor Educativo con IA (Gemini API `gemini-flash-latest`)",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "\u2728 Caracter\u00edsticas Principales",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83e\udde0 tutor educativo con ia (gemini api `gemini-flash-latest`)",
+      "source_file": "README.md",
+      "source_location": "L44"
+    },
+    {
+      "id": "ref_gemini_js_v_3_9",
+      "label": "ref_gemini_js_v_3_9",
+      "_origin": "semantic",
+      "community": 1,
+      "community_name": "chat.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_gemini_js_v_3_9",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_xp_js_v_3_9",
+      "label": "ref_xp_js_v_3_9",
+      "_origin": "semantic",
+      "community": 1,
+      "community_name": "chat.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_xp_js_v_3_9",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_firebase_config_js_v_2_1",
+      "label": "ref_firebase_config_js_v_2_1",
+      "_origin": "semantic",
+      "community": 14,
+      "community_name": "admin.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_firebase_config_js_v_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_firebase_config_js_v_2_4",
+      "label": "ref_firebase_config_js_v_2_4",
+      "_origin": "semantic",
+      "community": 14,
+      "community_name": "admin.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_firebase_config_js_v_2_4",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "label": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "_origin": "semantic",
+      "community": 14,
+      "community_name": "admin.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "label": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "_origin": "semantic",
+      "community": 14,
+      "community_name": "admin.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_validators_js_v_1_0",
+      "label": "ref_validators_js_v_1_0",
+      "_origin": "semantic",
+      "community": 14,
+      "community_name": "admin.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_validators_js_v_1_0",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_xp_js_v_3_0",
+      "label": "ref_xp_js_v_3_0",
+      "_origin": "semantic",
+      "community": 14,
+      "community_name": "admin.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_xp_js_v_3_0",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "js_validators_v_1_0",
+      "label": "js_validators_v_1_0",
+      "_origin": "semantic",
+      "community": 2,
+      "community_name": "auth.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "js_validators_v_1_0",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_env_js_v_3_9",
+      "label": "ref_env_js_v_3_9",
+      "_origin": "semantic",
+      "community": 2,
+      "community_name": "auth.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_env_js_v_3_9",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_app_js",
+      "label": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_app_js",
+      "_origin": "semantic",
+      "community": 2,
+      "community_name": "auth.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_app_js",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_firebase_config_js_v_2_5",
+      "label": "ref_firebase_config_js_v_2_5",
+      "_origin": "semantic",
+      "community": 3,
+      "community_name": "avatars.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_firebase_config_js_v_2_5",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_xp_js_v_2_8",
+      "label": "ref_xp_js_v_2_8",
+      "_origin": "semantic",
+      "community": 3,
+      "community_name": "avatars.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_xp_js_v_2_8",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_firebase_config_js_v_2_3",
+      "label": "ref_firebase_config_js_v_2_3",
+      "_origin": "semantic",
+      "community": 4,
+      "community_name": "battlepass.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_firebase_config_js_v_2_3",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_xp_js_v_2_9",
+      "label": "ref_xp_js_v_2_9",
+      "_origin": "semantic",
+      "community": 4,
+      "community_name": "battlepass.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_xp_js_v_2_9",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_firebase_config_js_v_3_9",
+      "label": "ref_firebase_config_js_v_3_9",
+      "_origin": "semantic",
+      "community": 7,
+      "community_name": "gemini.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_firebase_config_js_v_3_9",
+      "source_file": "",
+      "type": "external"
     }
   ],
   "links": [
@@ -1799,7 +2456,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/admin.js",
-      "source_location": "L148",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -1811,7 +2468,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/admin.js",
-      "source_location": "L162",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -1823,31 +2480,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/admin.js",
-      "source_location": "L222",
-      "weight": 1.0
-    },
-    {
-      "source": "js_auth_handlesubmit",
-      "target": "js_auth_setloading",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/auth.js",
-      "source_location": "L107",
-      "weight": 1.0
-    },
-    {
-      "source": "js_auth_handlesubmit",
-      "target": "js_auth_translateerror",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/auth.js",
-      "source_location": "L173",
+      "source_location": "L217",
       "weight": 1.0
     },
     {
@@ -1859,7 +2492,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/auth.js",
-      "source_location": "L95",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth_handlesubmit",
+      "target": "js_auth_setloading",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/auth.js",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth_handlesubmit",
+      "target": "js_auth_translateerror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/auth.js",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -1871,7 +2528,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/battlepass.js",
-      "source_location": "L22",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -1883,23 +2540,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/battlepass.js",
-      "source_location": "L23",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
       "source": "js_battlepass_init",
-      "target": "js_battlepass_rendertab",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/battlepass.js",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "js_battlepass_rendertab",
       "target": "js_battlepass_rendergrid",
       "relation": "calls",
       "_origin": "ast",
@@ -1907,7 +2552,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/battlepass.js",
-      "source_location": "L69",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -1919,7 +2564,55 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/chat.js",
-      "source_location": "L120",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_addmessage",
+      "target": "js_chat_speaktext",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L434",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_endvoicecall",
+      "target": "js_chat_playcallsound",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L214",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_endvoicecall",
+      "target": "js_chat_addmessage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_playcallsound",
+      "target": "js_chat_getaudiocontext",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L109",
       "weight": 1.0
     },
     {
@@ -1931,7 +2624,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/chat.js",
-      "source_location": "L155",
+      "source_location": "L481",
       "weight": 1.0
     },
     {
@@ -1943,7 +2636,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/chat.js",
-      "source_location": "L171",
+      "source_location": "L497",
       "weight": 1.0
     },
     {
@@ -1955,7 +2648,67 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/chat.js",
-      "source_location": "L183",
+      "source_location": "L509",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_sendsticker",
+      "target": "js_chat_addmessage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L533",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_sendsticker",
+      "target": "js_chat_showxptoast",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L542",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_startvoicecall",
+      "target": "js_chat_playcallsound",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat_startvoicecall",
+      "target": "js_chat_addmessage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz_initquiz",
+      "target": "js_xp_getavatardata",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/quiz.js",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -1967,7 +2720,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/quiz.js",
-      "source_location": "L75",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz_initquiz",
+      "target": "js_quiz_updatehud",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/quiz.js",
+      "source_location": "L242",
       "weight": 1.0
     },
     {
@@ -1979,7 +2744,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/quiz.js",
-      "source_location": "L82",
+      "source_location": "L249",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz_renderquestion",
+      "target": "js_quiz_setbubblephrase",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/quiz.js",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz_showresults",
+      "target": "js_quiz_rendersvgstars",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/quiz.js",
+      "source_location": "L456",
       "weight": 1.0
     },
     {
@@ -1991,7 +2780,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/quiz.js",
-      "source_location": "L200",
+      "source_location": "L463",
       "weight": 1.0
     },
     {
@@ -2003,7 +2792,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L167",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -2015,7 +2804,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L190",
+      "source_location": "L177",
       "weight": 1.0
     },
     {
@@ -2027,7 +2816,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L201",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -2039,95 +2828,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L219",
+      "source_location": "L204",
       "weight": 1.0
     },
     {
       "source": "js_xp_checkstreak",
-      "target": "js_xp_assertready",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/xp.js",
-      "source_location": "L125",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp_checkstreak",
-      "target": "js_xp_getstreakbonus",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/xp.js",
-      "source_location": "L131",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp_checkstreak",
-      "target": "js_xp_persistasync",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/xp.js",
-      "source_location": "L152",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp_getavatar",
-      "target": "js_xp_assertready",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/xp.js",
-      "source_location": "L117",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp_getavatardata",
-      "target": "js_xp_assertready",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/xp.js",
-      "source_location": "L261",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp_getavataremoji",
-      "target": "js_xp_assertready",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/xp.js",
-      "source_location": "L247",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp_getavatarimg",
-      "target": "js_xp_assertready",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "js/xp.js",
-      "source_location": "L254",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp_getlvl",
       "target": "js_xp_assertready",
       "relation": "calls",
       "_origin": "ast",
@@ -2139,6 +2844,90 @@
       "weight": 1.0
     },
     {
+      "source": "js_xp_checkstreak",
+      "target": "js_xp_getstreakbonus",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/xp.js",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp_checkstreak",
+      "target": "js_xp_persistasync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/xp.js",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp_getavatar",
+      "target": "js_xp_assertready",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/xp.js",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp_getavatardata",
+      "target": "js_xp_assertready",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/xp.js",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp_getavataremoji",
+      "target": "js_xp_assertready",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/xp.js",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp_getavatarimg",
+      "target": "js_xp_assertready",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/xp.js",
+      "source_location": "L239",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp_getlvl",
+      "target": "js_xp_assertready",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/xp.js",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
       "source": "js_xp_getstreak",
       "target": "js_xp_assertready",
       "relation": "calls",
@@ -2147,7 +2936,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L116",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -2159,7 +2948,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L118",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -2171,7 +2960,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L115",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -2183,7 +2972,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L113",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -2195,7 +2984,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L227",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -2207,7 +2996,211 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "js/xp.js",
-      "source_location": "L241",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "js_admin",
+      "target": "js_admin_showtoast",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/admin.js",
+      "source_location": "L527",
+      "weight": 1.0
+    },
+    {
+      "source": "js_admin",
+      "target": "js_admin_loadadmindata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/admin.js",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "js_auth_handlesubmit",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/auth.js",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "js_avatars",
+      "target": "js_avatars_showtoast",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/avatars.js",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "js_avatars",
+      "target": "js_avatars_renderstore",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/avatars.js",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "js_battlepass",
+      "target": "js_battlepass_init",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/battlepass.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_startvoicecall",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_endvoicecall",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_addmessage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L380",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_sendmessage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L473",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_sendsticker",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/chat.js",
+      "source_location": "L525",
+      "weight": 1.0
+    },
+    {
+      "source": "js_leaderboard",
+      "target": "js_leaderboard_loadleaderboard",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "js_peeking_mascots_initpeekingmascots",
+      "target": "js_peeking_mascots_initpeekingmascots_playpop",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/peeking-mascots.js",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_initquiz",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/quiz.js",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_renderquestion",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/quiz.js",
+      "source_location": "L277",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_showresults",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "js/quiz.js",
+      "source_location": "L402",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "js_validators_v_1_0",
+      "relation": "re_exports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "export",
+      "source_file": "js/auth.js",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -2219,7 +3212,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "js/auth.js",
-      "source_location": "L7",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -2231,7 +3224,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "js/auth.js",
-      "source_location": "L7",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -2249,6 +3242,18 @@
     {
       "source": "js_quiz",
       "target": "js_xp_addxp",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/quiz.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_xp_getavatardata",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2279,7 +3284,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "js/xp.js",
-      "source_location": "L9",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -2291,7 +3296,79 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "js/xp.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_admin",
+      "target": "ref_validators_js_v_1_0",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/admin.js",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "js_admin",
+      "target": "ref_firebase_config_js_v_2_4",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/admin.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_admin",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/admin.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "js_admin",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/admin.js",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/auth.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "ref_validators_js_v_1_0",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/auth.js",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -2303,7 +3380,295 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "js/auth.js",
-      "source_location": "L7",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/auth.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "js_avatars",
+      "target": "ref_firebase_config_js_v_2_5",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/avatars.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_avatars",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/avatars.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "js_avatars",
+      "target": "ref_xp_js_v_2_8",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/avatars.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "js_battlepass",
+      "target": "ref_firebase_config_js_v_2_3",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/battlepass.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_battlepass",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/battlepass.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "js_battlepass",
+      "target": "ref_xp_js_v_2_9",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/battlepass.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "ref_firebase_config_js_v_3_9",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/chat.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/chat.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "ref_xp_js_v_3_9",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/chat.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "ref_gemini_js_v_3_9",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/chat.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "js_firebase_config",
+      "target": "ref_env_js_v_3_9",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/firebase-config.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "js_firebase_config",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_app_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/firebase-config.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_firebase_config",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/firebase-config.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "js_firebase_config",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/firebase-config.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "js_gemini",
+      "target": "ref_firebase_config_js_v_3_9",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/gemini.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_leaderboard",
+      "target": "ref_firebase_config_js_v_2_1",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_leaderboard",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "js_leaderboard",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/leaderboard.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "js_menu",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/menu.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "js_menu",
+      "target": "ref_xp_js_v_3_0",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/menu.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "js_menu",
+      "target": "ref_validators_js_v_1_0",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/menu.js",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "js_menu",
+      "target": "ref_firebase_config_js_v_2_4",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/menu.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_menu",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/menu.js",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -2316,6 +3681,18 @@
       "context": "import",
       "source_file": "js/quiz.js",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_auth_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/quiz.js",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -2339,7 +3716,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "js/xp.js",
-      "source_location": "L9",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "ref_https_www_gstatic_com_firebasejs_10_12_2_firebase_firestore_js",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "js/xp.js",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -2372,7 +3761,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/admin.js",
-      "source_location": "L167",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -2383,7 +3772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/admin.js",
-      "source_location": "L195",
+      "source_location": "L190",
       "weight": 1.0
     },
     {
@@ -2394,7 +3783,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/admin.js",
-      "source_location": "L26",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -2405,7 +3794,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/admin.js",
-      "source_location": "L32",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -2416,7 +3805,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/admin.js",
-      "source_location": "L33",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -2427,18 +3816,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/admin.js",
-      "source_location": "L35",
-      "weight": 1.0
-    },
-    {
-      "source": "js_admin",
-      "target": "js_admin_showtoast",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/admin.js",
-      "source_location": "L532",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -2449,51 +3827,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/admin.js",
-      "source_location": "L550",
-      "weight": 1.0
-    },
-    {
-      "source": "js_admin",
-      "target": "js_admin_loadadmindata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/admin.js",
-      "source_location": "L88",
+      "source_location": "L545",
       "weight": 1.0
     },
     {
       "source": "js_auth",
-      "target": "js_auth_showerror",
+      "target": "js_auth_emailinput",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L181",
-      "weight": 1.0
-    },
-    {
-      "source": "js_auth",
-      "target": "js_auth_setloading",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/auth.js",
-      "source_location": "L191",
-      "weight": 1.0
-    },
-    {
-      "source": "js_auth",
-      "target": "js_auth_translateerror",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/auth.js",
-      "source_location": "L200",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -2504,7 +3849,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L21",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -2515,7 +3860,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L22",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -2526,7 +3871,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L23",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -2537,7 +3882,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L24",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "js_auth_showerror",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/auth.js",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -2548,7 +3904,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L25",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "js_auth_setloading",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/auth.js",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -2559,7 +3926,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L26",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "js_auth_translateerror",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/auth.js",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -2570,7 +3948,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L27",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -2581,7 +3959,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L29",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -2592,7 +3970,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L30",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -2603,29 +3981,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L31",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
       "source": "js_auth",
-      "target": "js_auth_handlesubmit",
+      "target": "js_auth_tablogin",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/auth.js",
-      "source_location": "L89",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
-      "source": "js_avatars",
-      "target": "js_avatars_showtoast",
+      "source": "js_auth",
+      "target": "js_auth_tabregister",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "js/avatars.js",
-      "source_location": "L186",
+      "source_file": "js/auth.js",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "js_auth",
+      "target": "js_auth_updatemodeui",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/auth.js",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -2636,7 +4025,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L21",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -2647,7 +4036,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L26",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -2658,7 +4047,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L27",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -2669,7 +4058,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L28",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -2680,7 +4069,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L29",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -2691,7 +4080,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L30",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -2702,7 +4091,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L31",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -2713,7 +4102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L32",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -2724,7 +4113,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L33",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -2735,7 +4124,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L34",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -2746,29 +4135,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/avatars.js",
-      "source_location": "L35",
-      "weight": 1.0
-    },
-    {
-      "source": "js_avatars",
-      "target": "js_avatars_renderstore",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/avatars.js",
-      "source_location": "L99",
-      "weight": 1.0
-    },
-    {
-      "source": "js_battlepass",
-      "target": "js_battlepass_init",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/battlepass.js",
-      "source_location": "L21",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -2779,7 +4146,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/battlepass.js",
-      "source_location": "L28",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -2790,18 +4157,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/battlepass.js",
-      "source_location": "L44",
-      "weight": 1.0
-    },
-    {
-      "source": "js_battlepass",
-      "target": "js_battlepass_rendertab",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/battlepass.js",
-      "source_location": "L63",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -2812,29 +4168,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/battlepass.js",
-      "source_location": "L77",
-      "weight": 1.0
-    },
-    {
-      "source": "js_battlepass",
-      "target": "js_battlepass_typeclass",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/battlepass.js",
-      "source_location": "L84",
-      "weight": 1.0
-    },
-    {
-      "source": "js_battlepass",
-      "target": "js_battlepass_typename",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/battlepass.js",
-      "source_location": "L85",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -2845,51 +4179,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/battlepass.js",
-      "source_location": "L87",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
       "source": "js_chat",
-      "target": "js_chat_addmessage",
+      "target": "js_chat_playcallsound",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/chat.js",
-      "source_location": "L115",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
       "source": "js_chat",
-      "target": "js_chat_modenames",
+      "target": "js_chat_speaktext",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/chat.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_showxptoast",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L131",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_getlocalresponse",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L199",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -2900,7 +4212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/chat.js",
-      "source_location": "L21",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -2911,7 +4223,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/chat.js",
-      "source_location": "L30",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -2922,7 +4234,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/chat.js",
-      "source_location": "L31",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -2933,73 +4245,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/chat.js",
-      "source_location": "L34",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_conversationhistory",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_chatbox",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L45",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_input",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L46",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_sendbtn",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L47",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_typing",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L48",
-      "weight": 1.0
-    },
-    {
-      "source": "js_chat",
-      "target": "js_chat_modelabel",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/chat.js",
-      "source_location": "L49",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -3010,29 +4256,359 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/chat.js",
+      "source_location": "L361",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_conversationhistory",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_chatbox",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_input",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_sendbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_typing",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_modelabel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_showxptoast",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L457",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_gradebadge",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_quickchipsbar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_togglestickerbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_stickerdrawer",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_closestickerbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_stickergrid",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_chatherobanner",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_closeherobtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_opensettingsbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_closesettingsbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_settingsmodal",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_geminikeyinput",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_savekeybtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_keyfeedback",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_mascotstickers",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_getlocalresponse",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L645",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_callbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_voicemicbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_voicecallbanner",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_bannerhangupbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_calltimerel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_callwavebars",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_callbannerstatus",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_modenames",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "js_chat",
+      "target": "js_chat_getaudiocontext",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/chat.js",
       "source_location": "L96",
-      "weight": 1.0
-    },
-    {
-      "source": "js_env_example",
-      "target": "js_env_example_env_gemini_key",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/env.example.js",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "js_firebase_config",
-      "target": "js_firebase_config_firebaseconfig",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/firebase-config.js",
-      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -3043,7 +4619,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/firebase-config.js",
-      "source_location": "L23",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -3054,7 +4630,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/firebase-config.js",
-      "source_location": "L25",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3065,7 +4641,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/firebase-config.js",
-      "source_location": "L26",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -3076,7 +4652,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/firebase-config.js",
-      "source_location": "L46",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3087,7 +4663,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/firebase-config.js",
-      "source_location": "L47",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "js_firebase_config",
+      "target": "js_firebase_config_firebaseconfig",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/firebase-config.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "js_gemini",
+      "target": "js_gemini_askgeminivoice",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/gemini.js",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "js_gemini",
+      "target": "js_gemini_candidate_models",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/gemini.js",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -3098,7 +4707,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/gemini.js",
-      "source_location": "L17",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -3109,7 +4718,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/gemini.js",
-      "source_location": "L9",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -3120,18 +4729,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/leaderboard.js",
-      "source_location": "L19",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
       "source": "js_leaderboard",
-      "target": "js_leaderboard_loadleaderboard",
+      "target": "js_leaderboard_urlparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/leaderboard.js",
-      "source_location": "L32",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -3142,7 +4751,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/menu.js",
-      "source_location": "L271",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -3153,7 +4762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/menu.js",
-      "source_location": "L320",
+      "source_location": "L324",
       "weight": 1.0
     },
     {
@@ -3164,7 +4773,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/menu.js",
-      "source_location": "L357",
+      "source_location": "L367",
       "weight": 1.0
     },
     {
@@ -3175,29 +4784,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/nav.js",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "js_quiz",
-      "target": "js_quiz_showresults",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/quiz.js",
-      "source_location": "L140",
-      "weight": 1.0
-    },
-    {
-      "source": "js_quiz",
-      "target": "js_quiz_questionsbank",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/quiz.js",
-      "source_location": "L15",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -3208,18 +4795,84 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/quiz.js",
-      "source_location": "L58",
+      "source_location": "L160",
       "weight": 1.0
     },
     {
       "source": "js_quiz",
-      "target": "js_quiz_initquiz",
+      "target": "js_quiz_userskindata",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/quiz.js",
-      "source_location": "L64",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_questionsbank",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/quiz.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_idlephrases",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/quiz.js",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_correctphrases",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/quiz.js",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_incorrectphrases",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/quiz.js",
+      "source_location": "L186",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_setbubblephrase",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/quiz.js",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_updatehud",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/quiz.js",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -3230,18 +4883,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/quiz.js",
-      "source_location": "L85",
+      "source_location": "L271",
       "weight": 1.0
     },
     {
       "source": "js_quiz",
-      "target": "js_quiz_renderquestion",
+      "target": "js_quiz_spawnxpparticle",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/quiz.js",
-      "source_location": "L92",
+      "source_location": "L377",
+      "weight": 1.0
+    },
+    {
+      "source": "js_quiz",
+      "target": "js_quiz_rendersvgstars",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/quiz.js",
+      "source_location": "L387",
       "weight": 1.0
     },
     {
@@ -3263,7 +4927,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/validators.js",
-      "source_location": "L13",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -3274,117 +4938,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/validators.js",
-      "source_location": "L32",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_persistasync",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L103",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_getxp",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L113",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_getlvl",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L114",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_getvb",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L115",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_getstreak",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L116",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_getavatar",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L117",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_getunlockedavatars",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L118",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_checkstreak",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L124",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_xp_per_lvl",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_getstreakbonus",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L159",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -3395,18 +4949,84 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L16",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
       "source": "js_xp",
-      "target": "js_xp_addxp",
+      "target": "js_xp_getxp",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L166",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_getlvl",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_getvb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_getstreak",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_getavatar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_getunlockedavatars",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_checkstreak",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -3417,7 +5037,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L19",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_getstreakbonus",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_addxp",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -3428,7 +5070,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L200",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -3439,7 +5081,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L226",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -3450,7 +5092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L246",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -3461,7 +5103,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L253",
+      "source_location": "L238",
       "weight": 1.0
     },
     {
@@ -3472,18 +5114,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L260",
-      "weight": 1.0
-    },
-    {
-      "source": "js_xp",
-      "target": "js_xp_rewards",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "js/xp.js",
-      "source_location": "L269",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -3494,7 +5125,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L32",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_rewards",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -3505,12 +5147,34 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "js/xp.js",
-      "source_location": "L46",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
       "source": "js_xp",
       "target": "js_xp_assertready",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_xp_per_lvl",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "js/xp.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "js_xp",
+      "target": "js_xp_persistasync",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3538,7 +5202,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L224",
+      "source_location": "L232",
       "weight": 1.0
     },
     {
@@ -3549,7 +5213,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L247",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -3560,7 +5224,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L297",
+      "source_location": "L307",
       "weight": 1.0
     },
     {
@@ -3571,7 +5235,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L304",
+      "source_location": "L314",
       "weight": 1.0
     },
     {
@@ -3582,7 +5246,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L314",
+      "source_location": "L324",
       "weight": 1.0
     },
     {
@@ -3675,13 +5339,13 @@
     },
     {
       "source": "readme_gu\u00eda_de_configuraci\u00f3n_paso_a_paso",
-      "target": "readme_paso_4_ejecutar_el_proyecto_localmente",
+      "target": "readme_paso_4_ejecutar_el_proyecto_en_cualquier_computador",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L206",
+      "source_location": "L207",
       "weight": 1.0
     },
     {
@@ -3692,29 +5356,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L266",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
-      "source": "readme_paso_4_ejecutar_el_proyecto_localmente",
-      "target": "readme_opci\u00f3n_a_servidor_python_incluido",
+      "source": "readme_paso_4_ejecutar_el_proyecto_en_cualquier_computador",
+      "target": "readme_opci\u00f3n_a_con_python_recomendada_y_sin_instalar_nada_extra",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L210",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
-      "source": "readme_paso_4_ejecutar_el_proyecto_localmente",
-      "target": "readme_opci\u00f3n_b_con_vs_code",
+      "source": "readme_paso_4_ejecutar_el_proyecto_en_cualquier_computador",
+      "target": "readme_opci\u00f3n_b_con_node_js_npx",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L216",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_paso_4_ejecutar_el_proyecto_en_cualquier_computador",
+      "target": "readme_opci\u00f3n_c_con_vs_code",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -3736,7 +5411,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L222",
+      "source_location": "L230",
       "weight": 1.0
     },
     {
@@ -3758,7 +5433,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L324",
+      "source_location": "L334",
       "weight": 1.0
     },
     {
@@ -3769,7 +5444,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L336",
+      "source_location": "L346",
       "weight": 1.0
     },
     {
@@ -3817,18 +5492,78 @@
       "weight": 1.0
     },
     {
-      "source": "js_chat",
-      "target": "js_chat_sendmessage",
+      "source": "js_peeking_mascots",
+      "target": "js_peeking_mascots_initpeekingmascots",
       "relation": "indirect_call",
       "_origin": "ast",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "context": "argument",
-      "source_file": "js/chat.js",
-      "source_location": "L61",
+      "source_file": "js/peeking-mascots.js",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_motor_de_xp_e_inmutabilidad_de_ui_persistasync",
+      "target": "js_xp_addxp",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "addXP()",
+      "source_file": "README.md",
+      "source_location": "L309",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_formateador_de_markdown_e_interfaz_educativa",
+      "target": "js_chat_formatmarkdown",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "formatMarkdown()",
+      "source_file": "README.md",
+      "source_location": "L316",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_dise\u00f1o_y_experiencia_de_usuario_ui_ux",
+      "target": "js_transitions_navigateto",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "navigateTo()",
+      "source_file": "README.md",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_motor_de_xp_e_inmutabilidad_de_ui_persistasync",
+      "target": "js_xp_persistasync",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "persistAsync",
+      "source_file": "README.md",
+      "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_tabla_de_contenidos",
+      "target": "js_xp_persistasync",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "persistAsync",
+      "source_file": "README.md",
+      "source_location": "L21",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e87d644053a4dfbf457d9284298dc86238d25a7c"
+  "built_at_commit": "f7add26cfb08e5082d8ff84310536c071130ca1b"
 }

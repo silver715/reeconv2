@@ -1,7 +1,4 @@
-/* ==============================================
-   ADMIN PANEL CSS — css/admin.css (v1.0)
-   Estilos para el panel de administración CRUD de Firebase
-   ============================================== */
+/* Estilos del panel de administración */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -51,7 +48,7 @@ body {
   gap: 24px;
 }
 
-/* ── HEADER SUPERIOR ── */
+/* Header superior */
 .admin-header {
   background: rgba(17, 17, 40, 0.78);
   backdrop-filter: blur(16px);
@@ -140,7 +137,7 @@ body {
   box-shadow: 0 6px 20px rgba(123, 111, 255, 0.5);
 }
 
-/* ── KPI METRICS CARDS ── */
+/* Kpi metrics cards */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -189,7 +186,7 @@ body {
   line-height: 1.1;
 }
 
-/* ── TOOLBAR DE BÚSQUEDA Y FILTROS ── */
+/* Toolbar de búsqueda y filtros */
 .crud-toolbar {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -253,7 +250,7 @@ body {
   border-color: var(--purple);
 }
 
-/* ── TABLA CRUD DE DATOS ── */
+/* Tabla crud de datos */
 .table-wrapper {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -369,7 +366,7 @@ body {
   color: var(--danger);
 }
 
-/* ── MODALES DE ADMINISTRACIÓN ── */
+/* Modales de administración */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -480,7 +477,7 @@ body {
   gap: 10px;
 }
 
-/* ── ALERT BANNER / TOAST ── */
+/* Alert banner / toast */
 .admin-toast {
   position: fixed;
   bottom: 24px;
@@ -515,7 +512,7 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── RESPONSIVE ── */
+/* Responsive */
 @media (max-width: 820px) {
   .crud-toolbar { flex-direction: column; align-items: stretch; }
   .search-box { max-width: none; }

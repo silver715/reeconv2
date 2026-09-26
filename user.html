@@ -3,54 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racoon Teacher 🦝 — Iniciar Sesión</title>
+  <title>Racoon Teacher — Iniciar Sesión y Registro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/user.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/user.css?v=3.2">
   <link rel="stylesheet" href="css/transitions.css">
-  <style>
-    .pw-hint {
-      font-size: 0.76rem;
-      color: var(--text-soft);
-      margin-top: 5px;
-      line-height: 1.3;
-      display: none;
-    }
-    .pw-hint.visible {
-      display: block;
-    }
-  </style>
 </head>
 <body>
 
-  <div class="bg-shapes">
-    <div class="shape shape-1">🦝</div>
-    <div class="shape shape-2">📐</div>
-    <div class="shape shape-3">🌱</div>
-    <div class="shape shape-4">📖</div>
-    <div class="shape shape-5">🌐</div>
-    <div class="shape shape-6">🗺️</div>
+  <!-- ── Atmósfera de Fondo (Notion Soft Dark) ── -->
+  <div class="auth-bg-decor" aria-hidden="true">
+    <div class="mesh-grid-pattern"></div>
+    <div class="decor-dot dot-1"></div>
+    <div class="decor-dot dot-2"></div>
+    <div class="decor-dot dot-3"></div>
+    <div class="decor-dot dot-4"></div>
   </div>
 
+  <!-- ── Navegación de Regreso ── -->
+  <div class="auth-back-nav">
+    <a href="landing.html" class="auth-back-link" title="Volver a la página principal">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Volver al inicio</span>
+    </a>
+  </div>
+
+  <!-- ── Contenedor Central ── -->
   <div class="login-wrapper">
 
     <div class="login-card">
 
+      <!-- Encabezado de Marca -->
       <div class="card-header">
-        <div class="raccoon-avatar">🦝</div>
+        <div class="raccoon-avatar-wrap">
+          <img src="img/avatars/raccoon_happy.png" alt="Racoon Teacher Mascot" class="raccoon-avatar-img">
+        </div>
         <h1 class="brand-title">Racoon Teacher</h1>
         <p class="brand-sub" id="cardSubTitle">¡Bienvenido de vuelta!</p>
       </div>
 
-      <div id="error-msg" class="error-banner" style="display:none;"></div>
+      <!-- Selector de Modo (Tabs) -->
+      <div class="auth-tabs" role="tablist">
+        <button type="button" class="auth-tab-btn active" id="tabLogin" onclick="setAuthMode('login')">
+          Iniciar Sesión
+        </button>
+        <button type="button" class="auth-tab-btn" id="tabRegister" onclick="setAuthMode('register')">
+          Crear Cuenta
+        </button>
+      </div>
 
+      <!-- Banner de Error -->
+      <div id="error-msg" class="error-banner" style="display:none;" role="alert"></div>
+
+      <!-- Formulario -->
       <div class="form-body">
 
         <!-- Campo de Nombre completo (para Registro) -->
         <div class="input-group" id="nameGroup" style="display:none;">
           <label for="regName">Nombre del Estudiante</label>
           <div class="input-wrapper">
-            <span class="input-icon">🙂</span>
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
             <input type="text" id="regName" placeholder="Ej: Santiago Pérez" autocomplete="name">
           </div>
         </div>
@@ -59,8 +80,13 @@
         <div class="input-group">
           <label for="emailInput">Correo Electrónico</label>
           <div class="input-wrapper">
-            <span class="input-icon">✉️</span>
-            <input type="text" id="emailInput" placeholder="correo@ejemplo.com" autocomplete="email">
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            <input type="email" id="emailInput" placeholder="correo@ejemplo.com" autocomplete="email">
           </div>
         </div>
 
@@ -68,23 +94,40 @@
         <div class="input-group">
           <label for="password">Contraseña</label>
           <div class="input-wrapper">
-            <span class="input-icon">🔒</span>
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </span>
             <input type="password" id="password" placeholder="Tu contraseña" autocomplete="current-password">
-            <button class="toggle-pw" type="button" id="togglePw" title="Mostrar u ocultar contraseña">👁️</button>
+            <button class="toggle-pw" type="button" id="togglePw" title="Mostrar u ocultar contraseña" aria-label="Mostrar u ocultar contraseña">
+              <svg id="eyeIconSvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
           </div>
           <div class="pw-hint" id="pwHint">
-            ℹ️ Mínimo 6 caracteres con al menos 1 mayúscula, 1 minúscula y 1 número (ej: <code>Racoon2026</code>).
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+            <span>Mínimo 6 caracteres con mayúscula, minúscula y número (ej: <code>Racoon2026</code>).</span>
           </div>
         </div>
 
+        <!-- Recordar correo -->
         <div class="remember-row">
           <label class="checkbox-label">
             <input type="checkbox" id="rememberMe">
             <span class="checkmark"></span>
-            Recordar correo
+            <span>Recordar correo</span>
           </label>
         </div>
 
+        <!-- Botón de Envío -->
         <button class="btn-login" id="loginBtn" onclick="handleSubmit()">
           <span class="btn-text">Entrar al aula</span>
           <span class="btn-arrow">→</span>
@@ -92,15 +135,21 @@
 
       </div>
 
+      <!-- Pie de Tarjeta -->
       <div class="card-footer">
         <p id="toggleModeText">¿No tienes cuenta? <a href="#" onclick="toggleMode()">Regístrate gratis</a></p>
       </div>
+
+      <!-- Aviso de Seguridad -->
+      <p class="auth-security-notice">
+        Acceso escolar seguro protegido mediante cifrado y Firebase Authentication
+      </p>
 
     </div>
 
   </div>
 
   <script src="js/transitions.js"></script>
-  <script type="module" src="js/auth.js?v=3.1"></script>
+  <script type="module" src="js/auth.js?v=3.2"></script>
 </body>
 </html>

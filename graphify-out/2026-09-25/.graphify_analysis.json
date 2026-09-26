@@ -1,0 +1,255 @@
+{
+  "communities": {
+    "0": [
+      "js_xp",
+      "js_xp_assertready",
+      "js_xp_avatars",
+      "js_xp_buyavatar",
+      "js_xp_cache",
+      "js_xp_checkstreak",
+      "js_xp_getavatar",
+      "js_xp_getavatardata",
+      "js_xp_getavataremoji",
+      "js_xp_getavatarimg",
+      "js_xp_getlvl",
+      "js_xp_getstreak",
+      "js_xp_getstreakbonus",
+      "js_xp_getunlockedavatars",
+      "js_xp_getvb",
+      "js_xp_getxp",
+      "js_xp_max_level",
+      "js_xp_persistasync",
+      "js_xp_rewards",
+      "js_xp_setavatar",
+      "js_xp_xp_per_lvl"
+    ],
+    "1": [
+      "js_chat",
+      "js_chat_addmessage",
+      "js_chat_chatbox",
+      "js_chat_conversationhistory",
+      "js_chat_formatmarkdown",
+      "js_chat_getlocalresponse",
+      "js_chat_input",
+      "js_chat_modelabel",
+      "js_chat_modenames",
+      "js_chat_placeholders",
+      "js_chat_rawgrade",
+      "js_chat_rawmode",
+      "js_chat_sendbtn",
+      "js_chat_sendmessage",
+      "js_chat_showxptoast",
+      "js_chat_typing",
+      "js_chat_validmodes"
+    ],
+    "2": [
+      "js_auth",
+      "js_auth_btntext",
+      "js_auth_errormsg",
+      "js_auth_handlesubmit",
+      "js_auth_loginbtn",
+      "js_auth_modetext",
+      "js_auth_namegroup",
+      "js_auth_nameinput",
+      "js_auth_passwordinput",
+      "js_auth_rememberme",
+      "js_auth_setloading",
+      "js_auth_showerror",
+      "js_auth_togglepwbtn",
+      "js_auth_translateerror",
+      "js_auth_usernameinput",
+      "js_auth_usernametoemail"
+    ],
+    "3": [
+      "js_avatars",
+      "js_avatars_avatarcategories",
+      "js_avatars_btnconfirmbuy",
+      "js_avatars_confirmmodal",
+      "js_avatars_currentavatarname",
+      "js_avatars_equippedavatarimg",
+      "js_avatars_modalavatarimg",
+      "js_avatars_modalavatarname",
+      "js_avatars_modalavatarprice",
+      "js_avatars_renderstore",
+      "js_avatars_showtoast",
+      "js_avatars_toast",
+      "js_avatars_unlockedavatars",
+      "js_avatars_vbdisplay"
+    ],
+    "4": [
+      "js_battlepass",
+      "js_battlepass_init",
+      "js_battlepass_raritybg",
+      "js_battlepass_rendergrid",
+      "js_battlepass_renderstats",
+      "js_battlepass_rendertab",
+      "js_battlepass_renderxpbar",
+      "js_battlepass_typeclass",
+      "js_battlepass_typename"
+    ],
+    "5": [
+      "js_quiz",
+      "js_quiz_currentquestions",
+      "js_quiz_generatequiz",
+      "js_quiz_initquiz",
+      "js_quiz_questionsbank",
+      "js_quiz_renderquestion",
+      "js_quiz_showresults",
+      "js_xp_addxp",
+      "js_xp_initxp"
+    ],
+    "6": [
+      "js_env",
+      "js_firebase_config",
+      "js_firebase_config_app",
+      "js_firebase_config_auth",
+      "js_firebase_config_db",
+      "js_firebase_config_firebaseconfig",
+      "js_firebase_config_gemini_api_key",
+      "js_firebase_config_gemini_endpoint"
+    ],
+    "7": [
+      "js_gemini",
+      "js_gemini_askgemini",
+      "js_gemini_subjectlabels"
+    ],
+    "8": [
+      "js_leaderboard",
+      "js_leaderboard_avatar_emojis",
+      "js_leaderboard_loadleaderboard"
+    ],
+    "9": [
+      "js_menu",
+      "js_menu_restoregradegrid",
+      "js_menu_showsubjectselection"
+    ],
+    "10": [
+      "js_env_example",
+      "js_env_example_env_gemini_key"
+    ],
+    "11": [
+      "js_nav",
+      "js_nav_gotochat"
+    ],
+    "12": [
+      "js_transitions",
+      "js_transitions_navigateto"
+    ],
+    "13": [
+      "scratch_extract_avatars"
+    ]
+  },
+  "cohesion": {
+    "0": 0.17142857142857143,
+    "1": 0.14705882352941177,
+    "2": 0.15833333333333333,
+    "3": 0.14285714285714285,
+    "4": 0.3333333333333333,
+    "5": 0.3055555555555556,
+    "6": 0.25,
+    "7": 0.6666666666666666,
+    "8": 0.6666666666666666,
+    "9": 0.6666666666666666,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
+  },
+  "gods": [
+    {
+      "id": "js_xp_assertready",
+      "label": "assertReady()",
+      "degree": 14
+    },
+    {
+      "id": "js_xp_persistasync",
+      "label": "persistAsync()",
+      "degree": 5
+    },
+    {
+      "id": "js_auth_handlesubmit",
+      "label": "handleSubmit()",
+      "degree": 5
+    },
+    {
+      "id": "js_xp_addxp",
+      "label": "addXP()",
+      "degree": 5
+    },
+    {
+      "id": "js_xp_checkstreak",
+      "label": "checkStreak()",
+      "degree": 4
+    },
+    {
+      "id": "js_chat_sendmessage",
+      "label": "sendMessage()",
+      "degree": 4
+    },
+    {
+      "id": "js_battlepass_init",
+      "label": "init()",
+      "degree": 4
+    },
+    {
+      "id": "js_firebase_config_auth",
+      "label": "auth",
+      "degree": 4
+    },
+    {
+      "id": "js_xp_buyavatar",
+      "label": "buyAvatar()",
+      "degree": 3
+    },
+    {
+      "id": "js_xp_setavatar",
+      "label": "setAvatar()",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "showResults()",
+      "target": "addXP()",
+      "source_files": [
+        "js/quiz.js",
+        "js/xp.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `showResults()` unexpectedly reaches hub `addXP()`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `auth` connect `firebase-config.js` to `xp.js`, `auth.js`, `quiz.js`?",
+      "why": "High betweenness centrality (0.031) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `db` connect `firebase-config.js` to `xp.js`, `auth.js`?",
+      "why": "High betweenness centrality (0.020) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `assertReady()` connect `xp.js` to `quiz.js`?",
+      "why": "High betweenness centrality (0.007) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `AVATARS`, `_cache`, `MAX_LEVEL` to the rest of the system?",
+      "why": "50 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `chat.js` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14705882352941177 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `avatars.js` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

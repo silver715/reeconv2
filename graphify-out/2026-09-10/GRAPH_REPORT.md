@@ -1,0 +1,113 @@
+# Graph Report - reeconv2  (2026-09-10)
+
+## Corpus Check
+- 23 files · ~80,736 words
+- Verdict: corpus is large enough that graph structure adds value.
+
+## Summary
+- 217 nodes · 285 edges · 22 communities (15 shown, 7 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.85)
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `f7add26c`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
+## Community Hubs (Navigation)
+- xp.js
+- chat.js
+- auth.js
+- avatars.js
+- battlepass.js
+- VoiceCallManager
+- 🦝 Racoon Teacher v2.0 — Plataforma Educativa Gamificada
+- gemini.js
+- leaderboard.js
+- env.example.js
+- admin.js
+- 🚀 Guía de Configuración Paso a Paso
+- rules/graphify.md
+- workflows/graphify.md
+- chat.original.js
+- initPeekingMascots
+
+## God Nodes (most connected - your core abstractions)
+1. `VoiceCallManager` - 19 edges
+2. `assertReady()` - 14 edges
+3. `🦝 Racoon Teacher v2.0 — Plataforma Educativa Gamificada` - 10 edges
+4. `✨ Características Principales` - 6 edges
+5. `🔬 Arquitectura y Funcionamiento Técnico` - 6 edges
+6. `persistAsync()` - 5 edges
+7. `addXP()` - 5 edges
+8. `🚀 Guía de Configuración Paso a Paso` - 5 edges
+9. `handleSubmit()` - 4 edges
+10. `init()` - 4 edges
+
+## Surprising Connections (you probably didn't know these)
+- `showResults()` --calls--> `addXP()`  [EXTRACTED]
+  js/quiz.js → js/xp.js
+
+## Import Cycles
+- None detected.
+
+## Communities (22 total, 7 thin omitted)
+
+### Community 0 - "xp.js"
+Cohesion: 0.12
+Nodes (28): currentQuestions, generateQuiz(), initQuiz(), questionsBank, renderQuestion(), showResults(), addXP(), assertReady() (+20 more)
+
+### Community 1 - "chat.js"
+Cohesion: 0.07
+Nodes (35): addMessage(), callSubjectName, chatBox, chatHeroBanner, closeHeroBtn, closeSettingsBtn, closeStickerBtn, conversationHistory (+27 more)
+
+### Community 2 - "auth.js"
+Cohesion: 0.11
+Nodes (20): cardSubTitle, errorMsg, handleSubmit(), loginBtn, modeText, nameGroup, nameInput, passwordInput (+12 more)
+
+### Community 3 - "avatars.js"
+Cohesion: 0.14
+Nodes (11): avatarCategories, btnConfirmBuy, confirmModal, currentAvatarName, equippedAvatarImg, modalAvatarImg, modalAvatarName, modalAvatarPrice (+3 more)
+
+### Community 4 - "battlepass.js"
+Cohesion: 0.33
+Nodes (8): init(), rarityBg, renderGrid(), renderStats(), renderTab(), renderXPBar(), typeClass, typeName
+
+### Community 6 - "🦝 Racoon Teacher v2.0 — Plataforma Educativa Gamificada"
+Cohesion: 0.10
+Nodes (20): 🔬 Arquitectura y Funcionamiento Técnico, Autenticación Simplificada para Niños, ✨ Características Principales, 🦝 Descripción General, Diagrama de Secuencia del Chat:, 🎨 Diseño y Experiencia de Usuario (UI/UX), 📁 Estructura de Archivos del Proyecto, Estructura de la Base de Datos (Firestore) (+12 more)
+
+### Community 14 - "admin.js"
+Cohesion: 0.27
+Nodes (9): ADMIN_EMAILS, allStudents, AVATAR_IMAGES, escapeHtml(), filteredStudents, loadAdminData(), renderStudentsTable(), showToast() (+1 more)
+
+### Community 15 - "🚀 Guía de Configuración Paso a Paso"
+Cohesion: 0.25
+Nodes (8): 🚀 Guía de Configuración Paso a Paso, Opción A — Con Python (Recomendada y sin instalar nada extra):, Opción B — Con Node.js / NPX:, Opción C — Con VS Code:, Paso 1 — Configurar Firebase (Auth + Firestore), Paso 2 — Configurar Reglas de Seguridad (Security Rules), Paso 3 — Configurar Gemini API Key, Paso 4 — Ejecutar el Proyecto en Cualquier Computador
+
+### Community 18 - "chat.original.js"
+Cohesion: 0.15
+Nodes (16): addMessage(), chatBox, conversationHistory, formatMarkdown(), getLocalResponse(), input, modeLabel, modeNames (+8 more)
+
+## Knowledge Gaps
+- **106 isolated node(s):** `ADMIN_EMAILS`, `allStudents`, `filteredStudents`, `AVATAR_IMAGES`, `passwordInput` (+101 more)
+  These have ≤1 connection - possible missing edges or undocumented components.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+
+## Suggested Questions
+_Questions this graph is uniquely positioned to answer:_
+
+- **Why does `🦝 Racoon Teacher v2.0 — Plataforma Educativa Gamificada` connect `🦝 Racoon Teacher v2.0 — Plataforma Educativa Gamificada` to `🚀 Guía de Configuración Paso a Paso`?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `auth` connect `auth.js` to `xp.js`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Why does `🚀 Guía de Configuración Paso a Paso` connect `🚀 Guía de Configuración Paso a Paso` to `🦝 Racoon Teacher v2.0 — Plataforma Educativa Gamificada`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **What connects `ADMIN_EMAILS`, `allStudents`, `filteredStudents` to the rest of the system?**
+  _106 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `xp.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.11954022988505747 - nodes in this community are weakly interconnected._
+- **Should `chat.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.06507936507936508 - nodes in this community are weakly interconnected._
+- **Should `auth.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.11255411255411256 - nodes in this community are weakly interconnected._

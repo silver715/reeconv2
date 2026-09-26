@@ -1,7 +1,4 @@
-/* ==============================================
-   AVATAR STORE STYLES — css/avatars.css (v2.3)
-   Diseño gamificado para la tienda de stickers de mapache.
-   ============================================== */
+/* Estilos de la tienda de skins y avatares */
 
 :root {
   --bg: #0a0a12;
@@ -33,27 +30,51 @@ body {
   padding: 0 0 60px;
 }
 
-/* ── HEADER DE TIENDA ── */
+/* Header de tienda */
 .store-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 32px;
-  background: rgba(17, 17, 40, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 16px 32px;
+  background: rgba(17, 17, 40, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.store-header h1 {
+.store-header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.store-subtitle {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cyan);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  padding: 2px 12px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+}
+
+.store-title {
   font-family: 'Baloo 2', cursive;
-  font-size: 1.8rem;
+  font-size: 1.85rem;
   font-weight: 800;
   color: #ffffff;
   margin: 0;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 40%, var(--purple2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .store-header .back-btn {
@@ -96,25 +117,36 @@ body {
   box-shadow: 0 0 16px rgba(0, 229, 255, 0.2);
 }
 
-/* ── CONTENEDOR PRINCIPAL ── */
+.diamond-icon-svg {
+  filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.7));
+  flex-shrink: 0;
+}
+
+.vb-unit {
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+/* Contenedor principal */
 .store-main {
-  max-width: 1100px;
-  margin: 32px auto 0;
+  max-width: 1040px;
+  margin: 28px auto 0;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 32px;
 }
 
-/* ── SECCIÓN AVATAR EQUIPADO ── */
+/* Sección avatar equipado */
 .current-avatar-section {
   background: rgba(17, 17, 40, 0.75);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border2);
-  border-radius: 24px;
-  padding: 24px 32px;
+  border-radius: 20px;
+  padding: 22px 28px;
   text-align: center;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(123, 111, 255, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(123, 111, 255, 0.08);
 }
 
 .current-avatar-section h2 {
@@ -159,7 +191,7 @@ body {
   color: #ffffff;
 }
 
-/* ── CATÁLOGO POR CATEGORÍAS ── */
+/* Catálogo por categorías */
 .category-section {
   display: flex;
   flex-direction: column;
@@ -173,11 +205,36 @@ body {
   color: #ffffff;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-header::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
 }
 
 .category-basic { border-bottom-color: var(--cyan); }
+.category-basic::before {
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
 .category-theme { border-bottom-color: var(--purple); }
+.category-theme::before {
+  background: var(--purple);
+  box-shadow: 0 0 10px var(--purple);
+}
+
 .category-special { border-bottom-color: var(--gold); }
+.category-special::before {
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
 
 .avatar-grid {
   display: grid;
@@ -185,7 +242,7 @@ body {
   gap: 20px;
 }
 
-/* ── TARJETA DE AVATAR ── */
+/* Tarjeta de avatar */
 .avatar-card {
   background: rgba(17, 17, 40, 0.7);
   backdrop-filter: blur(10px);
@@ -238,9 +295,25 @@ body {
   font-family: 'Baloo 2', cursive;
   font-size: 0.95rem;
   font-weight: 700;
-  padding: 3px 12px;
+  padding: 4px 14px;
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.price-diamond-svg {
+  width: 14px;
+  height: 14px;
+  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.6));
+  flex-shrink: 0;
 }
 
 .price-owned { color: var(--gold); }
@@ -297,7 +370,7 @@ body {
   box-shadow: 0 0 20px rgba(245, 200, 66, 0.3);
 }
 
-/* ── MODAL ── */
+/* Modal */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -391,7 +464,7 @@ body {
   box-shadow: 0 4px 16px rgba(245, 200, 66, 0.4);
 }
 
-/* ── TOAST ── */
+/* Toast */
 .toast {
   position: fixed;
   bottom: 24px;

@@ -1,0 +1,143 @@
+/* Estilos de las mascotas interactivas en los bordes */
+
+.peeking-raccoon {
+  position: fixed;
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.peeking-raccoon .peek-img {
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.65));
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
+}
+
+/* Tooltip / Burbuja de diálogo emergente */
+.peek-bubble {
+  position: absolute;
+  background: #ffffff;
+  color: #1a1638;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-family: 'Baloo 2', cursive, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 0 2px #7b6fff;
+  width: 200px;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1000;
+}
+
+.peek-bubble p {
+  margin: 0;
+}
+
+/* Posición 1: Lateral superior izquierda (Mapache curioso asomándose) */
+.peek-left-top {
+  top: 120px;
+  left: 6px;
+}
+.peek-left-top .peek-img {
+  width: 76px;
+  transform: rotate(10deg);
+}
+.peek-left-top:hover,
+.peek-left-top.active {
+  transform: translateX(12px) rotate(0deg);
+}
+.peek-left-top .peek-bubble {
+  top: 10px;
+  left: 85px;
+  transform-origin: left center;
+}
+.peek-left-top:hover .peek-bubble,
+.peek-left-top.active .peek-bubble {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Posición 2: Lateral superior derecha (Mapache girasol) */
+.peek-right-top {
+  top: 130px;
+  right: 6px;
+}
+.peek-right-top .peek-img {
+  width: 80px;
+  transform: rotate(-10deg);
+}
+.peek-right-top:hover,
+.peek-right-top.active {
+  transform: translateX(-12px) rotate(0deg);
+}
+.peek-right-top .peek-bubble {
+  top: 10px;
+  right: 90px;
+  transform-origin: right center;
+}
+.peek-right-top:hover .peek-bubble,
+.peek-right-top.active .peek-bubble {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Posición 3: Lateral inferior derecha (Mapache con galleta) */
+.peek-right-bottom {
+  bottom: 80px;
+  right: 6px;
+}
+.peek-right-bottom .peek-img {
+  width: 75px;
+  transform: rotate(-10deg);
+}
+.peek-right-bottom:hover,
+.peek-right-bottom.active {
+  transform: translateX(-12px) rotate(0deg);
+}
+.peek-right-bottom .peek-bubble {
+  bottom: 15px;
+  right: 85px;
+  transform-origin: right bottom;
+}
+.peek-right-bottom:hover .peek-bubble,
+.peek-right-bottom.active .peek-bubble {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Posición 4: Lateral inferior izquierda (Mapache genial con gafas) */
+.peek-left-bottom {
+  bottom: 85px;
+  left: 6px;
+}
+.peek-left-bottom .peek-img {
+  width: 74px;
+  transform: rotate(8deg);
+}
+.peek-left-bottom:hover,
+.peek-left-bottom.active {
+  transform: translateX(12px) rotate(0deg);
+}
+.peek-left-bottom .peek-bubble {
+  bottom: 15px;
+  left: 85px;
+  transform-origin: left bottom;
+}
+.peek-left-bottom:hover .peek-bubble,
+.peek-left-bottom.active .peek-bubble {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Ocultar en pantallas muy pequeñas para no solapar texto de lectura */
+@media (max-width: 768px) {
+  .peeking-raccoon {
+    display: none;
+  }
+}

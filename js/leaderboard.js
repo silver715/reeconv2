@@ -1,20 +1,26 @@
-/* ==============================================
-   LEADERBOARD CONTROLLER — js/leaderboard.js (v2.1)
-   Carga y renderiza el ranking de estudiantes desde Firestore.
-   ============================================== */
+// Tabla de clasificación: ranking de estudiantes por nivel y experiencia
 
 import { auth, db } from './firebase-config.js?v=2.1';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
 // Guard de Autenticación
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    window.location.href = 'landing.html';
-    return;
-  }
-  await loadLeaderboard(user);
-});
+const urlParams = new URLSearchParams(window.location.search);
+const isDemoMode = urlParams.get('demo') === 'true';
+
+if (isDemoMode) {
+  setTimeout(() => {
+    loadLeaderboard({ uid: 'mock_vasquez', displayName: 'vasquez', email: 'vasquez@test.com' }, true);
+  }, 100);
+} else {
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      window.location.href = 'landing.html';
+      return;
+    }
+    await loadLeaderboard(user, false);
+  });
+}
 
 const AVATAR_IMAGES = {
   'raccoon_happy':    'img/avatars/raccoon_happy.png',
@@ -29,8 +35,8 @@ const AVATAR_IMAGES = {
   'raccoon_trashcan': 'img/avatars/raccoon_trashcan.png',
 };
 
-async function loadLeaderboard(currentUser) {
-  const currentUserId = currentUser.uid;
+async function loadLeaderboard(currentUser, isMock = false) {
+  const currentUserId = currentUser ? currentUser.uid : 'mock_vasquez';
   const loadingEl = document.getElementById('loading');
   const contentEl = document.getElementById('leaderboard-content');
   const podiumEl = document.getElementById('podium');
@@ -39,58 +45,68 @@ async function loadLeaderboard(currentUser) {
   const usersMap = {};
   const players = [];
 
-  // 1. Cargar perfiles de usuarios desde la colección 'users'
-  try {
-    const usersSnapshot = await getDocs(collection(db, 'users'));
-    usersSnapshot.forEach((docSnap) => {
-      const uData = docSnap.data();
-      const resolvedName = uData.name || (uData.email ? uData.email.split('@')[0] : null);
-      if (resolvedName) {
-        usersMap[docSnap.id] = resolvedName;
-      }
-    });
-  } catch (uErr) {
-    console.warn('[Leaderboard] Advertencia al leer usuarios:', uErr.message);
-  }
-
-  // Asegurar el nombre del usuario actual si tiene displayName en Auth
-  if (!usersMap[currentUserId] && currentUser.displayName) {
-    usersMap[currentUserId] = currentUser.displayName;
-  }
-
-  // 2. Cargar progreso de todos los usuarios
-  try {
-    const progressSnapshot = await getDocs(collection(db, 'progress'));
-    progressSnapshot.forEach((docSnap) => {
-      const pData = docSnap.data();
-      const level = pData.lvl || pData.level || 1;
-      const xp = pData.xp || 0;
-      const totalXp = (level - 1) * 1000 + xp;
-      const avatarKey = pData.avatar || 'raccoon_happy';
-      const avatarImg = AVATAR_IMAGES[avatarKey] || AVATAR_IMAGES['raccoon_happy'];
-
-      // Obtener el nombre más descriptivo posible
-      let displayName = usersMap[docSnap.id];
-      if (!displayName) {
-        if (docSnap.id === currentUserId) {
-          displayName = currentUser.displayName || (currentUser.email ? currentUser.email.split('@')[0] : 'Estudiante');
-        } else {
-          // Si es un usuario de prueba antiguo sin documento de perfil
-          displayName = `Estudiante ${docSnap.id.slice(0, 4)}`;
+  if (isMock) {
+    players.push(
+      { userId: 'u1', name: 'vasquez2', level: 20, xp: 0, totalXp: 19000, avatarImg: 'img/avatars/raccoon_happy.png' },
+      { userId: 'u2', name: 'daniel', level: 2, xp: 600, totalXp: 1600, avatarImg: 'img/avatars/raccoon_knife.png' },
+      { userId: 'mock_vasquez', name: 'vasquez', level: 1, xp: 150, totalXp: 150, avatarImg: 'img/avatars/raccoon_happy.png' },
+      { userId: 'u4', name: 'jose', level: 1, xp: 0, totalXp: 0, avatarImg: 'img/avatars/raccoon_happy.png' },
+      { userId: 'u5', name: 'valencia', level: 1, xp: 0, totalXp: 0, avatarImg: 'img/avatars/raccoon_happy.png' }
+    );
+  } else {
+    // 1. Cargar perfiles de usuarios desde la colección 'users'
+    try {
+      const usersSnapshot = await getDocs(collection(db, 'users'));
+      usersSnapshot.forEach((docSnap) => {
+        const uData = docSnap.data();
+        const resolvedName = uData.name || (uData.email ? uData.email.split('@')[0] : null);
+        if (resolvedName) {
+          usersMap[docSnap.id] = resolvedName;
         }
-      }
-
-      players.push({
-        userId: docSnap.id,
-        name: displayName,
-        level: level,
-        xp: xp,
-        totalXp: totalXp,
-        avatarImg: avatarImg
       });
-    });
-  } catch (pErr) {
-    console.warn('[Leaderboard] Advertencia al leer progreso:', pErr.message);
+    } catch (uErr) {
+      console.warn('[Leaderboard] Advertencia al leer usuarios:', uErr.message);
+    }
+
+    // Asegurar el nombre del usuario actual si tiene displayName en Auth
+    if (currentUser && !usersMap[currentUserId] && currentUser.displayName) {
+      usersMap[currentUserId] = currentUser.displayName;
+    }
+
+    // 2. Cargar progreso de todos los usuarios
+    try {
+      const progressSnapshot = await getDocs(collection(db, 'progress'));
+      progressSnapshot.forEach((docSnap) => {
+        const pData = docSnap.data();
+        const level = pData.lvl || pData.level || 1;
+        const xp = pData.xp || 0;
+        const totalXp = (level - 1) * 1000 + xp;
+        const avatarKey = pData.avatar || 'raccoon_happy';
+        const avatarImg = AVATAR_IMAGES[avatarKey] || AVATAR_IMAGES['raccoon_happy'];
+
+        // Obtener el nombre más descriptivo posible
+        let displayName = usersMap[docSnap.id];
+        if (!displayName) {
+          if (docSnap.id === currentUserId && currentUser) {
+            displayName = currentUser.displayName || (currentUser.email ? currentUser.email.split('@')[0] : 'Estudiante');
+          } else {
+            // Si es un usuario de prueba antiguo sin documento de perfil
+            displayName = `Estudiante ${docSnap.id.slice(0, 4)}`;
+          }
+        }
+
+        players.push({
+          userId: docSnap.id,
+          name: displayName,
+          level: level,
+          xp: xp,
+          totalXp: totalXp,
+          avatarImg: avatarImg
+        });
+      });
+    } catch (pErr) {
+      console.warn('[Leaderboard] Advertencia al leer progreso:', pErr.message);
+    }
   }
 
   // Ocultar spinner y mostrar contenedor
@@ -120,20 +136,31 @@ async function loadLeaderboard(currentUser) {
   if (podiumEl) {
     const top3 = players.slice(0, 3);
     const podiumOrder = [];
-    if (top3[1]) podiumOrder.push({ ...top3[1], pos: 2, class: 'second', medal: '🥈' });
-    if (top3[0]) podiumOrder.push({ ...top3[0], pos: 1, class: 'first', medal: '🥇' });
-    if (top3[2]) podiumOrder.push({ ...top3[2], pos: 3, class: 'third', medal: '🥉' });
+    if (top3[1]) podiumOrder.push({ ...top3[1], pos: 2, class: 'second', medal: '🥈', label: '2° PLATA' });
+    if (top3[0]) podiumOrder.push({ ...top3[0], pos: 1, class: 'first', medal: '🥇', label: '1° ORO' });
+    if (top3[2]) podiumOrder.push({ ...top3[2], pos: 3, class: 'third', medal: '🥉', label: '3° BRONCE' });
 
-    podiumEl.innerHTML = podiumOrder.map(player => `
-      <div class="podium-item ${player.class}">
-        <div class="podium-avatar">
-          <img src="${player.avatarImg}" alt="Avatar" style="width:50px; height:50px; object-fit:contain;" />
+    podiumEl.innerHTML = podiumOrder.map(player => {
+      const isCurrent = player.userId === currentUserId;
+      const rawName = player.name ? String(player.name).trim() : '';
+      const cleanName = rawName || (isCurrent ? 'Tú' : `Estudiante #${player.pos}`);
+      const crownHtml = player.pos === 1 ? '<div class="podium-crown" title="¡Campeón de la Temporada!">👑</div>' : '';
+      const youBadgeHtml = isCurrent ? '<span class="podium-you-pill">¡Tú! ⭐</span>' : '';
+
+      return `
+        <div class="podium-item ${player.class} ${isCurrent ? 'current-player' : ''}">
+          ${crownHtml}
+          <div class="podium-avatar">
+            <img src="${player.avatarImg}" alt="Avatar" />
+          </div>
+          <div class="podium-name" title="${cleanName}">${cleanName}</div>
+          ${youBadgeHtml}
+          <div class="podium-medal">${player.medal}</div>
+          <div class="podium-rank-pill ${player.class}">${player.label}</div>
+          <div class="podium-level">Lvl ${player.level} <span class="podium-xp-sub">• ${player.totalXp} XP</span></div>
         </div>
-        <div class="podium-name">${player.name}</div>
-        <div class="podium-medal">${player.medal}</div>
-        <div class="podium-level">Lvl ${player.level}</div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   // 5. Renderizar Tabla Completa

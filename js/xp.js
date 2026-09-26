@@ -1,21 +1,15 @@
-/* ==============================
-   XP SYSTEM — js/xp.js
-   Sistema de progresión con XP, niveles, V-Mapaches,
-   racha diaria y avatares.
-   Guardado en Firestore con caché en memoria para respuesta instantánea.
-   Compartido entre chat.js, battlepass.js, quiz.js y avatars.js
-   ============================== */
+// Sistema de progresión: cálculo de experiencia, niveles y economía de monedas
 
 import { auth, db } from './firebase-config.js';
 import {
   doc, getDoc, setDoc, updateDoc, deleteField, runTransaction
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* ── Constantes de configuración ── */
+// Constantes de configuración
 export const XP_PER_LVL = 1000;  // XP necesaria para subir de nivel
 export const MAX_LEVEL  = 100;   // Nivel máximo alcanzable
 
-/* ── Caché en memoria (se sincroniza con Firestore) ── */
+// Caché en memoria (se sincroniza con Firestore)
 let _cache = {
   xp: 0,           // XP actual dentro del nivel
   lvl: 1,          // Nivel actual
@@ -27,8 +21,7 @@ let _cache = {
 };
 let _ready = false;
 
-/* ── Catálogo de avatares disponibles (Stickers Mapache) ──
-   Precio: Básico = 0-100, Temático = 200, Especial = 500 V-Mapaches */
+// Catálogo de avatares disponibles (Stickers Mapache) Precio: Básico = 0-100, Temático = 200, Especial = 500 V-Mapaches
 export const AVATARS = [
   { id: 'raccoon_happy',    name: 'Mapache Feliz',     img: 'img/avatars/raccoon_happy.png',    emoji: '✨', cost: 0,   category: 'basic'   },
   { id: 'raccoon_sleepy',   name: 'Mapache Dormilón',  img: 'img/avatars/raccoon_sleepy.png',   emoji: '💤', cost: 0,   category: 'basic'   },
@@ -41,8 +34,7 @@ export const AVATARS = [
   { id: 'raccoon_melt',     name: 'Mapache Derretido', img: 'img/avatars/raccoon_melt.png',     emoji: '🫠', cost: 500, category: 'special' },
 ];
 
-/* ── Inicialización: cargar datos desde Firestore ──
-   Debe llamarse (con await) una sola vez, después de confirmar el login */
+// Inicialización: cargar datos desde Firestore Debe llamarse (con await) una sola vez, después de confirmar el login
 export async function initXP() {
   const user = auth.currentUser;
   if (!user) {
@@ -91,7 +83,7 @@ export async function initXP() {
   }
 }
 
-/* ── Verificación de estado ── */
+// Verificación de estado
 function assertReady() {
   if (!_ready) {
     console.warn('XP system no estaba listo; forzando ready = true');
@@ -99,7 +91,7 @@ function assertReady() {
   }
 }
 
-/* ── Persistir cambios en Firestore en segundo plano (No Bloqueante) ── */
+// Persistir cambios en Firestore en segundo plano (No Bloqueante)
 function persistAsync() {
   const user = auth.currentUser;
   if (!user) return;
@@ -109,7 +101,7 @@ function persistAsync() {
   setDoc(ref, _cache).catch(() => {});
 }
 
-/* ── Getters (lectura desde caché en memoria, sin latencia) ── */
+// Getters (lectura desde caché en memoria, sin latencia)
 export function getXP()              { assertReady(); return _cache.xp; }
 export function getLvl()             { assertReady(); return _cache.lvl; }
 export function getVB()              { assertReady(); return _cache.vb; }
@@ -117,10 +109,7 @@ export function getStreak()          { assertReady(); return _cache.streak; }
 export function getAvatar()          { assertReady(); return _cache.avatar; }
 export function getUnlockedAvatars() { assertReady(); return _cache.unlockedAvatars; }
 
-/* ── Sistema de racha diaria ──
-   Compara la fecha actual con lastActiveDate para determinar si
-   la racha continúa, se reinicia, o ya fue contada hoy.
-   Retorna { streak, isNewDay, bonus } */
+// Sistema de racha diaria Compara la fecha actual con lastActiveDate para determinar si la racha continúa, se reinicia, o ya fue contada hoy. Retorna { streak, isNewDay, bonus }
 export async function checkStreak() {
   assertReady();
   const hoy = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
@@ -153,16 +142,14 @@ export async function checkStreak() {
   return { streak: _cache.streak, isNewDay: true, bonus: getStreakBonus() };
 }
 
-/* ── Bonus XP por racha ──
-   3+ días consecutivos: +50 XP extra por mensaje
-   7+ días consecutivos: +100 XP extra por mensaje */
+// Bonus XP por racha 3+ días consecutivos: +50 XP extra por mensaje 7+ días consecutivos: +100 XP extra por mensaje
 export function getStreakBonus() {
   if (_cache.streak >= 7) return 100;
   if (_cache.streak >= 3) return 50;
   return 0;
 }
 
-/* ── Añadir XP (Respuesta instantánea 0ms) ── */
+// Añadir XP (Respuesta instantánea 0ms)
 export async function addXP(amount) {
   assertReady();
 
@@ -176,10 +163,10 @@ export async function addXP(amount) {
     lvl += 1;
     leveled = true;
 
-    // Bonus V-Mapaches al subir de nivel (si hay recompensa de tipo vbucks)
-    const reward = REWARDS.find(r => r.lvl === lvl && !r.premium);
-    if (reward && reward.type === 'vbucks') {
-      _cache.vb += 100;
+    // Bonus V-Mapaches al subir de nivel según el pase de batalla (20 a 100 V-Mapaches)
+    const reward = REWARDS.find(r => r.lvl === lvl);
+    if (reward && reward.coins) {
+      _cache.vb += reward.coins;
     }
   }
 
@@ -192,18 +179,16 @@ export async function addXP(amount) {
   return { xp: _cache.xp, lvl: _cache.lvl, leveled };
 }
 
-/* ── Sistema de avatares ── */
+// Sistema de avatares / skins
 
-/* ── Comprar un avatar con V-Mapaches ──
-   Verifica que el usuario tenga suficientes V-Mapaches y que no lo tenga ya.
-   Retorna { success, message } */
+// Comprar un avatar / skin con V-Mapaches Verifica que el usuario tenga suficientes V-Mapaches y que no lo tenga ya. Retorna { success, message }
 export async function buyAvatar(avatarId) {
   assertReady();
   const avatar = AVATARS.find(a => a.id === avatarId);
-  if (!avatar) return { success: false, message: 'Avatar no encontrado' };
+  if (!avatar) return { success: false, message: 'Skin no encontrada' };
 
   if (_cache.unlockedAvatars.includes(avatarId)) {
-    return { success: false, message: 'Ya tienes este avatar desbloqueado' };
+    return { success: false, message: 'Ya tienes esta skin desbloqueada' };
   }
 
   if (_cache.vb < avatar.cost) {
@@ -218,19 +203,19 @@ export async function buyAvatar(avatarId) {
   _cache.avatar = avatarId;
   persistAsync();
 
-  return { success: true, message: `¡${avatar.name} desbloqueado y equipado! 🎉` };
+  return { success: true, message: `¡${avatar.name} desbloqueada y equipada!` };
 }
 
-/* Equipar un avatar ya desbloqueado.
+/* Equipar una skin ya desbloqueada.
    Retorna { success, message } */
 export async function setAvatar(avatarId) {
   assertReady();
   const avatar = AVATARS.find(a => a.id === avatarId);
-  if (!avatar) return { success: false, message: 'Avatar no encontrado' };
+  if (!avatar) return { success: false, message: 'Skin no encontrada' };
 
   const isFree = avatar.cost === 0;
   if (!isFree && !_cache.unlockedAvatars.includes(avatarId)) {
-    return { success: false, message: 'No tienes este avatar desbloqueado' };
+    return { success: false, message: 'No tienes esta skin desbloqueada' };
   }
 
   if (!_cache.unlockedAvatars.includes(avatarId)) {
@@ -239,7 +224,7 @@ export async function setAvatar(avatarId) {
 
   _cache.avatar = avatarId;
   persistAsync();
-  return { success: true, message: '¡Avatar equipado! ✨' };
+  return { success: true, message: '¡Skin equipada con éxito!' };
 }
 
 /* Obtener el emoji del avatar activo */
@@ -263,37 +248,33 @@ export function getAvatarData() {
   return avatar || AVATARS[0];
 }
 
-/* ── Datos de recompensas del Pase de Batalla ──
-   29 recompensas distribuidas entre los 100 niveles.
-   Incluye skins, emotes, objetos y V-Mapaches. */
+// Datos de recompensas del Pase de Batalla Recompensas estándar de 20 a 100 V-Mapaches distribuidas entre los 100 niveles. Pase unificado para todos los estudiantes (sin modo VIP).
 export const REWARDS = [
-  { lvl:1,  name:'Mapache Novato',    icon:'🦝', type:'skin',   rarity:'common',    premium:false },
-  { lvl:2,  name:'100 V-Mapaches',   icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:5,  name:'Baile Trash',      icon:'🕺', type:'emote',  rarity:'rare',      premium:true  },
-  { lvl:8,  name:'Mochila Lata',     icon:'🎒', type:'item',   rarity:'uncommon',  premium:false },
-  { lvl:10, name:'Skin Nocturno',    icon:'🌙', type:'skin',   rarity:'epic',      premium:true  },
-  { lvl:12, name:'200 V-Mapaches',   icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:15, name:'Spray Mapache',    icon:'🎨', type:'item',   rarity:'common',    premium:false },
-  { lvl:18, name:'Baile Basura',     icon:'💃', type:'emote',  rarity:'rare',      premium:true  },
-  { lvl:20, name:'Hacha Cubo',       icon:'🪓', type:'item',   rarity:'rare',      premium:true  },
-  { lvl:22, name:'300 V-Mapaches',   icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:25, name:'Mapache Dorado',   icon:'✨', type:'skin',   rarity:'legendary', premium:true  },
-  { lvl:28, name:'Pantalla Grafiti', icon:'🖼️', type:'item',   rarity:'common',    premium:false },
-  { lvl:30, name:'100 V-Mapaches',   icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:33, name:'Baile Nocturno',   icon:'🌟', type:'emote',  rarity:'epic',      premium:true  },
-  { lvl:36, name:'Capa Sombra',      icon:'🦸', type:'skin',   rarity:'epic',      premium:true  },
-  { lvl:40, name:'500 V-Mapaches',   icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:44, name:'Pico Lunar',       icon:'⛏️', type:'item',   rarity:'legendary', premium:true  },
-  { lvl:48, name:'Skin Robot',       icon:'🤖', type:'skin',   rarity:'epic',      premium:true  },
-  { lvl:50, name:'200 V-Mapaches',   icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:55, name:'Mapache Legendario',icon:'👑',type:'skin',   rarity:'legendary', premium:true  },
-  { lvl:60, name:'Baile Épico',      icon:'🎭', type:'emote',  rarity:'epic',      premium:true  },
-  { lvl:65, name:'Escudo Plasma',    icon:'🛡️', type:'item',   rarity:'legendary', premium:true  },
-  { lvl:70, name:'500 V-Mapaches',   icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:75, name:'Skin Galaxy',      icon:'🌌', type:'skin',   rarity:'legendary', premium:true  },
-  { lvl:80, name:'Baile Galáctico',  icon:'🪐', type:'emote',  rarity:'legendary', premium:true  },
-  { lvl:85, name:'1000 V-Mapaches',  icon:'💎', type:'vbucks', rarity:'uncommon',  premium:false },
-  { lvl:90, name:'Hacha Estelar',    icon:'⭐', type:'item',   rarity:'legendary', premium:true  },
-  { lvl:95, name:'Skin Oscuridad',   icon:'🖤', type:'skin',   rarity:'legendary', premium:true  },
-  { lvl:100,name:'Mapache Supremo',  icon:'🏆', type:'skin',   rarity:'legendary', premium:true  },
+  { lvl: 1,   name: '+20 V-Mapaches',  coins: 20,  type: 'vbucks', rarity: 'common' },
+  { lvl: 2,   name: '+20 V-Mapaches',  coins: 20,  type: 'vbucks', rarity: 'common' },
+  { lvl: 4,   name: '+25 V-Mapaches',  coins: 25,  type: 'vbucks', rarity: 'uncommon' },
+  { lvl: 6,   name: '+25 V-Mapaches',  coins: 25,  type: 'vbucks', rarity: 'common' },
+  { lvl: 8,   name: '+30 V-Mapaches',  coins: 30,  type: 'vbucks', rarity: 'uncommon' },
+  { lvl: 10,  name: '+40 V-Mapaches',  coins: 40,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 12,  name: '+30 V-Mapaches',  coins: 30,  type: 'vbucks', rarity: 'uncommon' },
+  { lvl: 15,  name: '+50 V-Mapaches',  coins: 50,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 18,  name: '+40 V-Mapaches',  coins: 40,  type: 'vbucks', rarity: 'uncommon' },
+  { lvl: 20,  name: '+60 V-Mapaches',  coins: 60,  type: 'vbucks', rarity: 'epic' },
+  { lvl: 24,  name: '+40 V-Mapaches',  coins: 40,  type: 'vbucks', rarity: 'uncommon' },
+  { lvl: 28,  name: '+50 V-Mapaches',  coins: 50,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 32,  name: '+50 V-Mapaches',  coins: 50,  type: 'vbucks', rarity: 'uncommon' },
+  { lvl: 36,  name: '+60 V-Mapaches',  coins: 60,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 40,  name: '+75 V-Mapaches',  coins: 75,  type: 'vbucks', rarity: 'epic' },
+  { lvl: 45,  name: '+60 V-Mapaches',  coins: 60,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 50,  name: '+80 V-Mapaches',  coins: 80,  type: 'vbucks', rarity: 'epic' },
+  { lvl: 55,  name: '+70 V-Mapaches',  coins: 70,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 60,  name: '+80 V-Mapaches',  coins: 80,  type: 'vbucks', rarity: 'epic' },
+  { lvl: 65,  name: '+75 V-Mapaches',  coins: 75,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 70,  name: '+90 V-Mapaches',  coins: 90,  type: 'vbucks', rarity: 'epic' },
+  { lvl: 75,  name: '+80 V-Mapaches',  coins: 80,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 80,  name: '+90 V-Mapaches',  coins: 90,  type: 'vbucks', rarity: 'epic' },
+  { lvl: 85,  name: '+85 V-Mapaches',  coins: 85,  type: 'vbucks', rarity: 'rare' },
+  { lvl: 90,  name: '+100 V-Mapaches', coins: 100, type: 'vbucks', rarity: 'epic' },
+  { lvl: 95,  name: '+100 V-Mapaches', coins: 100, type: 'vbucks', rarity: 'epic' },
+  { lvl: 100, name: '+100 V-Mapaches', coins: 100, type: 'vbucks', rarity: 'legendary' },
 ];

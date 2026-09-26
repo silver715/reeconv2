@@ -3,38 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎭 Tienda de Avatares — Racoon Teacher</title>
+  <title>Tienda de Skins — Racoon Teacher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=3.2">
-  <link rel="stylesheet" href="css/avatars.css?v=3.2">
+  <link rel="stylesheet" href="css/avatars.css?v=3.3">
   <link rel="stylesheet" href="css/transitions.css?v=3.2">
 </head>
 <body>
 
   <header class="store-header">
     <button onclick="navigateTo('index.html')" class="back-btn">← Volver al Menú</button>
-    <h1>🎭 Tienda de Avatares</h1>
+    <div class="store-header-center">
+      <div class="store-subtitle">Personalización de Mapache</div>
+      <h1 class="store-title">Tienda de Skins</h1>
+    </div>
     <div class="vb-display">
-      💎 <span id="vbDisplay">0</span> V-Mapaches
+      <svg class="diamond-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none">
+        <path d="M12 2L3 8.5L12 22L21 8.5L12 2Z" fill="#00e5ff" stroke="#7b6fff" stroke-width="1.5"/>
+        <path d="M3 8.5H21M12 2L7.5 8.5L12 22L16.5 8.5L12 2Z" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.2"/>
+      </svg>
+      <span id="vbDisplay">0</span> <span class="vb-unit">V-Mapaches</span>
     </div>
   </header>
 
   <main class="store-main">
-    <!-- Avatar Equipado Actualmente -->
+    <!-- Skin Equipada Actualmente -->
     <section class="current-avatar-section">
-      <h2>Tu Avatar Equipado</h2>
+      <h2>Skin Equipada Actualmente</h2>
       <div class="current-avatar-card">
         <div id="currentAvatarPreview" class="current-avatar-preview">
-          <img id="equippedAvatarImg" src="img/avatars/raccoon_happy.png" alt="Avatar Activo" class="equipped-img" />
+          <img id="equippedAvatarImg" src="img/avatars/raccoon_happy.png" alt="Skin Activa" class="equipped-img" />
         </div>
         <div id="currentAvatarName" class="avatar-name">Mapache Feliz</div>
       </div>
     </section>
 
-    <!-- Catálogo de Stickers -->
+    <!-- Catálogo de Skins -->
     <section class="store-catalog">
-      <h2>Colección de Stickers y Skins</h2>
+      <h2>Catálogo de Skins Disponibles</h2>
       <div id="avatarCategories">
         <!-- Renderizado dinámicamente por js/avatars.js -->
       </div>
@@ -46,13 +53,13 @@
     <div class="modal-box">
       <h3>Confirmar Desbloqueo</h3>
       <div class="modal-avatar-preview">
-        <img id="modalAvatarImg" src="img/avatars/raccoon_happy.png" alt="Avatar" class="modal-img" />
+        <img id="modalAvatarImg" src="img/avatars/raccoon_happy.png" alt="Skin" class="modal-img" />
       </div>
-      <p id="modalAvatarName" class="modal-avatar-name">Nombre Avatar</p>
-      <p class="modal-price">Precio: 💎 <span id="modalAvatarPrice">0</span> V-Mapaches</p>
+      <p id="modalAvatarName" class="modal-avatar-name">Nombre de Skin</p>
+      <p class="modal-price">Precio: <span id="modalAvatarPrice">0</span> V-Mapaches</p>
       <div class="modal-actions">
         <button id="btnCancelBuy" class="btn-cancel" onclick="closeBuyModal()">Cancelar</button>
-        <button id="btnConfirmBuy" class="btn-confirm">Desbloquear 💎</button>
+        <button id="btnConfirmBuy" class="btn-confirm">Desbloquear Skin</button>
       </div>
     </div>
   </div>
@@ -61,6 +68,6 @@
   <div id="toast" class="toast hidden"></div>
 
   <script src="js/transitions.js"></script>
-  <script type="module" src="js/avatars.js?v=3.1"></script>
+  <script type="module" src="js/avatars.js?v=3.3"></script>
 </body>
 </html>

@@ -1,0 +1,386 @@
+{
+  "js/auth.js": {
+    "mtime": 1790377506.44207,
+    "seen": 1790377938.9203496,
+    "ast_hash": "72541cba2903384412f0d581c7cd9384",
+    "semantic_hash": ""
+  },
+  "js/avatars.js": {
+    "mtime": 1790381146.099265,
+    "seen": 1790381461.407673,
+    "ast_hash": "dea8ab6aa478222a4dffa828b6aeccee",
+    "semantic_hash": ""
+  },
+  "js/battlepass.js": {
+    "mtime": 1790380917.53189,
+    "seen": 1790381461.407673,
+    "ast_hash": "41f522d33632fd35c4f913c7e0d9a900",
+    "semantic_hash": ""
+  },
+  "js/chat.js": {
+    "mtime": 1790383566.8953962,
+    "seen": 1790383612.145703,
+    "ast_hash": "6e4c4c6096d70c58a935dd66ba094bfe",
+    "semantic_hash": ""
+  },
+  "js/env.example.js": {
+    "mtime": 1787536799.4014428,
+    "seen": 1789097076.1885507,
+    "ast_hash": "40a5deaa4b2536b77d32ef83c2449ff5",
+    "semantic_hash": ""
+  },
+  "js/firebase-config.js": {
+    "mtime": 1789106104.578181,
+    "seen": 1789106165.81811,
+    "ast_hash": "398f27a77cf29cd5ff9f1037eb26db1a",
+    "semantic_hash": ""
+  },
+  "js/gemini.js": {
+    "mtime": 1790383549.2523172,
+    "seen": 1790383612.145703,
+    "ast_hash": "2c884f24817ab200048d1d0fb4494e0e",
+    "semantic_hash": ""
+  },
+  "js/leaderboard.js": {
+    "mtime": 1789100465.3924332,
+    "seen": 1789100850.4436946,
+    "ast_hash": "30c03d8e3184611e3e9c800d2b811d71",
+    "semantic_hash": ""
+  },
+  "js/menu.js": {
+    "mtime": 1790384834.289551,
+    "seen": 1790385189.5656183,
+    "ast_hash": "8a3ed424393e9d0dec1db122e567e96d",
+    "semantic_hash": ""
+  },
+  "js/nav.js": {
+    "mtime": 1786294707.4722316,
+    "seen": 1787513443.9920318,
+    "ast_hash": "320e5704c30067c15370c57132a7c1dc",
+    "semantic_hash": "320e5704c30067c15370c57132a7c1dc"
+  },
+  "js/quiz.js": {
+    "mtime": 1790384917.512138,
+    "seen": 1790385189.5656183,
+    "ast_hash": "93d131df99cbeb88157eb6fccc22b635",
+    "semantic_hash": ""
+  },
+  "js/transitions.js": {
+    "mtime": 1786294707.4722316,
+    "seen": 1787513443.9920318,
+    "ast_hash": "821aceefc0345541fef2916db76d6d5c",
+    "semantic_hash": "821aceefc0345541fef2916db76d6d5c"
+  },
+  "js/xp.js": {
+    "mtime": 1790381128.128787,
+    "seen": 1790381461.407673,
+    "ast_hash": "23bb5e694111018d149306c24835ad38",
+    "semantic_hash": ""
+  },
+  "js/admin.js": {
+    "mtime": 1787525870.2933486,
+    "seen": 1787535511.0914369,
+    "ast_hash": "cf5f8458040cae18c7cb6882a1658d11",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1787513426.0660868,
+    "seen": 1787516120.4874864,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1787513426.0660868,
+    "seen": 1787516120.4874864,
+    "ast_hash": "a831cf3669f1e6ab85d8a80ebe655f99",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1787536827.8222451,
+    "seen": 1789097076.1885507,
+    "ast_hash": "ef61588064a7e2815065ac4b1dc620eb",
+    "semantic_hash": ""
+  },
+  "admin.html": {
+    "mtime": 1787524704.9867983,
+    "seen": 1787525484.9215262,
+    "ast_hash": "32d58fe95bdfc68f180a8ee4b007ca32",
+    "semantic_hash": ""
+  },
+  "avatars.html": {
+    "mtime": 1790380982.3752418,
+    "seen": 1790381461.407673,
+    "ast_hash": "88573a1bd000372d79d375c3c5a9a8fe",
+    "semantic_hash": ""
+  },
+  "battlepass.html": {
+    "mtime": 1790380889.3449183,
+    "seen": 1790381461.407673,
+    "ast_hash": "8f648e99e0f84f848d9065ead16346c0",
+    "semantic_hash": ""
+  },
+  "chat.html": {
+    "mtime": 1790384159.5989568,
+    "seen": 1790384214.3915026,
+    "ast_hash": "05d43b76dac6d228263d126acf5cb66a",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1790384814.8989148,
+    "seen": 1790385189.5656183,
+    "ast_hash": "707f5d5f8aba3f8c9a908999b42d6f02",
+    "semantic_hash": ""
+  },
+  "landing.html": {
+    "mtime": 1790377867.997327,
+    "seen": 1790377938.9203496,
+    "ast_hash": "54ccf175e47bef8745ed58e94b6d1f0d",
+    "semantic_hash": ""
+  },
+  "leaderboard.html": {
+    "mtime": 1790382004.2429976,
+    "seen": 1790382218.2791104,
+    "ast_hash": "f40678f5656c881404a3956cb57d2a06",
+    "semantic_hash": ""
+  },
+  "quiz.html": {
+    "mtime": 1790384880.4250214,
+    "seen": 1790385189.5656183,
+    "ast_hash": "a7421f4a62baddc8b2bb8b37af846ce0",
+    "semantic_hash": ""
+  },
+  "user.html": {
+    "mtime": 1790377444.507682,
+    "seen": 1790377938.9203496,
+    "ast_hash": "f44e47b74076bd0ca73cafcbb701ccf7",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_bandaid.png": {
+    "mtime": 1787512593.8012066,
+    "seen": 1787516120.4874864,
+    "ast_hash": "52c3a17e743f06433dd1aca391151cf4",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_ghost.png": {
+    "mtime": 1787512593.8107567,
+    "seen": 1787516120.4874864,
+    "ast_hash": "4bf5ebcb3a44962e026a2ab37df984f9",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_happy.png": {
+    "mtime": 1787512593.8132963,
+    "seen": 1787516120.4874864,
+    "ast_hash": "e7cacd8878ac132f44f1b0829aecd40b",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_knife.png": {
+    "mtime": 1787512593.8132963,
+    "seen": 1787516120.4874864,
+    "ast_hash": "a71733f81f46a5a314c1cf57af789816",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_melt.png": {
+    "mtime": 1787512593.8132963,
+    "seen": 1787516120.4874864,
+    "ast_hash": "cea7b035381c33fa851616f60d4e1f26",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_sad.png": {
+    "mtime": 1787512593.823347,
+    "seen": 1787516120.4874864,
+    "ast_hash": "c892fab98bd6a8fb2a582a06ca36da6e",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_skeleton.png": {
+    "mtime": 1787512593.823347,
+    "seen": 1787516120.4874864,
+    "ast_hash": "ded8bdc265f1eab937f631c6b4e6019a",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_sleepy.png": {
+    "mtime": 1787512593.8312292,
+    "seen": 1787516120.4874864,
+    "ast_hash": "47e844c585618368afbeb1327bf5a1e9",
+    "semantic_hash": ""
+  },
+  "img/avatars/raccoon_trashcan.png": {
+    "mtime": 1787512593.8312292,
+    "seen": 1787516120.4874864,
+    "ast_hash": "6b165902ff364b819a14c86c1070af83",
+    "semantic_hash": ""
+  },
+  "img/feature_1.jpeg": {
+    "mtime": 1786294707.4344852,
+    "seen": 1787516120.4874864,
+    "ast_hash": "5cca496f95218ef17414ef3f0fd5f259",
+    "semantic_hash": ""
+  },
+  "img/feature_2.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "ab477d4fca51c678d2ec2aac28f4bfe7",
+    "semantic_hash": ""
+  },
+  "img/feature_3.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "94b98cec888132c210ec98b73e98a493",
+    "semantic_hash": ""
+  },
+  "img/feature_4.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "78f0257737082b11aa8a6f91123e286e",
+    "semantic_hash": ""
+  },
+  "img/hero_raccoon.jpeg": {
+    "mtime": 1786294707.4420753,
+    "seen": 1787516120.4874864,
+    "ast_hash": "78f0257737082b11aa8a6f91123e286e",
+    "semantic_hash": ""
+  },
+  "img/logo_raccoon.jpeg": {
+    "mtime": 1786294707.452154,
+    "seen": 1787516120.4874864,
+    "ast_hash": "94b98cec888132c210ec98b73e98a493",
+    "semantic_hash": ""
+  },
+  "js/validators.js": {
+    "mtime": 1787516635.983533,
+    "seen": 1787516690.736948,
+    "ast_hash": "e944246de02e7ad0f932dae8162b109e",
+    "semantic_hash": ""
+  },
+  "js/peeking-mascots.js": {
+    "mtime": 1790311922.3462038,
+    "seen": 1790312018.2163894,
+    "ast_hash": "79c4a4057d56f2b0b8451b187a98ee46",
+    "semantic_hash": ""
+  },
+  "img/raccoon_blushing.png": {
+    "mtime": 1789096706.718269,
+    "seen": 1789098786.5620184,
+    "ast_hash": "a917f5b5852c868b1846b8b7f40a28b6",
+    "semantic_hash": ""
+  },
+  "img/raccoon_candy_jar.png": {
+    "mtime": 1789096706.6179547,
+    "seen": 1789098786.5620184,
+    "ast_hash": "fbbc58cb39116690bbdb8bd299504199",
+    "semantic_hash": ""
+  },
+  "img/raccoon_candy_plate.png": {
+    "mtime": 1789096706.6335838,
+    "seen": 1789098786.5620184,
+    "ast_hash": "340a67c22ee05352bfc75a4ae0724189",
+    "semantic_hash": ""
+  },
+  "img/raccoon_celebrate.png": {
+    "mtime": 1789096706.649216,
+    "seen": 1789098786.5620184,
+    "ast_hash": "0f6b1215daaacf93f01dd547924988fe",
+    "semantic_hash": ""
+  },
+  "img/raccoon_eating_cookie.png": {
+    "mtime": 1789096706.538279,
+    "seen": 1789098786.5620184,
+    "ast_hash": "5b76893d35b278dfbf7806426544322f",
+    "semantic_hash": ""
+  },
+  "img/raccoon_flower_crown.png": {
+    "mtime": 1789096706.52986,
+    "seen": 1789098786.5620184,
+    "ast_hash": "5eef1aff4897a58af2c7bc08f55ed687",
+    "semantic_hash": ""
+  },
+  "img/raccoon_gamer_toilet.png": {
+    "mtime": 1789096708.941243,
+    "seen": 1789098786.5620184,
+    "ast_hash": "ee6f1f9ac7a7632c2eeec7032b87ede8",
+    "semantic_hash": ""
+  },
+  "img/raccoon_heart_nose.png": {
+    "mtime": 1789096708.3109953,
+    "seen": 1789098786.5620184,
+    "ast_hash": "2e053c7108828d11f29ecd503b7e3e20",
+    "semantic_hash": ""
+  },
+  "img/raccoon_icepack.png": {
+    "mtime": 1789096706.6023183,
+    "seen": 1789098786.5620184,
+    "ast_hash": "b574e9d899ad1ebe3c933b5ef1ff4ffb",
+    "semantic_hash": ""
+  },
+  "img/raccoon_phone.png": {
+    "mtime": 1789096706.6804738,
+    "seen": 1789098786.5620184,
+    "ast_hash": "a372a5589237aae1c97f91976fcb861c",
+    "semantic_hash": ""
+  },
+  "img/raccoon_playful_tongue.png": {
+    "mtime": 1789096706.702626,
+    "seen": 1789098786.5620184,
+    "ast_hash": "7b8c6743c4539e9ecd488b6de089b2f2",
+    "semantic_hash": ""
+  },
+  "img/raccoon_pumpkin.png": {
+    "mtime": 1789096706.6023183,
+    "seen": 1789098786.5620184,
+    "ast_hash": "27696f28c53612f788cb867d2a216b2b",
+    "semantic_hash": ""
+  },
+  "img/raccoon_side_peek.png": {
+    "mtime": 1789096706.664844,
+    "seen": 1789098786.5620184,
+    "ast_hash": "89713d6eb67eab1c5c06701540c4aaf5",
+    "semantic_hash": ""
+  },
+  "img/raccoon_sitting_cute.png": {
+    "mtime": 1789096706.516813,
+    "seen": 1789098786.5620184,
+    "ast_hash": "b7e10e03a4291f31e612878ddb128137",
+    "semantic_hash": ""
+  },
+  "img/raccoon_sitting_lineart.png": {
+    "mtime": 1789096706.920869,
+    "seen": 1789098786.5620184,
+    "ast_hash": "5aba4249aafda53658bc5709abadd3fd",
+    "semantic_hash": ""
+  },
+  "img/raccoon_standing_hero.png": {
+    "mtime": 1789096706.553914,
+    "seen": 1789098786.5620184,
+    "ast_hash": "104b748cd116bce6589968d4fba67721",
+    "semantic_hash": ""
+  },
+  "img/raccoon_sunflower.png": {
+    "mtime": 1789096706.5695424,
+    "seen": 1789098786.5620184,
+    "ast_hash": "f0e83689547faef1f17d5fe14068c90c",
+    "semantic_hash": ""
+  },
+  "img/raccoon_sunglasses.png": {
+    "mtime": 1789096706.649216,
+    "seen": 1789098786.5620184,
+    "ast_hash": "afb0f3cab8999bd558c68d5217ed8b9e",
+    "semantic_hash": ""
+  },
+  "img/mat.jpg": {
+    "mtime": 1790314247.3709834,
+    "seen": 1790316423.2607155,
+    "ast_hash": "a1dbc309f930bbaf4802a607ab5ea19e",
+    "semantic_hash": ""
+  },
+  "img/naturales.jpg": {
+    "mtime": 1790316749.6099932,
+    "seen": 1790317011.3871543,
+    "ast_hash": "db3bb32c5dde242daf2c894eb0bc1ef7",
+    "semantic_hash": ""
+  },
+  "img/tienda.jpg": {
+    "mtime": 1790316749.6110406,
+    "seen": 1790317011.3871543,
+    "ast_hash": "26685954ac5e0f3267c200327a925ba8",
+    "semantic_hash": ""
+  }
+}

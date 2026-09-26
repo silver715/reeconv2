@@ -1,7 +1,4 @@
-/* ==============================
-   VALIDATORS — js/validators.js (v1.0)
-   Funciones puras de validación de contraseñas y correos
-   ============================== */
+// Validaciones: comprobación de formato y seguridad de contraseñas
 
 /**
  * Valida que la contraseña cumpla con:

@@ -1,7 +1,4 @@
-/* ==============================================
-   RACOON TEACHER — css/style.css (v2.1 Modern Dashboard)
-   Tema Cyber-Educativo con Glassmorphism y Alta Responsividad.
-   ============================================== */
+/* Estilos principales del menú y panel de materias */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -40,35 +37,36 @@ body {
   color: var(--text);
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
-  padding: 24px 16px 48px;
+  padding: 16px 20px 24px;
+  box-sizing: border-box;
 }
 
-/* ── CONTENEDOR PRINCIPAL DASHBOARD ── */
+/* Contenedor principal dashboard */
 .dashboard-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1040px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 14px;
 }
 
-/* ── HUD / HERO BANNER DEL ESTUDIANTE ── */
+/* Hud / hero banner del estudiante */
 .profile-hero {
   background: rgba(17, 17, 40, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border2);
-  border-radius: 24px;
-  padding: 28px 36px;
+  border-radius: 16px;
+  padding: clamp(8px, 1.2vh, 12px) clamp(16px, 1.8vw, 22px);
   box-shadow: 
-    0 16px 40px rgba(0, 0, 0, 0.5),
-    0 0 32px rgba(123, 111, 255, 0.12);
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(123, 111, 255, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 12px;
   position: relative;
   overflow: hidden;
 }
@@ -126,7 +124,7 @@ body {
   color: var(--gold);
 }
 
-/* ── HUD PILLS DE ESTADÍSTICAS ── */
+/* Hud pills de estadísticas */
 .profile-hud-stats {
   display: flex;
   align-items: center;
@@ -198,56 +196,63 @@ body {
   color: #ffffff;
 }
 
-/* ── ENCABEZADOS DE SECCIÓN ── */
+/* Encabezados de sección */
 .section-header {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 .section-header h2 {
   font-family: 'Baloo 2', cursive;
-  font-size: 1.45rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  margin-bottom: 2px;
 }
 .section-header p {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: var(--text2);
-  margin-top: 2px;
+  margin: 0;
+  line-height: 1.3;
 }
 
-/* ── GRIDS DE TARJETAS ── */
+/* Grids de tarjetas */
 .subjects-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
+  gap: 12px;
   width: 100%;
 }
 
 .activities-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 12px;
   width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-/* ── TARJETA GAMIFICADA ── */
+/* Tarjeta gamificada */
 .dashboard-card {
-  background: rgba(17, 17, 40, 0.7);
+  background: rgba(17, 17, 40, 0.78);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 24px 20px;
+  border-radius: 16px;
+  padding: 12px 12px 12px;
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  min-height: 0;
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s, box-shadow 0.25s;
 }
 
@@ -255,7 +260,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 1.5px;
   background: transparent;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -266,7 +271,7 @@ body {
 }
 
 .dashboard-card:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-4px) scale(1.015);
 }
 
 /* Acentos de Color por Materia */
@@ -274,69 +279,104 @@ body {
   border-color: var(--cyan);
   box-shadow: 0 12px 32px rgba(0, 229, 255, 0.25);
 }
-.card-math .card-icon-box { background: rgba(0, 229, 255, 0.12); border-color: rgba(0, 229, 255, 0.3); }
+.card-math .card-icon-box, .card-math .card-img-box { background: rgba(0, 229, 255, 0.12); border-color: rgba(0, 229, 255, 0.35); }
 
 .card-spanish:hover {
   border-color: var(--orange);
   box-shadow: 0 12px 32px rgba(255, 145, 0, 0.25);
 }
-.card-spanish .card-icon-box { background: rgba(255, 145, 0, 0.12); border-color: rgba(255, 145, 0, 0.3); }
+.card-spanish .card-icon-box, .card-spanish .card-img-box { background: rgba(255, 145, 0, 0.12); border-color: rgba(255, 145, 0, 0.35); }
 
 .card-english:hover {
   border-color: var(--purple2);
   box-shadow: 0 12px 32px rgba(168, 159, 255, 0.25);
 }
-.card-english .card-icon-box { background: rgba(123, 111, 255, 0.15); border-color: rgba(123, 111, 255, 0.35); }
+.card-english .card-icon-box, .card-english .card-img-box { background: rgba(123, 111, 255, 0.15); border-color: rgba(123, 111, 255, 0.35); }
 
 .card-science:hover {
   border-color: var(--green);
   box-shadow: 0 12px 32px rgba(0, 230, 118, 0.25);
 }
-.card-science .card-icon-box { background: rgba(0, 230, 118, 0.12); border-color: rgba(0, 230, 118, 0.3); }
+.card-science .card-icon-box, .card-science .card-img-box { background: rgba(0, 230, 118, 0.12); border-color: rgba(0, 230, 118, 0.35); }
 
 .card-social:hover {
   border-color: var(--pink);
   box-shadow: 0 12px 32px rgba(255, 64, 129, 0.25);
 }
-.card-social .card-icon-box { background: rgba(255, 64, 129, 0.12); border-color: rgba(255, 64, 129, 0.3); }
+.card-social .card-icon-box, .card-social .card-img-box { background: rgba(255, 64, 129, 0.12); border-color: rgba(255, 64, 129, 0.35); }
 
 /* Acentos de Actividades */
 .card-quiz:hover {
   border-color: var(--gold);
   box-shadow: 0 12px 32px rgba(245, 200, 66, 0.3);
 }
-.card-quiz .card-icon-box { background: rgba(245, 200, 66, 0.12); border-color: rgba(245, 200, 66, 0.35); }
+.card-quiz .card-icon-box, .card-quiz .card-img-box { background: rgba(245, 200, 66, 0.12); border-color: rgba(245, 200, 66, 0.35); }
 
 .card-bp:hover {
   border-color: var(--purple);
   box-shadow: 0 12px 32px rgba(123, 111, 255, 0.35);
 }
-.card-bp .card-icon-box { background: rgba(123, 111, 255, 0.18); border-color: rgba(123, 111, 255, 0.4); }
+.card-bp .card-icon-box, .card-bp .card-img-box { background: rgba(123, 111, 255, 0.18); border-color: rgba(123, 111, 255, 0.4); }
 
 .card-ranking:hover {
   border-color: #ffd700;
   box-shadow: 0 12px 32px rgba(255, 215, 0, 0.25);
 }
-.card-ranking .card-icon-box { background: rgba(255, 215, 0, 0.12); border-color: rgba(255, 215, 0, 0.3); }
+.card-ranking .card-icon-box, .card-ranking .card-img-box { background: rgba(255, 215, 0, 0.12); border-color: rgba(255, 215, 0, 0.35); }
 
 .card-avatars:hover {
   border-color: #e040fb;
   box-shadow: 0 12px 32px rgba(224, 64, 251, 0.25);
 }
-.card-avatars .card-icon-box { background: rgba(224, 64, 251, 0.12); border-color: rgba(224, 64, 251, 0.3); }
+.card-avatars .card-icon-box, .card-avatars .card-img-box { background: rgba(224, 64, 251, 0.12); border-color: rgba(224, 64, 251, 0.35); }
 
 /* Elementos internos de la tarjeta */
 .card-badge {
+  align-self: flex-start;
   font-family: 'Baloo 2', cursive;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 12px;
+  padding: 2px 8px;
+  border-radius: 8px;
   background: rgba(123, 111, 255, 0.15);
   border: 1px solid var(--border2);
   color: var(--purple2);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+.card-img-box {
+  width: 100%;
+  height: 114px;
+  border-radius: 12px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 8px;
+  position: relative;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dashboard-card:hover .card-img-box {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dashboard-card:hover .card-img {
+  transform: scale(1.06);
 }
 
 .card-icon-box {
@@ -386,7 +426,7 @@ body {
   color: #ffffff;
 }
 
-/* ── MODAL DE GRADO ── */
+/* Modal de grado */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -483,9 +523,7 @@ body {
 }
 .modal-cancel:hover { color: #ffffff; }
 
-/* ══════════════════════════════════════════════
-   RESPONSIVE DESIGN (Media Queries)
-   ══════════════════════════════════════════════ */
+/* RESPONSIVE DESIGN (Media Queries) */
 
 /* Pantallas Medianas / Laptops (Max-width: 1100px) */
 @media (max-width: 1100px) {
@@ -550,7 +588,7 @@ body {
   }
 }
 
-/* ── BOTÓN UNIVERSAL DE VOLVER (.back-btn) ── */
+/* BOTÓN UNIVERSAL DE VOLVER (.back-btn) */
 .back-btn {
   display: inline-flex;
   align-items: center;

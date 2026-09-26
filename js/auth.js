@@ -1,8 +1,4 @@
-/* ==============================
-   AUTH — js/auth.js (v3.0)
-   Login y registro limpios con Firebase
-   Esquema unificado: name, email, password, role
-   ============================== */
+// Autenticación: inicio de sesión y registro de estudiantes con Firebase Auth
 
 import { auth, db } from './firebase-config.js';
 import {
@@ -16,8 +12,8 @@ import { validatePassword, normalizeEmail } from './validators.js?v=1.0';
 
 export { validatePassword, normalizeEmail };
 
-/* ── Referencias al DOM ── */
-const emailInput    = document.getElementById("emailInput") || document.getElementById("username");
+// Referencias al DOM
+const emailInput    = document.getElementById("emailInput");
 const passwordInput = document.getElementById("password");
 const nameInput     = document.getElementById("regName");
 const nameGroup     = document.getElementById("nameGroup");
@@ -29,45 +25,56 @@ const btnText       = loginBtn ? loginBtn.querySelector(".btn-text") : null;
 const modeText      = document.getElementById("toggleModeText");
 const pwHint        = document.getElementById("pwHint");
 const cardSubTitle  = document.getElementById("cardSubTitle");
+const tabLogin      = document.getElementById("tabLogin");
+const tabRegister   = document.getElementById("tabRegister");
 
 let isRegisterMode = false;
 let isSubmitting   = false;
 
 if (loginBtn) {
 
-  /* ── Si ya hay sesión activa (y no estamos creando cuenta), ir al menú ── */
+  // Si ya hay sesión activa (y no estamos creando cuenta), ir al menú
   onAuthStateChanged(auth, (user) => {
     if (user && !isSubmitting) {
       window.location.href = "index.html";
     }
   });
 
-  /* ── Restaurar correo recordado ── */
+  // Restaurar correo recordado y leer parámetros de URL
   window.addEventListener("DOMContentLoaded", () => {
-    const saved = localStorage.getItem("rt_remember_email") || localStorage.getItem("rt_remember");
+    const saved = localStorage.getItem("rt_remember_email");
     if (saved && emailInput) {
       emailInput.value = saved;
       if (rememberMe) rememberMe.checked = true;
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("mode") === "register") {
+      window.setAuthMode("register");
+    }
   });
 
-  /* ── Mostrar / ocultar contraseña ── */
+  // Mostrar / ocultar contraseña con SVG limpio
   if (togglePwBtn && passwordInput) {
     togglePwBtn.addEventListener("click", () => {
       const isHidden = passwordInput.type === "password";
-      passwordInput.type      = isHidden ? "text" : "password";
-      togglePwBtn.textContent = isHidden ? "🙈" : "👁️";
+      passwordInput.type = isHidden ? "text" : "password";
+      const eyeSvg = document.getElementById("eyeIconSvg");
+      if (eyeSvg) {
+        eyeSvg.innerHTML = isHidden
+          ? `<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" y1="2" x2="22" y2="22"></line>`
+          : `<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle>`;
+      }
     });
   }
 
-  /* ── Enviar con Enter ── */
+  // Enviar con Enter
   document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") handleSubmit();
   });
 
-  /* ── Alternar entre iniciar sesión / crear cuenta ── */
-  window.toggleMode = function toggleMode() {
-    isRegisterMode = !isRegisterMode;
+  // Actualizar interfaz según el modo activo
+  function updateModeUI() {
     if (nameGroup) nameGroup.style.display = isRegisterMode ? "block" : "none";
     if (pwHint) pwHint.classList.toggle("visible", isRegisterMode);
     if (cardSubTitle) {
@@ -81,10 +88,24 @@ if (loginBtn) {
         ? `¿Ya tienes cuenta? <a href="#" onclick="toggleMode()">Inicia sesión</a>`
         : `¿No tienes cuenta? <a href="#" onclick="toggleMode()">Regístrate gratis</a>`;
     }
+    if (tabLogin) tabLogin.classList.toggle("active", !isRegisterMode);
+    if (tabRegister) tabRegister.classList.toggle("active", isRegisterMode);
     if (errorMsg) errorMsg.style.display = "none";
+  }
+
+  // Establecer modo explícito (login o register)
+  window.setAuthMode = function setAuthMode(mode) {
+    isRegisterMode = (mode === "register");
+    updateModeUI();
   };
 
-  /* ── Función principal: login o registro ── */
+  // Alternar entre iniciar sesión / crear cuenta
+  window.toggleMode = function toggleMode() {
+    isRegisterMode = !isRegisterMode;
+    updateModeUI();
+  };
+
+  // Función principal: login o registro
   window.handleSubmit = handleSubmit;
   async function handleSubmit() {
     const rawInput = emailInput ? emailInput.value.trim() : "";
@@ -92,7 +113,7 @@ if (loginBtn) {
     const name     = nameInput ? nameInput.value.trim() : "";
 
     if (!rawInput || !password || (isRegisterMode && !name)) {
-      showError("Por favor completa todos los campos requeridos 📝");
+      showError("Por favor completa todos los campos requeridos.");
       return;
     }
 
@@ -117,7 +138,7 @@ if (loginBtn) {
         // 2. Asignar nombre en Auth
         await updateProfile(cred.user, { displayName: name }).catch(() => {});
 
-        // 3. Crear documento en 'users' (Esquema limpio sin username repetido)
+        // 3. Crear documento en 'users' (Esquema limpio)
         const userDocPromise = setDoc(doc(db, "users", uid), {
           name: name,
           email: email,
@@ -126,7 +147,7 @@ if (loginBtn) {
           createdAt: Date.now(),
         });
 
-        // 4. Crear progreso en 'progress'
+        // 4. Crear progreso inicial en 'progress'
         const progressDocPromise = setDoc(doc(db, "progress", uid), {
           lvl: 1,
           xp: 0,
@@ -137,7 +158,7 @@ if (loginBtn) {
           unlockedAvatars: ["raccoon_happy", "raccoon_default"]
         });
 
-        // Esperar que ambos documentos se escriban completamente en Firestore
+        // Esperar que ambos documentos se escriban en Firestore
         await Promise.all([userDocPromise, progressDocPromise]);
 
       } else {
@@ -157,11 +178,10 @@ if (loginBtn) {
         localStorage.setItem("rt_remember_email", rawInput);
       } else {
         localStorage.removeItem("rt_remember_email");
-        localStorage.removeItem("rt_remember");
       }
 
-      if (loginBtn) loginBtn.style.background = "linear-gradient(135deg, #00c49a, #009e7a)";
-      if (btnText) btnText.textContent = "¡Entrando! 🎉";
+      if (loginBtn) loginBtn.classList.add("success");
+      if (btnText) btnText.textContent = "¡Entrando al aula!";
 
       setTimeout(() => {
         window.location.href = "index.html";
@@ -181,7 +201,7 @@ if (loginBtn) {
   function showError(msg) {
     if (!errorMsg) return;
     errorMsg.textContent = msg;
-    errorMsg.style.display = "block";
+    errorMsg.style.display = "flex";
     clearTimeout(showError._timer);
     showError._timer = setTimeout(() => {
       errorMsg.style.display = "none";
@@ -199,14 +219,14 @@ if (loginBtn) {
 
   function translateError(code) {
     const map = {
-      "auth/email-already-in-use": "Ese correo ya está registrado, intenta iniciar sesión 🙂",
-      "auth/invalid-email":        "Ingresa un correo electrónico válido (ej: usuario@correo.com)",
-      "auth/weak-password":       "La contraseña es muy débil (mínimo 6 caracteres con mayúscula, minúscula y número)",
-      "auth/user-not-found":      "Correo o contraseña incorrectos 🔐",
-      "auth/wrong-password":      "Correo o contraseña incorrectos 🔐",
-      "auth/invalid-credential":  "Correo o contraseña incorrectos 🔐",
-      "auth/too-many-requests":   "Demasiados intentos, espera un momento ⏳",
-      "auth/network-request-failed": "Sin conexión a internet — verifica tu red 🌐",
+      "auth/email-already-in-use": "Ese correo ya está registrado. Por favor inicia sesión.",
+      "auth/invalid-email":        "Ingresa un correo electrónico válido (ej: usuario@correo.com).",
+      "auth/weak-password":       "La contraseña debe tener mínimo 6 caracteres con mayúscula, minúscula y número.",
+      "auth/user-not-found":      "Correo o contraseña incorrectos.",
+      "auth/wrong-password":      "Correo o contraseña incorrectos.",
+      "auth/invalid-credential":  "Correo o contraseña incorrectos.",
+      "auth/too-many-requests":   "Demasiados intentos fallidos. Por favor espera un momento antes de reintentar.",
+      "auth/network-request-failed": "Sin conexión a internet. Verifica tu red.",
     };
     return map[code] || ("Ocurrió un error: " + code);
   }

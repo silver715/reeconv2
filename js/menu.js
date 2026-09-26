@@ -1,9 +1,4 @@
-/* ==============================================
-   MENU CONTROLLER — js/menu.js (v2.6)
-   Lógica del Dashboard Principal: perfil, HUD de estadísticas,
-   racha diaria, modal de materias, selector de grado y
-   gestión de perfil/contraseña del estudiante.
-   ============================================== */
+// Menú principal: selección de materias, quizzes y gestión de perfil
 
 import { auth, db } from './firebase-config.js?v=2.4';
 import {
@@ -22,7 +17,7 @@ let pendingMode = null;
 let pendingIsQuiz = false;
 let currentUserProfile = null;
 
-/* ── Requiere sesión real ── */
+// Requiere sesión real
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     window.location.href = "landing.html";
@@ -99,19 +94,19 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-/* ── MODAL DE MI PERFIL Y SEGURIDAD ── */
+// Modal de mi perfil y seguridad
 window.openProfileModal = function openProfileModal() {
   const modal = document.getElementById("profileModal");
   if (!modal) return;
 
-  const profName  = document.getElementById("profName");
+  const profName = document.getElementById("profName");
   const profEmail = document.getElementById("profEmail");
-  const alertEl   = document.getElementById("profileAlert");
+  const alertEl = document.getElementById("profileAlert");
 
   if (alertEl) alertEl.style.display = "none";
 
   if (currentUserProfile) {
-    if (profName) profName.value   = currentUserProfile.name || (auth.currentUser ? auth.currentUser.displayName : "") || "";
+    if (profName) profName.value = currentUserProfile.name || (auth.currentUser ? auth.currentUser.displayName : "") || "";
     if (profEmail) profEmail.value = auth.currentUser ? auth.currentUser.email : "";
   }
 
@@ -125,11 +120,11 @@ window.closeProfileModal = function closeProfileModal() {
 };
 
 window.switchProfileTab = function switchProfileTab(tab) {
-  const tabBtnProfile  = document.getElementById("tabBtnProfile");
+  const tabBtnProfile = document.getElementById("tabBtnProfile");
   const tabBtnPassword = document.getElementById("tabBtnPassword");
-  const infoForm       = document.getElementById("profileInfoForm");
-  const passwordForm   = document.getElementById("profilePasswordForm");
-  const alertEl        = document.getElementById("profileAlert");
+  const infoForm = document.getElementById("profileInfoForm");
+  const passwordForm = document.getElementById("profilePasswordForm");
+  const alertEl = document.getElementById("profileAlert");
 
   if (alertEl) alertEl.style.display = "none";
 
@@ -146,7 +141,7 @@ window.switchProfileTab = function switchProfileTab(tab) {
   }
 };
 
-/* ── Actualizar Datos de Perfil ── */
+// Actualizar Datos de Perfil
 window.handleUpdateProfile = async function handleUpdateProfile(e) {
   e.preventDefault();
 
@@ -175,7 +170,7 @@ window.handleUpdateProfile = async function handleUpdateProfile(e) {
     }, { merge: true });
 
     // 2. Actualizar displayName en Firebase Auth
-    await updateProfile(auth.currentUser, { displayName: newName }).catch(() => {});
+    await updateProfile(auth.currentUser, { displayName: newName }).catch(() => { });
 
     // 3. Actualizar UI y estado en memoria
     if (!currentUserProfile) currentUserProfile = {};
@@ -197,16 +192,16 @@ window.handleUpdateProfile = async function handleUpdateProfile(e) {
   }
 };
 
-/* ── Actualizar Contraseña del Estudiante ── */
+// Actualizar Contraseña del Estudiante
 window.handleUpdatePassword = async function handleUpdatePassword(e) {
   e.preventDefault();
 
   if (!auth.currentUser) return;
 
   const currentPw = document.getElementById("profCurrentPw").value;
-  const newPw     = document.getElementById("profNewPw").value;
+  const newPw = document.getElementById("profNewPw").value;
   const confirmPw = document.getElementById("profConfirmPw").value;
-  const saveBtn   = document.getElementById("btnSavePassword");
+  const saveBtn = document.getElementById("btnSavePassword");
 
   if (newPw !== confirmPw) {
     showProfileAlert("Las contraseñas nuevas no coinciden 🔐", "error");
@@ -246,7 +241,7 @@ window.handleUpdatePassword = async function handleUpdatePassword(e) {
 
     // 4. Limpiar formulario
     document.getElementById("profCurrentPw").value = "";
-    document.getElementById("profNewPw").value     = "";
+    document.getElementById("profNewPw").value = "";
     document.getElementById("profConfirmPw").value = "";
 
     showProfileAlert("✅ ¡Contraseña actualizada exitosamente!", "success");
@@ -276,26 +271,35 @@ function showProfileAlert(msg, type = "success") {
   alertEl.style.display = "block";
 }
 
-/* ── Selección de materia: abre el modal de grado ── */
+// Selección de materia: abre el modal de grado
 window.selectSubject = function selectSubject(mode, icon, name) {
   pendingIsQuiz = (mode === 'quiz');
 
+  const modalIconEl = document.getElementById('modalIcon');
   if (pendingIsQuiz) {
-    document.getElementById('modalIcon').textContent = '📝';
+    if (modalIconEl) {
+      modalIconEl.innerHTML = `<img src="img/quiz.jfif" alt="Quiz" style="width:68px; height:68px; object-fit:contain; border-radius:12px; background:#fff; padding:4px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">`;
+    }
     document.getElementById('modalTitle').textContent = 'Elige la materia del Quiz';
     showSubjectSelection();
     return;
   }
 
   pendingMode = mode;
-  document.getElementById('modalIcon').textContent = icon;
+  if (modalIconEl) {
+    if (icon && (icon.includes('/') || icon.endsWith('.jfif') || icon.endsWith('.jpg') || icon.endsWith('.png'))) {
+      modalIconEl.innerHTML = `<img src="${icon}" alt="${name}" style="width:68px; height:68px; object-fit:contain; border-radius:12px; background:#fff; padding:4px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">`;
+    } else {
+      modalIconEl.textContent = icon;
+    }
+  }
   document.getElementById('modalTitle').textContent = name;
 
   restoreGradeGrid();
   document.getElementById('gradeModal').classList.add('show');
 };
 
-/* ── Confirmar grado y navegar ── */
+// Confirmar grado y navegar
 window.confirmGrade = function confirmGrade(grade) {
   if (pendingMode) {
     localStorage.setItem('racoon_mode', pendingMode);
@@ -310,72 +314,80 @@ window.confirmGrade = function confirmGrade(grade) {
   }
 };
 
-/* ── Cerrar modal ── */
+// Cerrar modal
 window.closeModal = function closeModal() {
   const modal = document.getElementById('gradeModal');
   if (modal) modal.classList.remove('show');
 };
 
-/* ── Modal en modo selección de materia (para Quiz) ── */
+// Modal en modo selección de materia (para Quiz)
 function showSubjectSelection() {
   const modalSub = document.querySelector('.modal-sub');
-  if (modalSub) modalSub.textContent = '¿Sobre qué materia quieres responder preguntas? ⭐';
+  if (modalSub) modalSub.textContent = '¿Sobre qué materia quieres responder preguntas hoy?';
 
   const grid = document.querySelector('.grade-grid');
   if (!grid) return;
 
   grid.style.gridTemplateColumns = "repeat(3, 1fr)";
-  grid.style.maxWidth = "none";
+  grid.style.maxWidth = "560px";
+  grid.style.margin = "0 auto 24px";
 
   grid.innerHTML = `
     <button class="grade-btn" onclick="confirmQuizSubject('math')">
-      <span class="g-icon">📐</span>Matemáticas
+      <img src="img/mat.jpg" alt="Matemáticas">
+      <span>Matemáticas</span>
     </button>
     <button class="grade-btn" onclick="confirmQuizSubject('spanish')">
-      <span class="g-icon">✍️</span>Español
+      <img src="img/espanol.jfif" alt="Español">
+      <span>Español</span>
     </button>
     <button class="grade-btn" onclick="confirmQuizSubject('english')">
-      <span class="g-icon">🌐</span>Inglés
+      <img src="img/ingles.jfif" alt="Inglés">
+      <span>Inglés</span>
     </button>
     <button class="grade-btn" onclick="confirmQuizSubject('science')">
-      <span class="g-icon">🌱</span>Ciencias
+      <img src="img/naturales.jfif" alt="Ciencias">
+      <span>Ciencias Naturales</span>
     </button>
     <button class="grade-btn" onclick="confirmQuizSubject('social')">
-      <span class="g-icon">🗺️</span>Sociales
+      <img src="img/sociales.jfif" alt="Sociales">
+      <span>Ciencias Sociales</span>
     </button>
   `;
   document.getElementById('gradeModal').classList.add('show');
 }
 
-window.confirmQuizSubject = function(subject) {
+window.confirmQuizSubject = function (subject) {
   localStorage.setItem('racoon_mode', subject);
   closeModal();
   navigateTo('quiz.html');
 };
 
-/* ── Restaurar modal a modo selección de grado (para Chat) ── */
+// Restaurar modal a modo selección de grado (para Chat)
 function restoreGradeGrid() {
   const modalSub = document.querySelector('.modal-sub');
-  if (modalSub) modalSub.innerHTML = '¿En qué grado estás?<br>El mapache ajusta sus explicaciones para ti 🦝';
+  if (modalSub) modalSub.innerHTML = '¿En qué grado estás?<br>El Profe Mapache adapta las explicaciones a tu nivel';
 
   const grid = document.querySelector('.grade-grid');
   if (!grid) return;
 
   grid.style.gridTemplateColumns = "repeat(2, 1fr)";
-  grid.style.maxWidth = "280px";
+  grid.style.maxWidth = "420px";
   grid.style.margin = "0 auto 24px";
 
   grid.innerHTML = `
     <button class="grade-btn" onclick="confirmGrade('Cuarto')">
-      <span class="g-icon">4️⃣</span>Cuarto
+      <span class="g-num">4°</span>
+      <span>Cuarto Grado</span>
     </button>
     <button class="grade-btn" onclick="confirmGrade('Quinto')">
-      <span class="g-icon">5️⃣</span>Quinto
+      <span class="g-num">5°</span>
+      <span>Quinto Grado</span>
     </button>
   `;
 }
 
-/* ── Cerrar sesión ── */
+// Cerrar sesión
 window.handleLogout = async function handleLogout() {
   try {
     await signOut(auth);

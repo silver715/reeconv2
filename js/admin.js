@@ -1,9 +1,4 @@
-/* ==============================================
-   ADMIN CONTROLLER — js/admin.js (v3.0)
-   Consola de administración y desarrollo CRUD de Firebase
-   Esquema limpio: users (name, email, password, role)
-                   progress (lvl, xp, vb, streak, lastActiveDate, avatar, unlockedAvatars)
-   ============================================== */
+// Panel de administración: gestión de usuarios y progreso escolar en Firebase
 
 import { auth, db } from './firebase-config.js?v=2.4';
 import {
@@ -45,7 +40,7 @@ const AVATAR_IMAGES = {
   'raccoon_trashcan': 'img/avatars/raccoon_trashcan.png',
 };
 
-/* ── 1. GUARD DE ACCESO EXCLUSIVO PARA ADMINISTRADOR ── */
+// 1. guard de acceso exclusivo para administrador
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     window.location.href = "user.html";
@@ -84,7 +79,7 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-/* ── 2. CARGA Y UNIÓN RELACIONAL DE DATOS (READ + AUTO-CLEAN) ── */
+// 2. carga y unión relacional de datos (read + auto-clean)
 export async function loadAdminData() {
   const tbody = document.getElementById("adminTableBody");
   if (tbody) {
@@ -163,7 +158,7 @@ export async function loadAdminData() {
   }
 }
 
-/* ── 3. ACTUALIZAR KPIs SUPERIORES ── */
+// 3. ACTUALIZAR KPIs SUPERIORES
 function updateKPICards(data) {
   const studentsOnly = data.filter(s => s.role !== 'admin');
   const totalStudents = studentsOnly.length || data.length;
@@ -191,7 +186,7 @@ function updateKPICards(data) {
   if (kpiTotalVB)       kpiTotalVB.textContent = totalVB.toLocaleString();
 }
 
-/* ── 4. RENDERIZAR TABLA DE USUARIOS ── */
+// 4. renderizar tabla de usuarios
 function renderStudentsTable(students) {
   const tbody = document.getElementById("adminTableBody");
   if (!tbody) return;
@@ -242,7 +237,7 @@ function renderStudentsTable(students) {
   }).join('');
 }
 
-/* ── 5. FILTRADO Y BÚSQUEDA ── */
+// 5. filtrado y búsqueda
 window.handleSearchFilter = function handleSearchFilter() {
   const searchInput = document.getElementById("adminSearchInput");
   const sortFilter  = document.getElementById("adminSortFilter");
@@ -274,7 +269,7 @@ window.handleSearchFilter = function handleSearchFilter() {
   renderStudentsTable(filteredStudents);
 };
 
-/* ── 6. CREAR USUARIO (CREATE) ── */
+// 6. crear usuario (create)
 window.openCreateModal = function openCreateModal() {
   const form = document.getElementById("createStudentForm");
   if (form) form.reset();
@@ -343,7 +338,7 @@ window.handleCreateStudentSubmit = async function handleCreateStudentSubmit(e) {
   }
 };
 
-/* ── 7. EDITAR USUARIO (UPDATE) ── */
+// 7. editar usuario (update)
 window.openEditModal = function openEditModal(userId) {
   const student = allStudents.find(s => s.id === userId);
   if (!student) return;
@@ -415,7 +410,7 @@ window.handleEditStudentSubmit = async function handleEditStudentSubmit(e) {
   }
 };
 
-/* ── 8. REESTABLECER CONTRASEÑA ── */
+// 8. reestablecer contraseña
 window.openPasswordModal = function openPasswordModal(userId, name, email) {
   document.getElementById("pwUserId").value = userId;
   document.getElementById("pwUserEmail").value = email;
@@ -459,7 +454,7 @@ window.handlePasswordSubmit = async function handlePasswordSubmit(e) {
   }
 };
 
-/* ── 9. ELIMINAR USUARIO (DELETE) ── */
+// 9. eliminar usuario (delete)
 window.openDeleteModal = function openDeleteModal(userId, name) {
   document.getElementById("deleteUserId").value = userId;
   document.getElementById("deleteStudentName").textContent = name;
@@ -486,7 +481,7 @@ window.executeStudentDelete = async function executeStudentDelete() {
   }
 };
 
-/* ── 10. EXPORTAR DATOS A CSV ── */
+// 10. exportar datos a csv
 window.exportToCSV = function exportToCSV() {
   if (allStudents.length === 0) {
     showToast("No hay datos para exportar", "error");
@@ -518,7 +513,7 @@ window.exportToCSV = function exportToCSV() {
   showToast("📥 Archivo CSV descargado correctamente", "success");
 };
 
-/* ── HELPERS DE MODAL Y TOAST ── */
+// Helpers de modal y toast
 window.openAdminModal = function openAdminModal(id) {
   const el = document.getElementById(id);
   if (el) el.classList.add("show");
@@ -557,7 +552,7 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
-/* ── CERRAR SESIÓN ADMIN ── */
+// Cerrar sesión admin
 window.handleAdminLogout = async function handleAdminLogout() {
   try {
     await signOut(auth);

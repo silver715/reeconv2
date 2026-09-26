@@ -1,6 +1,4 @@
-/* ==============================
-   NAV — js/nav.js HELPER DE NAVEGACIÓN A CHAT
-   ============================== */
+// Navegación: utilidades para cambiar entre páginas del aula
 
 function goToChat(mode) {
   localStorage.setItem('racoon_mode', mode);

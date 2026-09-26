@@ -1,14 +1,10 @@
-/* ==============================
-   BATTLE PASS — js/battlepass.js
-   ============================== */
+// Pase de batalla: progreso por niveles y recompensas de monedas
 
 import { auth } from './firebase-config.js?v=2.3';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { initXP, getXP, getLvl, getVB, REWARDS, XP_PER_LVL } from './xp.js?v=2.8';
+import { initXP, getXP, getLvl, getVB, REWARDS, XP_PER_LVL } from './xp.js?v=2.9';
 
-let currentTab = 'all';
-
-/* ─── Requiere sesión: verificamos con Firebase antes de mostrar el pase ─── */
+// Requiere sesión: verificamos con Firebase antes de mostrar el pase
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     window.location.href = 'landing.html';
@@ -21,59 +17,49 @@ onAuthStateChanged(auth, async (user) => {
 function init() {
   renderStats();
   renderXPBar();
-  renderTab('all');
+  renderGrid(REWARDS, 'grid1');
 }
 
-/* ─── Barra de XP ─── */
+// Barra de XP (Conserva el progreso exacto)
 function renderXPBar() {
   const xp  = getXP();
   const lvl = getLvl();
-  const pct = Math.round((xp / XP_PER_LVL) * 100);
+  const pct = Math.min(100, Math.round((xp / XP_PER_LVL) * 100));
   const rem = XP_PER_LVL - xp;
 
-  document.getElementById('lvlBadge').textContent = 'NIV ' + lvl;
-  document.getElementById('xpFill').style.width   = pct + '%';
-  document.getElementById('xpNums').textContent   = xp.toLocaleString() + ' / ' + XP_PER_LVL.toLocaleString();
-  document.getElementById('xpHint').textContent   = rem > 0
-    ? rem.toLocaleString() + ' XP para nivel ' + (lvl + 1)
-    : '¡Nivel máximo alcanzado!';
-  document.getElementById('vbDisplay').textContent = getVB().toLocaleString();
+  const lvlBadge = document.getElementById('lvlBadge');
+  const xpFill   = document.getElementById('xpFill');
+  const xpNums   = document.getElementById('xpNums');
+  const xpHint   = document.getElementById('xpHint');
+  const vbDisp   = document.getElementById('vbDisplay');
+
+  if (lvlBadge) lvlBadge.textContent = 'NIV ' + lvl;
+  if (xpFill)   xpFill.style.width   = pct + '%';
+  if (xpNums)   xpNums.textContent   = xp.toLocaleString() + ' / ' + XP_PER_LVL.toLocaleString() + ' XP';
+  if (xpHint) {
+    xpHint.textContent = rem > 0
+      ? `Faltan ${rem.toLocaleString()} XP para alcanzar el Nivel ${lvl + 1}`
+      : '¡Nivel máximo alcanzado!';
+  }
+  if (vbDisp) vbDisp.textContent = getVB().toLocaleString();
 }
 
-/* ─── Estadísticas ─── */
+// Estadísticas Unificadas (Sin VIP)
 function renderStats() {
   const lvl = getLvl();
-  const freeUnlocked    = REWARDS.filter(r => !r.premium && r.lvl <= lvl).length;
-  const premiumUnlocked = REWARDS.filter(r =>  r.premium && r.lvl <= lvl).length;
-  const vbEarned        = REWARDS.filter(r => r.type === 'vbucks' && !r.premium && r.lvl <= lvl).length * 100;
+  const unlockedRewards = REWARDS.filter(r => r.lvl <= lvl);
+  const totalCoinsEarned = unlockedRewards.reduce((sum, r) => sum + (r.coins || 0), 0);
 
-  document.getElementById('statFree').textContent = freeUnlocked;
-  document.getElementById('statPrem').textContent = premiumUnlocked;
-  document.getElementById('statVB').textContent   = vbEarned;
+  const elLvl = document.getElementById('statLvl');
+  const elClaimed = document.getElementById('statClaimed');
+  const elCoins = document.getElementById('statTotalCoins');
+
+  if (elLvl) elLvl.textContent = lvl;
+  if (elClaimed) elClaimed.textContent = `${unlockedRewards.length} / ${REWARDS.length}`;
+  if (elCoins) elCoins.textContent = `+${totalCoinsEarned.toLocaleString()}`;
 }
 
-/* ─── Tabs (el HTML llama switchTab(...) por onclick, así que debe ser global) ─── */
-window.switchTab = function switchTab(tab, el) {
-  currentTab = tab;
-  document.querySelectorAll('.bp-tab').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  renderTab(tab);
-};
-
-function renderTab(tab) {
-  let filtered = REWARDS;
-  if (tab === 'free')    filtered = REWARDS.filter(r => !r.premium);
-  if (tab === 'premium') filtered = REWARDS.filter(r =>  r.premium);
-
-  const half = Math.ceil(filtered.length / 2);
-  renderGrid(filtered.slice(0, half),    'grid1');
-  renderGrid(filtered.slice(half),       'grid2');
-
-  const p2 = document.getElementById('page2Label');
-  if (p2) p2.style.display = filtered.slice(half).length ? '' : 'none';
-}
-
-/* ─── Renderizar grilla ─── */
+// Renderizar grilla de recompensas (5 a 20 Monedas Mapache)
 const rarityBg = {
   common:    'rar-common',
   uncommon:  'rar-uncommon',
@@ -81,8 +67,6 @@ const rarityBg = {
   epic:      'rar-epic',
   legendary: 'rar-legendary',
 };
-const typeClass = { skin:'t-skin', vbucks:'t-vbucks', emote:'t-emote', item:'t-item' };
-const typeName  = { skin:'Skin',   vbucks:'V-M',       emote:'Emote',   item:'Objeto' };
 
 function renderGrid(items, gridId) {
   const grid = document.getElementById(gridId);
@@ -99,17 +83,30 @@ function renderGrid(items, gridId) {
       'rslot',
       unlocked ? 'unlocked' : 'locked',
       isCurrent  ? 'is-current' : '',
-      r.premium  ? 'is-premium' : '',
     ].filter(Boolean).join(' ');
 
     slot.innerHTML = `
-      <div class="rslot-top ${rarityBg[r.rarity]}">${r.icon}</div>
-      <div class="rslot-bot">
-        <div class="rslot-name">${r.name}</div>
-        <div class="rslot-lvl">Niv ${r.lvl}</div>
-        <div class="rslot-type ${typeClass[r.type]}">${typeName[r.type]}</div>
+      <div class="rslot-top ${rarityBg[r.rarity] || 'rar-common'}">
+        <div class="coin-badge-glow">
+          <svg class="rslot-diamond-svg" viewBox="0 0 24 24" width="40" height="40" fill="none">
+            <path d="M12 2L3 8.5L12 22L21 8.5L12 2Z" fill="url(#diamGrad)" stroke="#7b6fff" stroke-width="1.2"/>
+            <path d="M3 8.5H21M12 2L7.5 8.5L12 22L16.5 8.5L12 2Z" stroke="#ffffff" stroke-opacity="0.75" stroke-width="1.2"/>
+            <defs>
+              <linearGradient id="diamGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00e5ff"/>
+                <stop offset="1" stop-color="#7b6fff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
       </div>
-      <div class="rslot-badge ${r.premium ? 'badge-prem' : 'badge-free'}">${r.premium ? 'PRO' : 'FREE'}</div>
+      <div class="rslot-bot">
+        <div class="rslot-lvl">Nivel ${r.lvl}</div>
+        <div class="rslot-name">+${r.coins} V-M</div>
+        <div class="rslot-status ${unlocked ? 'status-unlocked' : 'status-locked'}">
+          ${unlocked ? '✓ Desbloqueado' : 'Bloqueado'}
+        </div>
+      </div>
       ${unlocked ? '<div class="rslot-check">✓</div>' : ''}
     `;
     grid.appendChild(slot);

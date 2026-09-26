@@ -3,72 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pase de Batalla 🦝 — Racoon Teacher</title>
+  <title>Pase de Batalla — Racoon Teacher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=3.2">
-  <link rel="stylesheet" href="css/battlepass.css?v=3.2">
+  <link rel="stylesheet" href="css/battlepass.css?v=3.3">
   <link rel="stylesheet" href="css/transitions.css?v=3.2">
 </head>
 <body class="bp-body">
 
 <div class="bp-shell">
 
-  <div class="bp-header">
-    <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
+  <!-- Encabezado del Pase -->
+  <header class="bp-header">
+    <button class="back-btn" onclick="navigateTo('index.html')">← Volver al Menú</button>
     <div class="bp-header-center">
-      <div class="season-tag">TEMPORADA 1</div>
-      <div class="bp-title">🦝 Mapache Salvaje</div>
+      <div class="season-tag">Temporada 1</div>
+      <h1 class="bp-title">Pase de Batalla Mapache</h1>
     </div>
     <div class="bp-vbucks">
-      <span class="vb-icon">💎</span>
-      <span id="vbDisplay">0</span>
+      <svg class="diamond-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none">
+        <path d="M12 2L3 8.5L12 22L21 8.5L12 2Z" fill="#00e5ff" stroke="#7b6fff" stroke-width="1.5"/>
+        <path d="M3 8.5H21M12 2L7.5 8.5L12 22L16.5 8.5L12 2Z" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.2"/>
+      </svg>
+      <span id="vbDisplay">0</span> <span style="font-size:0.8rem; opacity:0.85; font-weight:700;">V-Mapaches</span>
     </div>
-  </div>
+  </header>
 
-  <div class="xp-section">
+  <!-- Barra de Experiencia (Progreso hacia el siguiente nivel) -->
+  <section class="xp-section">
     <div class="xp-top">
       <div class="level-badge" id="lvlBadge">NIV 1</div>
-      <span class="xp-label">XP DE BATALLA</span>
-      <span class="xp-nums" id="xpNums">0 / 1,000</span>
+      <span class="xp-label">Progreso de Batalla</span>
+      <span class="xp-nums" id="xpNums">0 / 1,000 XP</span>
     </div>
     <div class="xp-bar-bg">
       <div class="xp-bar-fill" id="xpFill" style="width:0%"></div>
     </div>
-    <div class="xp-hint" id="xpHint">Responde preguntas para ganar XP</div>
-  </div>
+    <div class="xp-hint" id="xpHint">Responde preguntas en el aula o quizzes para ganar XP y subir de nivel</div>
+  </section>
 
+  <!-- Métricas Generales (Unificadas, sin modo VIP) -->
   <div class="bp-stats">
     <div class="stat-card">
-      <div class="stat-num" id="statFree">0</div>
-      <div class="stat-lbl">Gratis</div>
+      <div class="stat-num" id="statLvl">1</div>
+      <div class="stat-lbl">Nivel Actual</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num stat-gold" id="statPrem">0</div>
-      <div class="stat-lbl">Premium</div>
+      <div class="stat-num stat-gold" id="statClaimed">0</div>
+      <div class="stat-lbl">Recompensas Obtenidas</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num stat-green" id="statVB">0</div>
-      <div class="stat-lbl">V-Mapaches</div>
+      <div class="stat-num stat-green" id="statTotalCoins">0</div>
+      <div class="stat-lbl">V-Mapaches Ganados</div>
     </div>
   </div>
 
-  <div class="bp-tabs">
-    <button class="bp-tab active" onclick="switchTab('all',this)">Todo</button>
-    <button class="bp-tab" onclick="switchTab('free',this)">Gratis</button>
-    <button class="bp-tab" onclick="switchTab('premium',this)">Premium</button>
-  </div>
-
-  <div class="rewards-section">
-    <div class="rewards-page-label">Página 1</div>
+  <!-- Recompensas en V-Mapaches (20 a 100 V-Mapaches por nivel) -->
+  <section class="rewards-section">
+    <div class="rewards-header-row">
+      <div class="rewards-page-label">Recompensas por Nivel (20 a 100 V-Mapaches)</div>
+      <div class="rewards-legend">Desbloquea automáticamente cada nivel al acumular experiencia</div>
+    </div>
     <div class="rewards-grid" id="grid1"></div>
-    <div class="rewards-page-label" id="page2Label">Página 2</div>
-    <div class="rewards-grid" id="grid2"></div>
-  </div>
+  </section>
 
 </div>
 
 <script src="js/transitions.js"></script>
-<script type="module" src="js/battlepass.js?v=3.1"></script>
+<script type="module" src="js/battlepass.js?v=3.3"></script>
 </body>
 </html>

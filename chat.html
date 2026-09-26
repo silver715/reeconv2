@@ -2,43 +2,179 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat 🦝 — Racoon Teacher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Aula — Profe Mapache</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.2">
-  <link rel="stylesheet" href="css/chat.css?v=3.2">
-  <link rel="stylesheet" href="css/transitions.css?v=3.2">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/raccoon_sitting_cute.png">
+  <link rel="stylesheet" href="css/style.css?v=3.9">
+  <link rel="stylesheet" href="css/chat.css?v=4.0">
+  <link rel="stylesheet" href="css/transitions.css?v=3.9">
 </head>
-<body>
+<body class="kids-theme">
 
-<div class="chat-container">
+<div class="chat-container-wrapper">
 
-  <div class="chat-header">
-    <div class="chat-header-left">
-      <span class="header-icon" id="userAvatarIcon">🦝</span>
-      <span id="modeLabel" class="mode-badge">Matemáticas</span>
+  <!-- CONTENEDOR PRINCIPAL DEL CHAT -->
+  <div class="chat-container">
+
+    <!-- HEADER DEL AULA -->
+    <header class="chat-header">
+      <!-- Lado Izquierdo: Tutor Profe Mapache -->
+      <div class="chat-header-left">
+        <div class="mascot-badge" title="Tutor Profe Mapache">
+          <img src="img/raccoon_sitting_cute.png" alt="Profe Mapache" />
+        </div>
+        <div class="header-info">
+          <div class="header-title-row">
+            <span class="tutor-name">Profe Mapache</span>
+            <span class="online-indicator" title="En línea"><span class="dot"></span> Listo para enseñar</span>
+          </div>
+          <div class="header-sub-row">
+            <span id="modeLabel" class="mode-badge">Matemáticas</span>
+            <span id="gradeBadge" class="grade-badge">1° Grado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Derecho: Acciones -->
+      <div class="chat-header-right">
+        <!-- BOTÓN DE LLAMADA CON EL PROFE MAPACHE -->
+        <button id="callBtn" class="call-duo-btn" title="Iniciar llamada de voz con el Profe Mapache">
+          <svg class="call-btn-svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.053 15.053 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1.01A11.36 11.36 0 018.57 3.9c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.52c0-.55-.45-1-.99-1z"/>
+          </svg>
+          <span class="call-btn-label">Llamar</span>
+          <span class="call-btn-badge">+75 XP</span>
+        </button>
+
+        <button class="back-btn" onclick="navigateTo('index.html')">← Salir</button>
+      </div>
+    </header>
+
+    <!-- BANNER DE LLAMADA EN VIVO EN EL CHAT -->
+    <div class="voice-call-banner" id="voiceCallBanner" style="display: none;">
+      <div class="call-banner-left">
+        <div class="call-live-dot"></div>
+        <div class="call-banner-info">
+          <span class="call-banner-title">Modo Llamada de Voz con Profe Mapache</span>
+          <span class="call-banner-status" id="callBannerStatus">Conectado • El Profe te habla con voz</span>
+        </div>
+      </div>
+      <div class="call-wave-bars" id="callWaveBars">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="call-banner-right">
+        <span class="call-timer" id="callTimer">00:00</span>
+        <button class="call-banner-hangup" id="bannerHangupBtn" title="Finalizar llamada">Colgar</button>
+      </div>
     </div>
-    <div class="chat-header-right">
-      <button class="icon-btn" onclick="navigateTo('battlepass.html')" title="Pase de Batalla">⚔️</button>
-      <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
+
+    <!-- BANNER HERO DE BIENVENIDA (OCULTABLE) -->
+    <div class="chat-hero-banner" id="chatHeroBanner">
+      <div class="hero-mascot-wrap">
+        <img src="img/raccoon_sitting_lineart.png" alt="Profe Mapache saludando" class="hero-mascot-img" />
+      </div>
+      <div class="hero-content">
+        <h3>¡Bienvenido al Aula Virtual!</h3>
+        <p>Escribe tu duda, elige una tarjeta de ayuda o toca <strong>"Llamar"</strong> para hablar conmigo en vivo por voz.</p>
+      </div>
+      <button class="hero-close-btn" id="closeHeroBtn" title="Ocultar bienvenida">✕</button>
+    </div>
+
+    <!-- CAJA DE MENSAJES -->
+    <div id="chat" class="chat-box" role="log" aria-live="polite"></div>
+
+    <!-- INDICADOR DE ESCRITURA ANIMADO -->
+    <div class="typing-indicator" id="typing">
+      <img src="img/raccoon_flower_crown.png" alt="Pensando" class="typing-avatar" />
+      <div class="typing-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="typing-text">Profe Mapache está pensando...</span>
+    </div>
+
+    <!-- CHIPS DE PREGUNTAS RÁPIDAS (SIN EMOJIS) -->
+    <div class="quick-chips-container" id="quickChipsBar">
+      <span class="chips-label">Ayudas rápidas:</span>
+      <button class="chip-btn" data-prompt="¿Me puedes dar un ejemplo fácil y claro?">Dame un ejemplo</button>
+      <button class="chip-btn" data-prompt="¿Me explicas más despacio, paso a pasito?">Más despacio</button>
+      <button class="chip-btn" data-prompt="¡Ponme un ejercicio o reto divertido para resolver!">Un reto</button>
+      <button class="chip-btn" data-prompt="¿Cómo resuelvo este problema paso a paso?">Paso a paso</button>
+      <button class="chip-btn" data-prompt="¡Cuéntame un dato curioso y educativo sobre este tema!">Dato curioso</button>
+    </div>
+
+    <!-- TRAY DE STICKERS DE MAPACHE (DESPLEGABLE) -->
+    <div class="sticker-drawer" id="stickerDrawer">
+      <div class="sticker-drawer-header">
+        <span>Reaccionar con Stickers de Mapache</span>
+        <button class="close-drawer-btn" id="closeStickerDrawerBtn">✕</button>
+      </div>
+      <div class="sticker-grid" id="stickerGrid">
+        <!-- Generado dinámicamente -->
+      </div>
+    </div>
+
+    <!-- BARRA DE ENTRADA DE MENSAJES CON PROTAGONISMO DE LA SKIN DEL ESTUDIANTE -->
+    <footer class="chat-input-bar">
+      <!-- Mini avatar de la skin equipada del estudiante con acceso directo a la tienda -->
+      <div class="input-user-avatar-badge" onclick="navigateTo('avatars.html')" title="Tu Skin Activa (Cambiar en Tienda)">
+        <img id="inputUserSkinImg" src="img/avatars/raccoon_happy.png" alt="Tu Skin" />
+      </div>
+
+      <button class="sticker-toggle-btn" id="toggleStickerBtn" title="Enviar Sticker de Mapache">
+        <img src="img/raccoon_blushing.png" alt="Stickers" />
+      </button>
+
+      <div class="input-wrapper">
+        <input type="text" id="input" placeholder="Escribe tu duda aquí..." autocomplete="off" />
+      </div>
+
+      <button id="voiceMicBtn" class="voice-mic-btn" title="Hablar por micrófono con el Profe">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+      </button>
+
+      <button id="sendBtn" class="send-btn" onclick="sendMessage()">
+        <span>Enviar</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </footer>
+
+  </div> <!-- /chat-container -->
+
+</div> <!-- /chat-container-wrapper -->
+
+<!-- ==============================================
+     MODAL DE CONFIGURACIÓN DE API KEY
+     ============================================== -->
+<div class="settings-modal-overlay" id="settingsModal" aria-hidden="true">
+  <div class="settings-card">
+    <div class="settings-header">
+      <h3>Ajustes del Aula</h3>
+      <button class="close-settings-btn" id="closeSettingsBtn">✕</button>
+    </div>
+
+    <div class="settings-body">
+      <div class="settings-group">
+        <label for="geminiKeyInput"><strong>API Key de Google Gemini (Opcional):</strong></label>
+        <p class="settings-help">Si tienes tu propia clave de Google AI Studio (`AIzaSy...`), ingrésala aquí. Si no, el aula utiliza el motor pedagógico local sin interrupciones.</p>
+        <div class="input-with-btn">
+          <input type="password" id="geminiKeyInput" placeholder="Pega tu clave AIzaSy..." />
+          <button id="saveKeyBtn" class="primary-mini-btn">Guardar</button>
+        </div>
+        <span id="keyStatusFeedback" class="key-feedback"></span>
+      </div>
     </div>
   </div>
-
-  <div id="chat" class="chat-box"></div>
-
-  <div class="typing-indicator" id="typing">
-    <span></span><span></span><span></span>
-  </div>
-
-  <div class="chat-input">
-    <input type="text" id="input" placeholder="Escribe tu duda..." autocomplete="off" />
-    <button id="sendBtn" onclick="sendMessage()">Enviar</button>
-  </div>
-
 </div>
 
 <script src="js/transitions.js"></script>
-<script type="module" src="js/chat.js?v=3.1"></script>
+<script type="module" src="js/chat.js?v=3.9"></script>
 </body>
 </html>

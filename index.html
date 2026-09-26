@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racoon Teacher 🦝 — Panel Principal</title>
+  <title>Racoon Teacher — Panel Principal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/transitions.css?v=2.2">
+  <link rel="stylesheet" href="css/peeking-mascots.css?v=1.0">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -42,33 +43,37 @@
       color: var(--text);
       font-family: 'Nunito', sans-serif;
       min-height: 100vh;
-      padding: 24px 16px 48px;
+      padding: 16px 20px 24px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    /* ── CONTENEDOR DASHBOARD ── */
+    /* ── CONTENEDOR DASHBOARD (Equilibrado para que las tarjetas no se estiren) ── */
     .dashboard-container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1040px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 14px;
     }
 
-    /* ── HUD / HERO BANNER ── */
+    /* ── HUD / HERO BANNER INTEGRADO AL MENÚ ── */
     .profile-hero {
-      background: rgba(17, 17, 40, 0.78);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border2);
-      border-radius: 24px;
-      padding: 28px 36px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 32px rgba(123, 111, 255, 0.12);
+      background: rgba(17, 17, 40, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid var(--border2);
+      border-radius: 22px;
+      padding: 16px 26px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(123, 111, 255, 0.12);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 24px;
+      gap: 16px;
       position: relative;
       overflow: hidden;
     }
@@ -77,71 +82,88 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, #00e5ff, #7b6fff, #ff4081, #f5c842);
+      background: linear-gradient(90deg, #00e5ff 0%, #7b6fff 50%, #ff4081 100%);
     }
 
     .profile-hero-left {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
 
     .hero-avatar-box {
-      width: 72px;
-      height: 72px;
-      background: linear-gradient(135deg, rgba(123, 111, 255, 0.3), rgba(0, 229, 255, 0.15));
-      border: 2px solid var(--purple);
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(123, 111, 255, 0.35) 0%, rgba(17, 17, 40, 0.9) 100%);
+      border: 2.5px solid var(--purple);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 40px;
-      box-shadow: 0 0 20px rgba(123, 111, 255, 0.35);
+      box-shadow: 0 0 20px rgba(123, 111, 255, 0.45);
       animation: heroAvatarFloat 3s ease-in-out infinite;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .hero-avatar-box:hover {
+      transform: scale(1.08) rotate(3deg);
+      border-color: var(--cyan);
+      box-shadow: 0 0 24px rgba(0, 229, 255, 0.55);
+    }
+
+    .hero-avatar-box img {
+      width: 88%;
+      height: 88%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
     }
 
     @keyframes heroAvatarFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-3px); }
     }
 
     .hero-title-group h1 {
       font-family: 'Baloo 2', cursive;
-      font-size: 2.1rem;
+      font-size: 1.65rem;
       font-weight: 800;
-      line-height: 1.1;
-      background: linear-gradient(135deg, #ffffff, #c7c0ff);
+      line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 40%, #c7c0ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin: 0;
     }
 
     .hero-title-group .hero-welcome {
-      font-size: 1rem;
+      font-size: 0.92rem;
       color: var(--text2);
-      margin-top: 4px;
+      margin-top: 2px;
+      font-weight: 600;
     }
 
     .hero-title-group .hero-welcome strong {
       color: var(--gold);
+      font-weight: 800;
     }
 
-    /* ── HUD PILLS ── */
+    /* ── HUD PILLS & BOTONES ── */
     .profile-hud-stats {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .hud-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 700;
+      gap: 7px;
+      padding: 7px 16px;
+      border-radius: 24px;
+      font-size: 0.92rem;
+      font-weight: 800;
       font-family: 'Baloo 2', cursive;
       backdrop-filter: blur(8px);
       transition: transform 0.2s, box-shadow 0.2s;
@@ -151,7 +173,7 @@
 
     .hud-pill.streak {
       background: rgba(245, 200, 66, 0.12);
-      border: 1px solid rgba(245, 200, 66, 0.4);
+      border: 1.5px solid rgba(245, 200, 66, 0.45);
       color: var(--gold);
     }
     .hud-pill.streak.no-streak { display: none; }
@@ -166,25 +188,37 @@
     }
 
     .hud-pill.lvl {
-      background: rgba(123, 111, 255, 0.15);
-      border: 1px solid rgba(123, 111, 255, 0.4);
+      background: rgba(123, 111, 255, 0.16);
+      border: 1.5px solid rgba(123, 111, 255, 0.45);
       color: var(--purple2);
+      box-shadow: 0 0 12px rgba(123, 111, 255, 0.2);
     }
 
     .hud-pill.vb,
     .hud-pill.coins {
       background: rgba(0, 229, 255, 0.12);
-      border: 1px solid rgba(0, 229, 255, 0.4);
+      border: 1.5px solid rgba(0, 229, 255, 0.45);
       color: var(--cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+      cursor: pointer;
+    }
+    .hud-pill.vb:hover {
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.4);
+      border-color: var(--cyan);
+    }
+
+    .diamond-icon-svg {
+      filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.7));
+      flex-shrink: 0;
     }
 
     .hud-action-btn {
       background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 8px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 7px 18px;
       font-family: 'Nunito', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.92rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
@@ -195,45 +229,47 @@
     }
 
     .hud-action-btn.profile-btn {
-      background: rgba(123, 111, 255, 0.15);
-      border: 1px solid rgba(123, 111, 255, 0.4);
-      color: var(--purple2);
+      background: rgba(123, 111, 255, 0.18);
+      border: 1.5px solid rgba(123, 111, 255, 0.45);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(123, 111, 255, 0.25);
     }
     .hud-action-btn.profile-btn:hover {
-      background: rgba(123, 111, 255, 0.3);
-      border-color: var(--purple);
-      color: #ffffff;
+      background: rgba(123, 111, 255, 0.35);
+      border-color: var(--purple2);
       transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(123, 111, 255, 0.45);
     }
 
     .hud-action-btn.admin-btn {
-      background: rgba(245, 200, 66, 0.15);
-      border: 1px solid rgba(245, 200, 66, 0.4);
+      background: rgba(245, 200, 66, 0.18);
+      border: 1.5px solid rgba(245, 200, 66, 0.45);
       color: var(--gold);
     }
     .hud-action-btn.admin-btn:hover {
       background: rgba(245, 200, 66, 0.3);
       border-color: var(--gold);
-      color: #ffffff;
       transform: translateY(-2px);
     }
 
     .logout-link {
-      background: rgba(255, 80, 80, 0.1);
-      border: 1px solid rgba(255, 80, 80, 0.3);
-      color: #ff7676;
-      border-radius: 30px;
-      padding: 8px 16px;
+      background: rgba(255, 80, 80, 0.12);
+      border: 1.5px solid rgba(255, 80, 80, 0.35);
+      color: #ff8888;
+      border-radius: 24px;
+      padding: 7px 18px;
       font-family: 'Nunito', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.92rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
     }
     .logout-link:hover {
-      background: rgba(255, 80, 80, 0.2);
+      background: rgba(255, 80, 80, 0.25);
       border-color: #ff5050;
       color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(255, 80, 80, 0.35);
     }
 
     /* ── ESTILOS DEL MODAL DE PERFIL Y SEGURIDAD ── */
@@ -355,140 +391,164 @@
 
     /* ── SECCIÓN ── */
     .section-header {
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
     .section-header h2 {
       font-family: 'Baloo 2', cursive;
-      font-size: 1.45rem;
+      font-size: 1.22rem;
       font-weight: 800;
       color: #ffffff;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+      margin-bottom: 2px;
     }
     .section-header p {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       color: var(--text2);
-      margin-top: 2px;
+      margin: 0;
+      line-height: 1.3;
     }
 
-    /* ── GRIDS ── */
+    /* ── GRIDS (Proporcionales y Equilibradas) ── */
     .subjects-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
+      gap: 12px;
       width: 100%;
     }
 
     .activities-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 12px;
       width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
-    /* ── TARJETA DASHBOARD ── */
+    /* ── TARJETA DASHBOARD (Formato Vertical Equilibrado, Cero Estiramiento) ── */
     .dashboard-card {
-      background: rgba(17, 17, 40, 0.75);
+      background: rgba(17, 17, 40, 0.78);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px 20px;
+      border-radius: 16px;
+      padding: 12px 12px 12px;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
       position: relative;
       cursor: pointer;
+      min-height: 0;
       transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s, box-shadow 0.25s;
     }
 
     .dashboard-card:hover {
-      transform: translateY(-6px) scale(1.02);
+      transform: translateY(-5px) scale(1.02);
     }
 
     .card-math:hover { border-color: var(--cyan); box-shadow: 0 12px 32px rgba(0, 229, 255, 0.25); }
-    .card-math .card-icon-box { background: rgba(0, 229, 255, 0.12); border-color: rgba(0, 229, 255, 0.3); }
+    .card-math .card-img-box { border-color: rgba(0, 229, 255, 0.35); }
 
     .card-spanish:hover { border-color: var(--orange); box-shadow: 0 12px 32px rgba(255, 145, 0, 0.25); }
-    .card-spanish .card-icon-box { background: rgba(255, 145, 0, 0.12); border-color: rgba(255, 145, 0, 0.3); }
+    .card-spanish .card-img-box { border-color: rgba(255, 145, 0, 0.35); }
 
     .card-english:hover { border-color: var(--purple2); box-shadow: 0 12px 32px rgba(168, 159, 255, 0.25); }
-    .card-english .card-icon-box { background: rgba(123, 111, 255, 0.15); border-color: rgba(123, 111, 255, 0.35); }
+    .card-english .card-img-box { border-color: rgba(123, 111, 255, 0.35); }
 
     .card-science:hover { border-color: var(--green); box-shadow: 0 12px 32px rgba(0, 230, 118, 0.25); }
-    .card-science .card-icon-box { background: rgba(0, 230, 118, 0.12); border-color: rgba(0, 230, 118, 0.3); }
+    .card-science .card-img-box { border-color: rgba(0, 230, 118, 0.35); }
 
     .card-social:hover { border-color: var(--pink); box-shadow: 0 12px 32px rgba(255, 64, 129, 0.25); }
-    .card-social .card-icon-box { background: rgba(255, 64, 129, 0.12); border-color: rgba(255, 64, 129, 0.3); }
+    .card-social .card-img-box { border-color: rgba(255, 64, 129, 0.35); }
 
     .card-quiz:hover { border-color: var(--gold); box-shadow: 0 12px 32px rgba(245, 200, 66, 0.3); }
-    .card-quiz .card-icon-box { background: rgba(245, 200, 66, 0.12); border-color: rgba(245, 200, 66, 0.35); }
+    .card-quiz .card-img-box { border-color: rgba(245, 200, 66, 0.35); }
 
     .card-bp:hover { border-color: var(--purple); box-shadow: 0 12px 32px rgba(123, 111, 255, 0.35); }
-    .card-bp .card-icon-box { background: rgba(123, 111, 255, 0.18); border-color: rgba(123, 111, 255, 0.4); }
+    .card-bp .card-img-box { border-color: rgba(123, 111, 255, 0.4); }
 
     .card-ranking:hover { border-color: #ffd700; box-shadow: 0 12px 32px rgba(255, 215, 0, 0.25); }
-    .card-ranking .card-icon-box { background: rgba(255, 215, 0, 0.12); border-color: rgba(255, 215, 0, 0.3); }
+    .card-ranking .card-img-box { border-color: rgba(255, 215, 0, 0.35); }
 
     .card-avatars:hover { border-color: #e040fb; box-shadow: 0 12px 32px rgba(224, 64, 251, 0.25); }
-    .card-avatars .card-icon-box { background: rgba(224, 64, 251, 0.12); border-color: rgba(224, 64, 251, 0.3); }
+    .card-avatars .card-img-box { border-color: rgba(224, 64, 251, 0.35); }
 
     .card-badge {
+      align-self: flex-start;
       font-family: 'Baloo 2', cursive;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 12px;
+      padding: 2px 8px;
+      border-radius: 8px;
       background: rgba(123, 111, 255, 0.15);
       border: 1px solid var(--border2);
       color: var(--purple2);
-      margin-bottom: 16px;
+      margin-bottom: 8px;
       letter-spacing: 0.3px;
+      line-height: 1.3;
     }
 
-    .card-icon-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
+    /* Contenedor de ilustración estilo tarjeta coleccionable */
+    .card-img-box {
+      width: 100%;
+      height: 114px;
+      border-radius: 12px;
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-      margin-bottom: 14px;
-      transition: transform 0.2s;
+      overflow: hidden;
+      margin-bottom: 8px;
+      position: relative;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
-    .dashboard-card:hover .card-icon-box { transform: scale(1.1) rotate(4deg); }
+
+    .dashboard-card:hover .card-img-box {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .dashboard-card:hover .card-img {
+      transform: scale(1.06);
+    }
 
     .dashboard-card h3 {
       font-family: 'Baloo 2', cursive;
-      font-size: 1.25rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      margin-bottom: 6px;
+      margin-bottom: 2px;
       color: #ffffff;
-    }
-
-    .dashboard-card p {
-      font-size: 0.84rem;
-      color: var(--text2);
-      line-height: 1.45;
-      margin-bottom: 14px;
-      flex: 1;
+      line-height: 1.2;
     }
 
     .card-action-hint {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 700;
       color: var(--purple2);
       display: flex;
       align-items: center;
-      gap: 4px;
-      transition: gap 0.2s;
+      gap: 3px;
+      margin-top: auto;
+      padding-top: 6px;
+      transition: gap 0.2s, color 0.2s;
     }
-    .dashboard-card:hover .card-action-hint { gap: 8px; color: #ffffff; }
+    .dashboard-card:hover .card-action-hint { gap: 6px; color: #ffffff; }
 
     /* ── MODAL DE GRADO ── */
     .modal-overlay {
@@ -501,115 +561,194 @@
       -webkit-backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
     }
     .modal-overlay.show { display: flex; }
 
     .modal-box {
-      background: #111128;
-      border: 1px solid rgba(123, 111, 255, 0.35);
-      border-radius: 24px;
-      padding: 36px 32px;
+      background: rgba(17, 17, 40, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1.5px solid rgba(123, 111, 255, 0.4);
+      border-radius: 28px;
+      padding: clamp(24px, 3.5vh, 36px) clamp(24px, 3vw, 38px);
       width: 100%;
-      max-width: 440px;
+      max-width: 620px;
       text-align: center;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(123, 111, 255, 0.2);
-      animation: modalIn 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(123, 111, 255, 0.25);
+      animation: modalIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
     }
 
     @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.92) translateY(16px); }
+      from { opacity: 0; transform: scale(0.93) translateY(16px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    .modal-icon { font-size: 56px; display: block; margin-bottom: 12px; }
+    .modal-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .modal-icon img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(123, 111, 255, 0.3);
+      border: 1.5px solid rgba(123, 111, 255, 0.4);
+    }
+
     .modal-title {
       font-family: 'Baloo 2', cursive;
-      font-size: 1.5rem;
+      font-size: clamp(1.4rem, 2.5vh, 1.8rem);
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 6px;
+      letter-spacing: 0.3px;
     }
     .modal-sub {
-      font-size: 0.9rem;
+      font-size: clamp(0.9rem, 1.4vh, 1.02rem);
       color: var(--text2);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       line-height: 1.5;
     }
 
     .grade-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 14px;
       margin-bottom: 24px;
-    }
-    .grade-grid .grade-btn:last-child:nth-child(3n+1) {
-      grid-column: 1 / -1;
-      max-width: 140px;
-      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .grade-btn {
-      background: #161636;
+      background: rgba(22, 22, 54, 0.92);
       border: 1.5px solid rgba(123, 111, 255, 0.25);
-      border-radius: 14px;
-      padding: 14px 8px;
+      border-radius: 18px;
+      padding: 16px 14px;
       color: var(--text);
       font-family: 'Baloo 2', cursive;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1.05rem;
       cursor: pointer;
-      transition: all 0.18s;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 10px;
+      box-sizing: border-box;
     }
-    .grade-btn .g-icon { font-size: 1.6rem; }
-    .grade-btn:hover {
-      border-color: var(--purple);
-      background: rgba(123, 111, 255, 0.18);
+    .grade-btn img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease;
+    }
+    .grade-btn .g-num {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: radial-gradient(circle, rgba(123, 111, 255, 0.3) 0%, rgba(22, 22, 54, 0.95) 100%);
+      border: 2px solid var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #00e5ff;
+      box-shadow: 0 0 16px rgba(123, 111, 255, 0.35);
+    }
+    .grade-btn span:not(.g-num) {
+      font-size: 1.05rem;
       color: #ffffff;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(123, 111, 255, 0.3);
+      line-height: 1.2;
+    }
+
+    .grade-btn:hover {
+      border-color: #00e5ff;
+      background: rgba(123, 111, 255, 0.28);
+      color: #ffffff;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0, 229, 255, 0.3);
+    }
+    .grade-btn:hover img {
+      transform: scale(1.08);
+    }
+    .grade-btn:active {
+      transform: translateY(-1px);
     }
 
     .modal-cancel {
-      background: transparent;
-      border: none;
-      color: var(--text2);
-      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      font-size: 0.95rem;
       font-family: 'Nunito', sans-serif;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      padding: 8px 16px;
-      transition: color 0.2s;
+      padding: 10px 28px;
+      border-radius: 24px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-    .modal-cancel:hover { color: #ffffff; }
+    .modal-cancel:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
+    @media (max-width: 960px) {
+      body { justify-content: flex-start; }
       .subjects-grid { grid-template-columns: repeat(3, 1fr); }
-      .activities-grid { grid-template-columns: repeat(2, 1fr); }
+      .activities-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
     }
 
-    @media (max-width: 768px) {
-      body { padding: 16px 12px 36px; }
-      .profile-hero { padding: 20px; }
-      .hero-title-group h1 { font-size: 1.7rem; }
-      .subjects-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .activities-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .dashboard-card { padding: 18px 14px; }
-      .dashboard-card h3 { font-size: 1.1rem; }
+    @media (max-height: 650px) {
+      body {
+        justify-content: flex-start;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      .dashboard-container {
+        gap: 8px;
+      }
+      .card-img-box {
+        height: 96px;
+      }
     }
 
-    @media (max-width: 480px) {
-      .profile-hero { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .profile-hud-stats { width: 100%; justify-content: space-between; }
+    @media (max-width: 640px) {
+      body { padding: 12px 10px 24px; justify-content: flex-start; }
+      .profile-hero { padding: 12px 16px; }
+      .hero-title-group h1 { font-size: 1.25rem; }
+      .subjects-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .activities-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .dashboard-card { padding: 10px; }
+      .card-img-box { height: 95px; }
+      .dashboard-card h3 { font-size: 0.95rem; }
+    }
+
+    @media (max-width: 440px) {
+      .profile-hero { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .profile-hud-stats { width: 100%; justify-content: flex-start; gap: 6px; }
       .subjects-grid { grid-template-columns: 1fr; }
       .activities-grid { grid-template-columns: 1fr; }
-      .grade-grid { grid-template-columns: repeat(2, 1fr); }
-      .grade-grid .grade-btn:last-child:nth-child(3n+1) { grid-column: auto; max-width: none; }
+      .card-img-box { height: 120px; }
     }
   </style>
 </head>
@@ -620,82 +759,91 @@
     <!-- ── HUD HERO BANNER DEL ESTUDIANTE ── -->
     <header class="profile-hero">
       <div class="profile-hero-left">
-        <div class="hero-avatar-box">
-          <img id="userAvatarImg" src="img/avatars/raccoon_happy.png" alt="Avatar" style="width:85%; height:85%; object-fit:contain;" />
+        <div class="hero-avatar-box" onclick="navigateTo('avatars.html')" title="Personalizar Skin en la Tienda">
+          <img id="userAvatarImg" src="img/avatars/raccoon_happy.png" alt="Skin Equipada" />
         </div>
         <div class="hero-title-group">
           <h1>Racoon Teacher</h1>
-          <p class="hero-welcome">¡Hola, <strong id="userName">Estudiante</strong>! — ¿Qué aprendemos hoy? ✨</p>
+          <p class="hero-welcome">¡Hola, <strong id="userName">Estudiante</strong>! — ¿Qué aprendemos hoy?</p>
         </div>
       </div>
 
       <div class="profile-hud-stats">
         <div class="hud-pill streak no-streak" id="streakBadge">
-          🔥 Racha: <span id="streakCount">0</span> días
+          Racha: <span id="streakCount">0</span> días
           <span class="streak-bonus" id="streakBonus"></span>
         </div>
         <div class="hud-pill lvl">
-          ⚔️ Nivel <span id="userLevel">1</span>
+          Nivel <span id="userLevel">1</span>
         </div>
-        <div class="hud-pill vb">
-          💎 <span id="userVB">0</span> V-M
+        <div class="hud-pill vb" onclick="navigateTo('avatars.html')" title="Tus V-Mapaches (Ir a la Tienda de Skins)">
+          <svg class="diamond-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none">
+            <path d="M12 2L3 8.5L12 22L21 8.5L12 2Z" fill="#00e5ff" stroke="#7b6fff" stroke-width="1.5"/>
+            <path d="M3 8.5H21M12 2L7.5 8.5L12 22L16.5 8.5L12 2Z" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.2"/>
+          </svg>
+          <span id="userVB">0</span> V-M
         </div>
-        <button class="hud-action-btn profile-btn" onclick="openProfileModal()" title="Gestionar mi nombre y contraseña">⚙️ Mi Perfil</button>
-        <a href="admin.html" id="adminPanelLink" class="hud-action-btn admin-btn" style="display:none;" title="Panel de Administración CRUD">🛠️ Panel Admin</a>
-        <button class="logout-link" onclick="handleLogout()" title="Cerrar Sesión">🚪 Salir</button>
+        <button class="hud-action-btn profile-btn" onclick="openProfileModal()" title="Gestionar mi nombre y contraseña">Mi Perfil</button>
+        <a href="admin.html" id="adminPanelLink" class="hud-action-btn admin-btn" style="display:none;" title="Panel de Administración CRUD">Panel Admin</a>
+        <button class="logout-link" onclick="handleLogout()" title="Cerrar Sesión">Salir</button>
       </div>
     </header>
 
     <!-- ── SECCIÓN 1: MATERIAS CON TUTOR IA ── -->
     <section>
       <div class="section-header">
-        <h2>📚 Materias Escolares — Tutor IA 🦝</h2>
+        <h2>Materias Escolares — Tutor IA</h2>
         <p>Selecciona una materia para chatear con el Profe Mapache y resolver cualquier ejercicio paso a paso.</p>
       </div>
 
       <div class="subjects-grid">
         <!-- Matemáticas -->
-        <a class="dashboard-card card-math" onclick="selectSubject('math', '📐', 'Matemáticas')">
-          <span class="card-badge">Tutor IA 🤖</span>
-          <div class="card-icon-box">📐</div>
+        <a class="dashboard-card card-math" onclick="selectSubject('math', 'img/mat.jpg', 'Matemáticas')">
+          <span class="card-badge">Tutor IA</span>
+          <div class="card-img-box">
+            <img src="img/mat.jpg" alt="Matemáticas" class="card-img" />
+          </div>
           <h3>Matemáticas</h3>
-          <p>Sumas, restas, multiplicaciones, fracciones y geometría explicadas con ejemplos fáciles.</p>
           <span class="card-action-hint">Entrar al Aula →</span>
         </a>
 
         <!-- Español -->
-        <a class="dashboard-card card-spanish" onclick="selectSubject('spanish', '✍️', 'Español')">
-          <span class="card-badge">Tutor IA 🤖</span>
-          <div class="card-icon-box">✍️</div>
+        <a class="dashboard-card card-spanish" onclick="selectSubject('spanish', 'img/espanol.jfif', 'Español')">
+          <span class="card-badge">Tutor IA</span>
+          <div class="card-img-box">
+            <img src="img/espanol.jfif" alt="Español" class="card-img" />
+          </div>
           <h3>Español</h3>
-          <p>Gramática, sustantivos, verbos, ortografía y comprensión de lectura divertida.</p>
           <span class="card-action-hint">Entrar al Aula →</span>
         </a>
 
         <!-- Inglés -->
-        <a class="dashboard-card card-english" onclick="selectSubject('english', '🌐', 'Inglés')">
-          <span class="card-badge">Tutor IA 🤖</span>
-          <div class="card-icon-box">🌐</div>
+        <a class="dashboard-card card-english" onclick="selectSubject('english', 'img/ingles.jfif', 'Inglés')">
+          <span class="card-badge">Tutor IA</span>
+          <div class="card-img-box">
+            <img src="img/ingles.jfif" alt="Inglés" class="card-img" />
+          </div>
           <h3>Inglés</h3>
-          <p>Vocabulario, saludos, colores, números, frases y pronunciación básica.</p>
           <span class="card-action-hint">Entrar al Aula →</span>
         </a>
 
         <!-- Ciencias Naturales -->
-        <a class="dashboard-card card-science" onclick="selectSubject('science', '🌱', 'Ciencias Naturales')">
-          <span class="card-badge">Tutor IA 🤖</span>
-          <div class="card-icon-box">🌱</div>
+        <a class="dashboard-card card-science" onclick="selectSubject('science', 'img/naturales.jfif', 'Ciencias Naturales')">
+          <span class="card-badge">Tutor IA</span>
+          <div class="card-img-box">
+            <img src="img/naturales.jfif" alt="Ciencias Naturales" class="card-img" />
+          </div>
           <h3>Ciencias</h3>
-          <p>Plantas, animales, seres vivos, cuerpo humano, la Tierra y el sistema solar.</p>
           <span class="card-action-hint">Entrar al Aula →</span>
         </a>
 
         <!-- Ciencias Sociales -->
-        <a class="dashboard-card card-social" onclick="selectSubject('social', '🗺️', 'Sociales')">
-          <span class="card-badge">Tutor IA 🤖</span>
-          <div class="card-icon-box">🗺️</div>
+        <a class="dashboard-card card-social" onclick="selectSubject('social', 'img/sociales.jfif', 'Sociales')">
+          <span class="card-badge">Tutor IA</span>
+          <div class="card-img-box">
+            <img src="img/sociales.jfif" alt="Sociales" class="card-img" />
+          </div>
           <h3>Sociales</h3>
-          <p>Historia, geografía, mapas, culturas del mundo, comunidad y democracia.</p>
           <span class="card-action-hint">Entrar al Aula →</span>
         </a>
       </div>
@@ -704,44 +852,48 @@
     <!-- ── SECCIÓN 2: GAMIFICACIÓN Y DESAFÍOS ── -->
     <section>
       <div class="section-header">
-        <h2>🎮 Centro de Gamificación y Desafíos</h2>
+        <h2>Centro de Gamificación y Desafíos</h2>
         <p>Compite en trivias, acumula experiencia para subir de nivel y viste a tu mapache con avatares exclusivos.</p>
       </div>
 
       <div class="activities-grid">
         <!-- Quiz -->
-        <a class="dashboard-card card-quiz" onclick="selectSubject('quiz', '📝', 'Quiz')" id="quizCard">
-          <span class="card-badge" style="color:var(--gold); border-color:rgba(245,200,66,0.3); background:rgba(245,200,66,0.12);">+200 XP Extra ⭐</span>
-          <div class="card-icon-box">📝</div>
+        <a class="dashboard-card card-quiz" onclick="selectSubject('quiz', 'img/quiz.jfif', 'Quiz')" id="quizCard">
+          <span class="card-badge" style="color:var(--gold); border-color:rgba(245,200,66,0.3); background:rgba(245,200,66,0.12);">+200 XP Extra</span>
+          <div class="card-img-box">
+            <img src="img/quiz.jfif" alt="Quizzes" class="card-img" />
+          </div>
           <h3>Quizzes</h3>
-          <p>Responde 5 preguntas rápidas por materia, gana estrellas y sube tu puntuación.</p>
           <span class="card-action-hint">Jugar Trivia →</span>
         </a>
 
         <!-- Pase de Batalla -->
         <a class="dashboard-card card-bp" onclick="navigateTo('battlepass.html')">
-          <span class="card-badge">100 Niveles ⚔️</span>
-          <div class="card-icon-box">⚔️</div>
+          <span class="card-badge">100 Niveles</span>
+          <div class="card-img-box">
+            <img src="img/pase_batalla.jfif" alt="Pase de Batalla" class="card-img" />
+          </div>
           <h3>Pase de Batalla</h3>
-          <p>Desbloquea 29 recompensas, monedas V-Mapaches y títulos legendarios.</p>
           <span class="card-action-hint">Ver Pase →</span>
         </a>
 
         <!-- Leaderboard -->
         <a class="dashboard-card card-ranking" onclick="navigateTo('leaderboard.html')">
-          <span class="card-badge">Top Global 🏆</span>
-          <div class="card-icon-box">🏆</div>
+          <span class="card-badge">Top Global</span>
+          <div class="card-img-box">
+            <img src="img/ranking.jfif" alt="Ranking" class="card-img" />
+          </div>
           <h3>Ranking</h3>
-          <p>Compite con otros compañeros en tiempo real y sube al podio de honor.</p>
           <span class="card-action-hint">Ver Tabla →</span>
         </a>
 
-        <!-- Tienda de Avatares -->
+        <!-- Tienda de Skins -->
         <a class="dashboard-card card-avatars" onclick="navigateTo('avatars.html')">
-          <span class="card-badge">10 Personajes 🎭</span>
-          <div class="card-icon-box">🎭</div>
-          <h3>Tienda</h3>
-          <p>Usa tus V-Mapaches ganados para desbloquear skins temáticas y especiales.</p>
+          <span class="card-badge">Colección</span>
+          <div class="card-img-box">
+            <img src="img/skins-tienda.jfif" alt="Tienda de Skins" class="card-img" />
+          </div>
+          <h3>Tienda de Skins</h3>
           <span class="card-action-hint">Ir a Tienda →</span>
         </a>
       </div>
@@ -752,16 +904,20 @@
   <!-- ── MODAL DE GRADO Y MATERIA ── -->
   <div class="modal-overlay" id="gradeModal">
     <div class="modal-box">
-      <span class="modal-icon" id="modalIcon">📐</span>
+      <div class="modal-icon" id="modalIcon">
+        <img src="img/mat.jpg" alt="Materia" />
+      </div>
       <div class="modal-title" id="modalTitle">Matemáticas</div>
-      <div class="modal-sub">¿En qué grado estás?<br>El mapache ajusta sus explicaciones para ti 🦝</div>
+      <div class="modal-sub">¿En qué grado estás?<br>El Profe Mapache adapta las explicaciones para ti</div>
 
-      <div class="grade-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 280px; margin: 0 auto 24px;">
+      <div class="grade-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 420px; margin: 0 auto 24px;">
         <button class="grade-btn" onclick="confirmGrade('Cuarto')">
-          <span class="g-icon">4️⃣</span>Cuarto
+          <span class="g-num">4°</span>
+          <span>Cuarto Grado</span>
         </button>
         <button class="grade-btn" onclick="confirmGrade('Quinto')">
-          <span class="g-icon">5️⃣</span>Quinto
+          <span class="g-num">5°</span>
+          <span>Quinto Grado</span>
         </button>
       </div>
 
@@ -773,14 +929,14 @@
   <div class="modal-overlay" id="profileModal">
     <div class="profile-modal-box">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h2 style="font-family:'Baloo 2', cursive; font-size:1.4rem; color:#fff; font-weight:800;">⚙️ Mi Perfil y Cuenta</h2>
+        <h2 style="font-family:'Baloo 2', cursive; font-size:1.4rem; color:#fff; font-weight:800;">Mi Perfil y Cuenta</h2>
         <button class="modal-cancel" onclick="closeProfileModal()" style="padding:4px 8px; font-size:1.2rem;">✕</button>
       </div>
 
       <!-- Pestañas -->
       <div class="profile-tab-nav">
-        <button type="button" class="profile-tab-btn active" id="tabBtnProfile" onclick="switchProfileTab('info')">👤 Mis Datos</button>
-        <button type="button" class="profile-tab-btn" id="tabBtnPassword" onclick="switchProfileTab('security')">🔒 Seguridad</button>
+        <button type="button" class="profile-tab-btn active" id="tabBtnProfile" onclick="switchProfileTab('info')">Mis Datos</button>
+        <button type="button" class="profile-tab-btn" id="tabBtnPassword" onclick="switchProfileTab('security')">Seguridad</button>
       </div>
 
       <!-- Banner de Notificación / Error -->
@@ -833,6 +989,7 @@
   <script src="js/nav.js"></script>
   <script src="js/transitions.js"></script>
   <script type="module" src="js/menu.js?v=3.1"></script>
+  <script src="js/peeking-mascots.js?v=1.0"></script>
 
 </body>
 </html>

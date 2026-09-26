@@ -3,48 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz 🦝 — Racoon Teacher</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Quiz — Racoon Teacher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=3.3">
-    <link rel="stylesheet" href="css/quiz.css?v=3.3">
+    <link rel="stylesheet" href="css/quiz.css?v=3.4">
     <link rel="stylesheet" href="css/transitions.css?v=3.3">
 </head>
-<body>
+<body class="quiz-page">
+    <!-- HEADER DEL QUIZ CON ESTÉTICA CYBER DARK -->
     <header class="quiz-header">
-        <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
-        <div id="modeLabel" class="subject-badge">Materia</div>
-        <div id="questionCounter" class="counter">Pregunta 1/5</div>
+        <button class="back-btn" onclick="navigateTo('index.html')" title="Volver al Panel Principal">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span>Volver</span>
+        </button>
+
+        <div class="header-center-info">
+            <div id="modeLabel" class="subject-badge">Matemáticas</div>
+            <span id="gradeBadge" class="grade-pill">Cuarto Grado</span>
+        </div>
+
+        <div class="header-stats">
+            <div class="quiz-streak-pill" id="streakPill" title="Racha de respuestas consecutivas">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#f5c842">
+                    <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+                </svg>
+                <span id="streakCount">0 Racha</span>
+            </div>
+            <div id="questionCounter" class="counter-badge">1 / 5</div>
+        </div>
     </header>
 
-    <main class="quiz-container">
+    <main class="quiz-main-layout">
+        <!-- BARRA DE PROGRESO CON EFECTO NEÓN -->
         <div class="progress-bar-container">
             <div id="progressBar" class="progress-bar"></div>
         </div>
 
-        <div id="quizScreen" class="quiz-card fadeUp">
-            <h2 id="questionText">Cargando pregunta...</h2>
-            <div class="options-grid">
-                <button class="option-btn" onclick="window.selectOption(0)">A. <span id="opt0"></span></button>
-                <button class="option-btn" onclick="window.selectOption(1)">B. <span id="opt1"></span></button>
-                <button class="option-btn" onclick="window.selectOption(2)">C. <span id="opt2"></span></button>
-                <button class="option-btn" onclick="window.selectOption(3)">D. <span id="opt3"></span></button>
-            </div>
+        <!-- ARENA INTERACTIVA DEL QUIZ CON LA SKIN DEL ESTUDIANTE -->
+        <div id="quizScreen" class="quiz-arena fadeUp">
+            
+            <!-- ETAPA LATERAL DE LA SKIN INTERACTIVA -->
+            <aside class="quiz-companion-stage">
+                <!-- Globo de diálogo / pensamiento interactivo -->
+                <div class="companion-bubble-wrap" id="companionBubbleWrap">
+                    <div class="companion-bubble" id="companionBubble">
+                        <span id="companionBubbleText">¡Concéntrate! Lee con calma y elige la respuesta correcta.</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta del Avatar / Skin Activa del Estudiante -->
+                <div class="companion-avatar-card">
+                    <div class="skin-pedestal" id="skinPedestal">
+                        <img id="companionSkinImg" src="img/avatars/raccoon_happy.png" alt="Tu Skin" class="companion-skin-img">
+                        <div class="pedestal-glow-ring"></div>
+                        <div class="pedestal-base"></div>
+                    </div>
+                    
+                    <div class="companion-skin-meta">
+                        <span class="companion-tag">Tu Skin Activa</span>
+                        <h4 id="companionSkinName" class="companion-name">Mapache Feliz</h4>
+                    </div>
+
+                    <!-- Mini panel de rendimiento en vivo -->
+                    <div class="companion-stats-box">
+                        <div class="stat-mini">
+                            <span class="lbl">Aciertos</span>
+                            <span class="val" id="liveScore">0</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="lbl">XP Ganada</span>
+                            <span class="val xp-val" id="liveXp">+0 XP</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- TARJETA PRINCIPAL DE PREGUNTAS Y OPCIONES -->
+            <section class="quiz-card">
+                <div class="card-question-header">
+                    <span class="question-kicker">Desafío Académico</span>
+                    <span class="question-tracker" id="cardQuestionTracker">Pregunta 1 de 5</span>
+                </div>
+
+                <h2 id="questionText">Cargando pregunta...</h2>
+
+                <div class="options-grid">
+                    <button class="option-btn" onclick="window.selectOption(0)">
+                        <span class="option-letter">A</span>
+                        <span class="option-text" id="opt0"></span>
+                    </button>
+                    <button class="option-btn" onclick="window.selectOption(1)">
+                        <span class="option-letter">B</span>
+                        <span class="option-text" id="opt1"></span>
+                    </button>
+                    <button class="option-btn" onclick="window.selectOption(2)">
+                        <span class="option-letter">C</span>
+                        <span class="option-text" id="opt2"></span>
+                    </button>
+                    <button class="option-btn" onclick="window.selectOption(3)">
+                        <span class="option-letter">D</span>
+                        <span class="option-text" id="opt3"></span>
+                    </button>
+                </div>
+            </section>
         </div>
 
+        <!-- PANTALLA DE RESULTADOS DEL QUIZ (SIN EMOJIS, CON PODIO DE LA SKIN) -->
         <div id="resultsScreen" class="results-card hidden fadeUp">
             <div class="results-avatar-wrapper">
-                <img id="resultsAvatar" src="img/avatars/raccoon_happy.png" alt="Mapache" class="results-raccoon-img">
-                <div id="resultsBadge" class="results-trophy-badge">🏆</div>
+                <div class="results-skin-podium">
+                    <img id="resultsAvatar" src="img/avatars/raccoon_happy.png" alt="Tu Skin Ganadora" class="results-raccoon-img">
+                    <div class="podium-halo"></div>
+                </div>
+                <div id="resultsBadge" class="results-trophy-badge">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#f5c842">
+                        <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V19H7v2h10v-2h-4v-3.1c1.92-.37 3.42-1.84 3.61-3.96C19.08 11.63 21 9.55 21 7V5c0-1.1-.9-2-2-2zm-14 3V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+                    </svg>
+                </div>
             </div>
 
-            <h2 id="resultsTitle" class="results-title">¡Quiz Completado! 🎉</h2>
+            <div class="results-skin-label" id="resultsSkinLabel">Tu Skin: Mapache Feliz</div>
+            <h2 id="resultsTitle" class="results-title">¡Quiz Completado!</h2>
             <p id="resultsSubtitle" class="results-subtitle">¡Excelente esfuerzo!</p>
 
-            <div id="starsContainer" class="stars">⭐⭐⭐</div>
+            <div id="starsContainer" class="stars-rating">
+                <!-- Generado dinámicamente con SVGs de estrellas -->
+            </div>
 
             <div class="results-stats-grid">
                 <div class="stat-box">
-                    <span class="stat-icon">🎯</span>
+                    <div class="stat-icon-wrap icon-cyan">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
                     <div class="stat-info">
                         <span class="stat-label">Aciertos</span>
                         <span id="scoreText" class="stat-value">5 / 5</span>
@@ -52,7 +146,11 @@
                 </div>
 
                 <div class="stat-box stat-xp">
-                    <span class="stat-icon">⚡</span>
+                    <div class="stat-icon-wrap icon-gold">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 2L1 21h22L12 2zm0 3.84L19.53 19H4.47L12 5.84zM11 10h2v4h-2zm0 5h2v2h-2z"/>
+                        </svg>
+                    </div>
                     <div class="stat-info">
                         <span class="stat-label">XP Ganada</span>
                         <span id="xpEarnedText" class="stat-value xp-value">+700 XP</span>
@@ -60,7 +158,11 @@
                 </div>
 
                 <div class="stat-box stat-accuracy">
-                    <span class="stat-icon">📊</span>
+                    <div class="stat-icon-wrap icon-purple">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
                     <div class="stat-info">
                         <span class="stat-label">Precisión</span>
                         <span id="accuracyText" class="stat-value">100%</span>
@@ -69,13 +171,23 @@
             </div>
 
             <div class="results-actions">
-                <button class="btn btn-primary" onclick="window.restartQuiz()">🔄 Reintentar Quiz</button>
-                <button class="btn btn-secondary" onclick="navigateTo('index.html')">🏠 Ir al Menú</button>
+                <button class="btn btn-primary" onclick="window.restartQuiz()">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                    </svg>
+                    <span>Reintentar Quiz</span>
+                </button>
+                <button class="btn btn-secondary" onclick="navigateTo('index.html')">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Ir al Menú</span>
+                </button>
             </div>
         </div>
     </main>
 
     <script src="js/transitions.js"></script>
-    <script type="module" src="js/quiz.js?v=3.3"></script>
+    <script type="module" src="js/quiz.js?v=3.9"></script>
 </body>
 </html>

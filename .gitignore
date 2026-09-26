@@ -22,3 +22,4 @@ venv/
 
 # Scratch / temp files
 *.tmp
+scratch/

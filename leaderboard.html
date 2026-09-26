@@ -3,24 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏆 Ranking - Racoon Teacher</title>
+    <title>Ranking — Racoon Teacher</title>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=3.2">
-    <link rel="stylesheet" href="css/leaderboard.css?v=3.2">
-    <link rel="stylesheet" href="css/transitions.css?v=3.2">
+    <link rel="stylesheet" href="css/style.css?v=3.3">
+    <link rel="stylesheet" href="css/leaderboard.css?v=3.4">
+    <link rel="stylesheet" href="css/transitions.css?v=3.3">
+    <link rel="stylesheet" href="css/peeking-mascots.css?v=1.0">
 </head>
 <body>
+    <!-- Partículas decorativas de celebración de fondo -->
+    <div class="celebration-particles" aria-hidden="true">
+        <span class="particle p1">⭐</span>
+        <span class="particle p2">✨</span>
+        <span class="particle p3">🎉</span>
+        <span class="particle p4">💎</span>
+        <span class="particle p5">🏆</span>
+        <span class="particle p6">✨</span>
+        <span class="particle p7">⭐</span>
+        <span class="particle p8">🌟</span>
+    </div>
+
     <header class="header">
-        <button class="back-btn" onclick="navigateTo('index.html')">← Volver</button>
-        <h1>🏆 Ranking</h1>
+        <button class="back-btn" onclick="navigateTo('index.html')">← Volver al Menú</button>
+        <div class="header-center">
+            <div class="header-subtitle">Salón de Honor</div>
+            <h1 class="header-title">Ranking y Salón de Honor</h1>
+        </div>
+        <div class="header-status">
+            <span class="live-dot"></span>
+            <span>En Vivo</span>
+        </div>
     </header>
 
     <main class="container">
         <div id="loading" class="loading-spinner"></div>
         
         <div id="leaderboard-content" style="display: none;">
-            <div class="podium-section" id="podium">
-                <!-- Podium injected here -->
+            <!-- Arena del Podio con Mascotas Acompañantes y Halo de Campeón -->
+            <div class="podium-arena">
+                <!-- Mascota Izquierda: Celebrando -->
+                <div class="podium-cheerleader cheer-left">
+                    <div class="cheer-bubble">¡Viva el esfuerzo! 🎉</div>
+                    <img src="img/raccoon_celebrate.png" alt="Mapache Celebrando" class="cheer-img cheer-bounce">
+                </div>
+
+                <!-- Podio Central -->
+                <div class="podium-stage">
+                    <div class="champion-halo"></div>
+                    <div class="podium-section" id="podium">
+                        <!-- Podium injected here -->
+                    </div>
+                </div>
+
+                <!-- Mascota Derecha: Héroe -->
+                <div class="podium-cheerleader cheer-right">
+                    <div class="cheer-bubble">¡A por el Top 1! 🚀</div>
+                    <img src="img/raccoon_standing_hero.png" alt="Mapache Héroe" class="cheer-img cheer-float">
+                </div>
             </div>
 
             <div class="ranking-table-container">
@@ -42,6 +81,7 @@
     </main>
 
     <script src="js/transitions.js"></script>
-    <script type="module" src="js/leaderboard.js?v=3.1"></script>
+    <script type="module" src="js/leaderboard.js?v=3.3"></script>
+    <script src="js/peeking-mascots.js?v=1.0"></script>
 </body>
 </html>
